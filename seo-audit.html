@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SEO Audit Report - FiddlersGreen.io</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 1100px; margin: 0 auto; padding: 20px; line-height: 1.6; color: #333; }
+h1 { color: #2d5016; border-bottom: 3px solid #4a7c28; padding-bottom: 10px; }
+h2 { color: #4a7c28; border-bottom: 2px solid #c6e6a3; padding-bottom: 8px; margin-top: 40px; }
+h3 { color: #2d5016; }
+h4 { color: #3d6b1e; margin-top: 20px; }
+table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; vertical-align: top; }
+th { background-color: #f0f7e6; color: #2d5016; }
+tr:nth-child(even) { background-color: #fafcf7; }
+code, pre { background-color: #f7fafc; border: 1px solid #e2e8f0; border-radius: 4px; padding: 2px 6px; font-size: 0.9em; }
+pre { padding: 15px; overflow-x: auto; }
+.pass { color: #276749; font-weight: bold; }
+.fail { color: #c53030; font-weight: bold; }
+.needs-work { color: #c05621; font-weight: bold; }
+.critical { background-color: #fff5f5; }
+.high { background-color: #fffaf0; }
+.medium { background-color: #fffff0; }
+.low { background-color: #f0fff4; }
+.score-box { display: inline-block; padding: 8px 20px; border-radius: 6px; font-weight: bold; font-size: 1.3em; color: white; }
+.score-good { background-color: #48bb78; }
+.score-fair { background-color: #ed8936; }
+.score-poor { background-color: #f56565; }
+hr { border: none; border-top: 1px solid #e2e8f0; margin: 30px 0; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 0.85em; font-weight: bold; margin-right: 4px; }
+.tag-critical { background-color: #fed7d7; color: #c53030; }
+.tag-high { background-color: #feebc8; color: #c05621; }
+.tag-medium { background-color: #fefcbf; color: #975a16; }
+.tag-low { background-color: #c6f6d5; color: #276749; }
+.summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
+.summary-card { border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; }
+.summary-card h4 { margin-top: 0; }
+blockquote { border-left: 4px solid #4a7c28; margin: 15px 0; padding: 10px 20px; background-color: #f0f7e6; }
+</style>
+</head>
+<body>
+
+<h1>SEO AUDIT REPORT: FiddlersGreen.io</h1>
+<p><strong>Fiddlers Green Farm | CBD Products &amp; Organic Flour | Taneytown, MD</strong><br>
+<strong>Platform:</strong> WordPress / WooCommerce with AIOSEO Plugin<br>
+<strong>Audit Date:</strong> March 18, 2026</p>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>EXECUTIVE SUMMARY</h2>
+
+<p>Fiddlers Green Farm is a family-owned organic hemp farm in Taneytown, Maryland selling CBD products (topicals, extracts, edibles, pet products) and stone-milled heirloom wheat flour via a WooCommerce store. The site has strong E-E-A-T fundamentals &mdash; multi-generational family farm story, named team members with credentials, organic certification, and third-party lab testing. However, significant technical SEO issues, missing metadata across key pages, an abandoned blog, a stale holiday banner, and thin category page content are limiting organic search visibility. With 33+ products and rich educational content already on the site, there is substantial untapped potential to capture CBD, hemp, and organic flour search traffic.</p>
+
+<p><strong>Overall SEO Health Score: <span class="score-box score-fair">38/100</span></strong></p>
+
+<table>
+<tr><th>Category</th><th>Score</th><th>Status</th></tr>
+<tr><td>On-Page SEO</td><td>35/100</td><td><span class="needs-work">Needs Work</span></td></tr>
+<tr><td>Technical SEO</td><td>30/100</td><td><span class="fail">Poor</span></td></tr>
+<tr><td>Content</td><td>40/100</td><td><span class="needs-work">Needs Work</span></td></tr>
+<tr><td>E-E-A-T</td><td>62/100</td><td><span class="needs-work">Fair</span></td></tr>
+<tr><td>Schema Markup</td><td>40/100</td><td><span class="needs-work">Needs Work</span></td></tr>
+<tr><td>Internal Linking</td><td>35/100</td><td><span class="needs-work">Needs Work</span></td></tr>
+</table>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>1. ON-PAGE SEO CHECKLIST</h2>
+
+<h3>1.1 Homepage (fiddlersgreen.io/)</h3>
+
+<table>
+<tr><th>Element</th><th>Status</th><th>Current</th><th>Recommended</th></tr>
+<tr><td>Title Tag</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>"CBD Products | Hemp Products | Fiddlers Green Farm" (50 chars)</td>
+    <td>Add location and differentiator: "Organic CBD &amp; Hemp Products | Maryland Farm-to-Door | Fiddlers Green Farm" (72 chars)</td></tr>
+<tr class="critical"><td>Meta Description</td><td><span class="fail">FAIL</span></td>
+    <td>MISSING</td>
+    <td>"Shop organic CBD topicals, extracts, gummies &amp; stone-milled flour from our family farm in Taneytown, MD. Certified organic, non-GMO, third-party lab tested. Free shipping on orders $75+." (~185 chars)</td></tr>
+<tr><td>H1 Tag</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>"These are CBD and heirloom wheat products that our neighbors can trust..."</td>
+    <td>Too long and vague for H1. Use: "Organic CBD &amp; Heirloom Wheat Products from Our Maryland Farm"</td></tr>
+<tr><td>H2 Tags</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>9 H2s present but use branding language ("Browse Fiddlers Green Products", "Our Process")</td>
+    <td>Add keyword-rich H2s: "Organic CBD Products", "Stone-Milled Heirloom Flour", "Why Choose Fiddlers Green Farm"</td></tr>
+<tr><td>Image Alt Text</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>Some descriptive (e.g., "Organic CBD Hemp") but many use filenames or are vague ("CBD stamp THC", "3rd Party Lab Tested-15")</td>
+    <td>Rewrite all alt texts with keywords: "Organic CBD hemp plants growing on Fiddlers Green Farm Maryland"</td></tr>
+<tr><td>Internal Links</td><td><span class="pass">PASS</span></td>
+    <td>~25+ internal links to categories, products, pages</td>
+    <td>Good coverage. Add links to /learn/ page from featured products section.</td></tr>
+<tr class="critical"><td>OG Tags</td><td><span class="fail">FAIL</span></td>
+    <td>NOT FOUND</td>
+    <td>Add og:title, og:description, og:image, og:url, og:type for social sharing</td></tr>
+<tr class="critical"><td>Twitter Cards</td><td><span class="fail">FAIL</span></td>
+    <td>NOT FOUND</td>
+    <td>Add twitter:card (summary_large_image), twitter:title, twitter:description, twitter:image</td></tr>
+<tr><td>Canonical Tag</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>Not detected</td>
+    <td>Add self-referencing canonical: https://www.fiddlersgreen.io/</td></tr>
+<tr><td>URL Structure</td><td><span class="pass">PASS</span></td>
+    <td>Clean root URL</td>
+    <td>Good</td></tr>
+<tr class="critical"><td>Holiday Banner</td><td><span class="fail">FAIL</span></td>
+    <td>"ORDERS PLACED BETWEEN 12/23-12/28 WILL SHIP 12/29 OR AFTER - HAPPY HOLIDAYS!!" still visible in March 2026</td>
+    <td>Remove immediately. Damages trust and signals abandoned site to both users and Google.</td></tr>
+</table>
+
+<h3>1.2 CBD Gummies Product Page (/farm-store/cbd-gummies/)</h3>
+
+<table>
+<tr><th>Element</th><th>Status</th><th>Current</th><th>Recommended</th></tr>
+<tr><td>Title Tag</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>"CBD Gummies | CBD | Fiddlers Green Farm" (39 chars)</td>
+    <td>"Organic CBD Gummies - 20mg Full Spectrum Hemp | Fiddlers Green Farm" (67 chars)</td></tr>
+<tr class="critical"><td>Meta Description</td><td><span class="fail">FAIL</span></td>
+    <td>FDA disclaimer used as meta description: "Consult your physician before use if you are pregnant, nursing..." (entire disclaimer)</td>
+    <td>"Organic full-spectrum CBD gummies with 20mg CBD per gummy. Made with grass-fed gelatin, dairy-free &amp; gluten-free. 30 ct jar, $45. 4.8 stars from 17 reviews. Shop Fiddlers Green Farm." (~178 chars)</td></tr>
+<tr><td>H1 Tag</td><td><span class="pass">PASS</span></td>
+    <td>"CBD Gummies"</td>
+    <td>Acceptable but could add: "Organic Full Spectrum CBD Gummies"</td></tr>
+<tr><td>H2/H3 Tags</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>H2: "Related products", "Write a Review", "17 Reviews" / H3: "Description", "Additional information"</td>
+    <td>Add H2 for product benefits, ingredients, usage instructions</td></tr>
+<tr><td>Product Schema</td><td><span class="pass">PASS</span></td>
+    <td>Product JSON-LD with name, SKU (GMMB3015), price ($45), availability (InStock), AggregateRating (4.76/5, 17 reviews)</td>
+    <td>Good. Add brand, manufacturer, and nutritionalInformation properties.</td></tr>
+<tr><td>Breadcrumb</td><td><span class="pass">PASS</span></td>
+    <td>BreadcrumbList: Home &gt; Farm Store &gt; Edibles &gt; CBD Gummies</td>
+    <td>Proper 4-level hierarchy</td></tr>
+<tr><td>Image Alt Text</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>"CBD Gummies", "CBD Gummies - Image 2", etc.</td>
+    <td>"Organic full spectrum CBD gummies mixed berry flavor 30 count jar", "CBD gummies close-up showing berry color from natural beet extract"</td></tr>
+<tr><td>Content Depth</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>~110 words product description</td>
+    <td>Expand to 300+ words. Add usage guide, ingredient breakdown, CBD dosing info, comparison to competitors.</td></tr>
+<tr><td>Reviews</td><td><span class="pass">PASS</span></td>
+    <td>17 reviews with individual Review schema</td>
+    <td>Strong social proof. Encourage more reviews via follow-up emails.</td></tr>
+</table>
+
+<h3>1.3 Learn Page (/learn/)</h3>
+
+<table>
+<tr><th>Element</th><th>Status</th><th>Current</th><th>Recommended</th></tr>
+<tr><td>Title Tag</td><td><span class="pass">PASS</span></td>
+    <td>"Full Spectrum CBD Products | Fiddlers Green Farm | Maryland" (59 chars)</td>
+    <td>Good. Could optimize: "CBD Education: What is CBD, How It Works &amp; Benefits | Fiddlers Green Farm"</td></tr>
+<tr><td>Meta Description</td><td><span class="pass">PASS</span></td>
+    <td>"Learn more about why you may want to include Full Spectrum CBD Products in your everyday health routines to promote your health and wellness." (140 chars)</td>
+    <td>Adequate but generic. Add specificity: "Learn what CBD is, how the endocannabinoid system works, extraction methods &amp; why third-party testing matters. Expert answers from Maryland hemp farmers."</td></tr>
+<tr><td>H1 Tag</td><td><span class="pass">PASS</span></td>
+    <td>"Your CBD Questions Answered by Fiddlers Green Farm"</td>
+    <td>Good &mdash; includes brand and keyword</td></tr>
+<tr><td>Heading Hierarchy</td><td><span class="pass">PASS</span></td>
+    <td>1 H1 followed by 15 H2s for each Q&amp;A section</td>
+    <td>Clean hierarchy. Consider adding H3 subtopics under longer answers.</td></tr>
+<tr class="critical"><td>FAQ Schema</td><td><span class="fail">FAIL</span></td>
+    <td>MISSING despite 13+ Q&amp;A pairs on page</td>
+    <td>Implement FAQPage schema for all questions. This is the single highest-impact schema opportunity on the site.</td></tr>
+<tr><td>OG Tags</td><td><span class="pass">PASS</span></td>
+    <td>og:title, og:description, og:image, og:url present</td>
+    <td>Good. OG image is a screenshot &mdash; consider a branded graphic.</td></tr>
+<tr class="critical"><td>Twitter Cards</td><td><span class="fail">FAIL</span></td>
+    <td>MISSING</td>
+    <td>Add twitter:card, twitter:title, twitter:description, twitter:image</td></tr>
+<tr><td>Image Alt Text</td><td><span class="fail">FAIL</span></td>
+    <td>Images use filenames: "Screen Shot 2023-05-25 at 4.55.28 PM", "hemp_tricombs"</td>
+    <td>Rewrite: "Full spectrum CBD extraction process diagram", "Hemp trichomes close-up showing cannabinoid-rich resin"</td></tr>
+<tr><td>Content Depth</td><td><span class="pass">PASS</span></td>
+    <td>~2,800 words of educational CBD content</td>
+    <td>Strong. This is the best content page on the site.</td></tr>
+<tr><td>Internal Links</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>Navigation links only &mdash; no contextual links to products within answers</td>
+    <td>Link CBD mentions to product pages (e.g., "our CBD gummies" linking to /farm-store/cbd-gummies/)</td></tr>
+</table>
+
+<h3>1.4 Our Story Page (/our-story/)</h3>
+
+<table>
+<tr><th>Element</th><th>Status</th><th>Current</th><th>Recommended</th></tr>
+<tr><td>Title Tag</td><td><span class="pass">PASS</span></td>
+    <td>"Organic Hemp Farm in Maryland | Fiddlers Green Farm" (51 chars)</td>
+    <td>Good length and keywords</td></tr>
+<tr><td>Meta Description</td><td><span class="pass">PASS</span></td>
+    <td>"We are a family owned organic hemp farm in Maryland with a strong belief in connecting with and caring for the land..." (116 chars)</td>
+    <td>Add detail: "Family-owned since 1946 in Taneytown, MD. Meet the Batten family &mdash; growing organic hemp &amp; heirloom wheat with regenerative farming. CBD products &amp; stone-milled flour."</td></tr>
+<tr><td>H1 Tag</td><td><span class="pass">PASS</span></td>
+    <td>"Fiddlers Green Mission"</td>
+    <td>Acceptable. Could improve: "Our Story: Organic Hemp Farming Since 1946"</td></tr>
+<tr><td>Heading Hierarchy</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>H1 &gt; H2 ("The Battens") &gt; H3 (team member names)</td>
+    <td>Add H2 sections for "Our History", "Our Mission", "Our Team" for better content structure</td></tr>
+<tr><td>OG Tags</td><td><span class="pass">PASS</span></td>
+    <td>og:title, og:description, og:image, og:url present</td>
+    <td>Good</td></tr>
+<tr class="critical"><td>Twitter Cards</td><td><span class="fail">FAIL</span></td>
+    <td>MISSING</td>
+    <td>Add Twitter Card meta tags</td></tr>
+<tr><td>Image Alt Text</td><td><span class="fail">FAIL</span></td>
+    <td>No descriptive alt text found on team/farm images</td>
+    <td>Add: "Batten family on Fiddlers Green Farm Taneytown Maryland", "BenJamin Batten managing partner"</td></tr>
+<tr><td>Schema</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>Organization + WebPage + BreadcrumbList</td>
+    <td>Add LocalBusiness schema with address, phone, geo coordinates, opening hours</td></tr>
+</table>
+
+<h3>1.5 Farm Store Page (/farm-store/)</h3>
+
+<table>
+<tr><th>Element</th><th>Status</th><th>Current</th><th>Recommended</th></tr>
+<tr><td>Title Tag</td><td><span class="pass">PASS</span></td>
+    <td>"Organic Hemp Products | Buy CBD Products Online" (48 chars)</td>
+    <td>Good keywords. Could add location: "...| Maryland Farm Store"</td></tr>
+<tr><td>Meta Description</td><td><span class="pass">PASS</span></td>
+    <td>"Buy organic CBD and flour products online from Fiddlers Green Farm, Maryland..." (155 chars)</td>
+    <td>Strong. Includes product types, brand, and location.</td></tr>
+<tr><td>H1 Tag</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>"Farm Store"</td>
+    <td>Too generic. Use: "Organic CBD &amp; Flour Products - Farm Store"</td></tr>
+<tr><td>Content Depth</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>Product grid only, no category descriptions or introductory text</td>
+    <td>Add 150-200 word intro paragraph about product categories, sourcing, and quality standards</td></tr>
+<tr><td>OG Tags</td><td><span class="pass">PASS</span></td>
+    <td>og:type: CollectionPage, og:title, og:description, og:image present</td>
+    <td>Good &mdash; uses CollectionPage type correctly</td></tr>
+<tr class="critical"><td>Twitter Cards</td><td><span class="fail">FAIL</span></td>
+    <td>MISSING</td>
+    <td>Add Twitter Card tags</td></tr>
+<tr><td>Product Count</td><td><span class="pass">PASS</span></td>
+    <td>33 products across 9 categories displayed on single page</td>
+    <td>No pagination issues. Good for crawlability.</td></tr>
+</table>
+
+<h3>1.6 Topicals Category Page (/farm-store/topicals/)</h3>
+
+<table>
+<tr><th>Element</th><th>Status</th><th>Current</th><th>Recommended</th></tr>
+<tr><td>Title Tag</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>"CBD Topicals | CBD Skincare Products" (36 chars)</td>
+    <td>Too short, no brand: "Organic CBD Topicals &amp; Salves | Fiddlers Green Farm Maryland" (59 chars)</td></tr>
+<tr><td>Meta Description</td><td><span class="pass">PASS</span></td>
+    <td>"Incorporate our top quality hemp lotion and CBD skincare products in your daily skin care regimen to promote healthy skin and relieve joint and muscle pain." (155 chars)</td>
+    <td>Good length and keywords. Consider adding price range and product count.</td></tr>
+<tr><td>H1 Tag</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>"Topicals"</td>
+    <td>Too thin. Use: "Organic CBD Topicals &amp; Salves"</td></tr>
+<tr><td>H2-H6 Tags</td><td><span class="fail">FAIL</span></td>
+    <td>NO additional headings after H1</td>
+    <td>Add H2 for category description, H3 for product subcategories (salves, butters, soaps)</td></tr>
+<tr class="critical"><td>Category Description</td><td><span class="fail">FAIL</span></td>
+    <td>NO introductory content &mdash; just a product grid</td>
+    <td>Add 200-300 words explaining CBD topical benefits, use cases, ingredients philosophy, and how Fiddlers Green topicals differ.</td></tr>
+<tr><td>Image Alt Text</td><td><span class="fail">FAIL</span></td>
+    <td>No alt text on product images &mdash; generic placeholder SVGs</td>
+    <td>Add unique descriptive alt text per product image</td></tr>
+<tr class="critical"><td>Twitter Cards</td><td><span class="fail">FAIL</span></td>
+    <td>MISSING</td>
+    <td>Add Twitter Card tags</td></tr>
+<tr><td>Breadcrumb</td><td><span class="pass">PASS</span></td>
+    <td>Home &gt; Farm Store &gt; Topicals with BreadcrumbList schema</td>
+    <td>Proper hierarchy</td></tr>
+<tr><td>Schema</td><td><span class="needs-work">NEEDS WORK</span></td>
+    <td>WebPage + BreadcrumbList only</td>
+    <td>Add CollectionPage or ItemList schema with product references</td></tr>
+</table>
+
+<h3>1.7 Duplicate Contact Pages</h3>
+
+<table>
+<tr><th>Element</th><th>Status</th><th>Current</th><th>Recommended</th></tr>
+<tr class="critical"><td>/contact/ page</td><td><span class="fail">FAIL</span></td>
+    <td>Title: "Hemp and CBD Products in Maryland | Fiddlers Green Farm" / H1: "Contact Us" / Contains contact form</td>
+    <td rowspan="2">Consolidate to one page. 301 redirect /contact/ to /contact-2/ (or vice versa) and update all internal links. Having two indexed contact pages splits link equity and confuses crawlers.</td></tr>
+<tr class="critical"><td>/contact-2/ page</td><td><span class="fail">FAIL</span></td>
+    <td>H1: "Find Us" / Linked from main navigation / Different content focus (retail locations?)</td></tr>
+</table>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>2. TECHNICAL SEO ISSUES</h2>
+
+<table>
+<tr><th>Issue</th><th>Severity</th><th>Details</th><th>Fix</th></tr>
+<tr class="critical">
+    <td>robots.txt missing sitemap reference</td>
+    <td><span class="tag tag-critical">CRITICAL</span></td>
+    <td>robots.txt contains only <code>User-agent: *</code> and <code>Crawl-delay: 30</code>. No <code>Sitemap:</code> directive.</td>
+    <td>Add <code>Sitemap: https://www.fiddlersgreen.io/sitemap.xml</code> to robots.txt</td>
+</tr>
+<tr class="critical">
+    <td>Crawl-delay: 30 is excessively high</td>
+    <td><span class="tag tag-critical">CRITICAL</span></td>
+    <td>30-second crawl delay forces Googlebot to wait 30s between page fetches. With 100+ pages, a full crawl takes 50+ minutes. This severely limits crawl budget.</td>
+    <td>Remove Crawl-delay entirely, or set to 1-2 seconds max. Most sites do not need a crawl delay at all.</td>
+</tr>
+<tr class="critical">
+    <td>Holiday banner still active (March 2026)</td>
+    <td><span class="tag tag-critical">CRITICAL</span></td>
+    <td>"ORDERS PLACED BETWEEN 12/23-12/28 WILL SHIP 12/29 OR AFTER - HAPPY HOLIDAYS!!" appears on /contact/ and likely site-wide.</td>
+    <td>Remove immediately. Stale seasonal content signals neglect to users and search engines.</td>
+</tr>
+<tr class="critical">
+    <td>Blog has only 2 test/lorem-ipsum posts</td>
+    <td><span class="tag tag-critical">CRITICAL</span></td>
+    <td>/blog/ lists "Test Post 1" and "Test Post 2" with lorem ipsum text, dated Feb 2021. These are indexed and publicly visible.</td>
+    <td>Either delete test posts and noindex the blog until real content exists, or begin publishing real articles immediately.</td>
+</tr>
+<tr class="high">
+    <td>Duplicate contact pages</td>
+    <td><span class="tag tag-high">HIGH</span></td>
+    <td>/contact/ and /contact-2/ both exist with different titles, H1s, and content. Navigation links to /contact-2/.</td>
+    <td>301 redirect one to the other. Update sitemap and internal links.</td>
+</tr>
+<tr class="high">
+    <td>50+ JavaScript files on homepage</td>
+    <td><span class="tag tag-high">HIGH</span></td>
+    <td>Excessive JS payloads slow page load and hurt Core Web Vitals. WooCommerce + plugins likely causing bloat.</td>
+    <td>Audit and defer/remove unnecessary scripts. Use asset optimization plugin (WP Rocket, Autoptimize). Target &lt;30 JS files.</td>
+</tr>
+<tr class="high">
+    <td>Twitter Card tags missing site-wide</td>
+    <td><span class="tag tag-high">HIGH</span></td>
+    <td>No twitter:card, twitter:title, twitter:description on any page checked.</td>
+    <td>Configure AIOSEO plugin to output Twitter Card tags globally.</td>
+</tr>
+<tr class="medium">
+    <td>Blog meta description duplicates Our Story</td>
+    <td><span class="tag tag-medium">MEDIUM</span></td>
+    <td>/blog/ uses same title and meta description as /our-story/ ("Organic Hemp Farm in Maryland...")</td>
+    <td>Set unique meta for /blog/ or noindex until content exists.</td>
+</tr>
+<tr class="medium">
+    <td>Image alt text missing/poor on many pages</td>
+    <td><span class="tag tag-medium">MEDIUM</span></td>
+    <td>Category pages, Our Story, and Learn page have missing or filename-based alt text (e.g., "Screen Shot 2023-05-25 at 4.55.28 PM")</td>
+    <td>Audit all images. Write unique, descriptive, keyword-aware alt text for every image.</td>
+</tr>
+<tr class="medium">
+    <td>Thin category pages</td>
+    <td><span class="tag tag-medium">MEDIUM</span></td>
+    <td>Category pages like /farm-store/topicals/ have ~180 words, no educational content, just product grids.</td>
+    <td>Add 200-300 word category descriptions explaining product benefits, use cases, and ingredients.</td>
+</tr>
+<tr class="low">
+    <td>External link to web designer in footer</td>
+    <td><span class="tag tag-low">LOW</span></td>
+    <td>Footer links to Tandem Design Lab (Colorado). Passes link equity to unrelated site.</td>
+    <td>Add <code>rel="nofollow"</code> to designer credit link.</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>3. E-E-A-T ASSESSMENT</h2>
+
+<p>E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) is critical for CBD/health-adjacent products, which Google classifies as YMYL (Your Money or Your Life) content.</p>
+
+<table>
+<tr><th>E-E-A-T Signal</th><th>Score</th><th>Evidence</th><th>Gaps</th></tr>
+<tr>
+    <td><strong>Experience</strong></td>
+    <td><span class="score-box score-fair" style="font-size:0.9em; padding:4px 10px;">65/100</span></td>
+    <td>
+        &bull; Multi-generational farm (est. 1946)<br>
+        &bull; Team bios with personal farming experience<br>
+        &bull; "Seed to final bottle or jar" transparency<br>
+        &bull; Regenerative farming practices described
+    </td>
+    <td>
+        &bull; No dated farming journal/blog posts<br>
+        &bull; No photos of actual growing/production process<br>
+        &bull; No customer case studies or testimonials with detail
+    </td>
+</tr>
+<tr>
+    <td><strong>Expertise</strong></td>
+    <td><span class="score-box score-fair" style="font-size:0.9em; padding:4px 10px;">58/100</span></td>
+    <td>
+        &bull; Brynn: Nutritional Therapy Certificate, 200hr Yoga Training, decade in wellness<br>
+        &bull; Chris: Landscape Architect training<br>
+        &bull; Detailed CBD education page (/learn/)<br>
+        &bull; Knowledge of extraction methods, endocannabinoid system
+    </td>
+    <td>
+        &bull; No PhD/MD/pharmacist credentials on team<br>
+        &bull; No citations to peer-reviewed research<br>
+        &bull; No author attribution on educational content<br>
+        &bull; No "reviewed by" or medical disclaimer beyond FDA boilerplate
+    </td>
+</tr>
+<tr>
+    <td><strong>Authoritativeness</strong></td>
+    <td><span class="score-box score-poor" style="font-size:0.9em; padding:4px 10px;">45/100</span></td>
+    <td>
+        &bull; Organic certification claimed<br>
+        &bull; Third-party lab testing mentioned<br>
+        &bull; 17 product reviews (4.76/5 stars)
+    </td>
+    <td>
+        &bull; No visible lab test results/COAs linked from product pages<br>
+        &bull; No press/media mentions section<br>
+        &bull; No industry association memberships displayed<br>
+        &bull; No backlink signals from authoritative health/agriculture sites<br>
+        &bull; Blog abandoned (zero content)
+    </td>
+</tr>
+<tr>
+    <td><strong>Trustworthiness</strong></td>
+    <td><span class="score-box score-fair" style="font-size:0.9em; padding:4px 10px;">60/100</span></td>
+    <td>
+        &bull; Physical address displayed (3907 Old Taneytown Rd)<br>
+        &bull; Phone number and email visible<br>
+        &bull; Named team members with photos<br>
+        &bull; Privacy policy and terms pages exist<br>
+        &bull; Organic/Non-GMO claims<br>
+        &bull; Fair Trade sourcing mentioned
+    </td>
+    <td>
+        &bull; Holiday banner in March damages trust significantly<br>
+        &bull; Test blog posts visible<br>
+        &bull; No SSL certificate info displayed<br>
+        &bull; No money-back guarantee visible<br>
+        &bull; No BBB/TrustPilot badges<br>
+        &bull; COA/lab results not linked from product pages
+    </td>
+</tr>
+</table>
+
+<p><strong>Overall E-E-A-T Score: <span class="score-box score-fair" style="font-size:1em;">62/100</span></strong></p>
+
+<blockquote><strong>Key E-E-A-T Risk:</strong> CBD products are YMYL content. Google requires higher E-E-A-T standards for pages that could impact users' health or finances. The combination of abandoned blog, missing lab results links, and no expert credentials puts this site at a disadvantage vs. competitors who demonstrate deeper expertise and transparency.</blockquote>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>4. KEYWORD ANALYSIS</h2>
+
+<h3>4.1 Primary Keywords Per Page</h3>
+
+<table>
+<tr><th>Page</th><th>Primary Keyword Target</th><th>Secondary Keywords</th><th>Search Intent</th><th>Current Optimization</th></tr>
+<tr>
+    <td>Homepage</td>
+    <td>organic CBD products Maryland</td>
+    <td>hemp products, CBD farm, organic flour Maryland</td>
+    <td>Navigational / Commercial</td>
+    <td><span class="needs-work">WEAK</span> &mdash; Title has keywords but H1 is vague; no meta description</td>
+</tr>
+<tr>
+    <td>CBD Gummies</td>
+    <td>CBD gummies</td>
+    <td>organic CBD gummies, full spectrum gummies, hemp gummies</td>
+    <td>Commercial / Transactional</td>
+    <td><span class="needs-work">WEAK</span> &mdash; Meta description is FDA disclaimer, thin content</td>
+</tr>
+<tr>
+    <td>Learn</td>
+    <td>what is CBD</td>
+    <td>endocannabinoid system, CBD extraction, full spectrum CBD</td>
+    <td>Informational</td>
+    <td><span class="pass">GOOD</span> &mdash; Best-optimized page on site</td>
+</tr>
+<tr>
+    <td>Our Story</td>
+    <td>organic hemp farm Maryland</td>
+    <td>family farm CBD, Taneytown farm, regenerative farming</td>
+    <td>Informational / Navigational</td>
+    <td><span class="pass">GOOD</span> &mdash; Title and meta well-optimized</td>
+</tr>
+<tr>
+    <td>Farm Store</td>
+    <td>buy CBD products online</td>
+    <td>organic hemp products, CBD shop, hemp store</td>
+    <td>Transactional</td>
+    <td><span class="pass">GOOD</span> &mdash; Title and meta have strong commercial keywords</td>
+</tr>
+<tr>
+    <td>Topicals</td>
+    <td>CBD topicals</td>
+    <td>CBD salve, hemp lotion, CBD skincare</td>
+    <td>Commercial</td>
+    <td><span class="needs-work">WEAK</span> &mdash; Title too short, H1 is just "Topicals", no content</td>
+</tr>
+</table>
+
+<h3>4.2 Keyword Gaps (Not Targeted by Any Page)</h3>
+
+<table>
+<tr><th>Keyword Cluster</th><th>Est. Monthly Volume</th><th>Difficulty</th><th>Recommended Page</th></tr>
+<tr><td>CBD oil Maryland / buy CBD Maryland</td><td>500-1,000</td><td>Medium</td><td>Homepage or new landing page</td></tr>
+<tr><td>organic flour online / stone milled flour</td><td>1,000-3,000</td><td>Low-Medium</td><td>Flour category page or blog post</td></tr>
+<tr><td>CBD for pain / CBD for joint pain</td><td>10,000+</td><td>High</td><td>Blog article (informational)</td></tr>
+<tr><td>CBD for sleep / CBD gummies for sleep</td><td>5,000+</td><td>High</td><td>Blog article linked from gummies page</td></tr>
+<tr><td>CBD for pets / hemp oil for dogs</td><td>5,000+</td><td>Medium</td><td>Pet category page + blog article</td></tr>
+<tr><td>CBD salve / CBD balm for pain</td><td>3,000+</td><td>Medium</td><td>Topicals category description</td></tr>
+<tr><td>magnesium butter benefits</td><td>500-1,000</td><td>Low</td><td>Magnesium Butter product page + blog</td></tr>
+<tr><td>regenerative farming CBD</td><td>100-500</td><td>Low</td><td>Our Story page or blog article</td></tr>
+<tr><td>third party tested CBD / CBD COA</td><td>500-1,000</td><td>Low</td><td>Learn page or dedicated transparency page</td></tr>
+<tr><td>heirloom wheat flour / heritage grain flour</td><td>500-1,000</td><td>Low</td><td>Flour category page or blog</td></tr>
+<tr><td>full spectrum vs broad spectrum CBD</td><td>3,000+</td><td>Medium</td><td>Blog article (already partially covered on /learn/)</td></tr>
+<tr><td>CBD dosage guide</td><td>5,000+</td><td>Medium</td><td>Blog article</td></tr>
+</table>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>5. CONTENT GAP ANALYSIS</h2>
+
+<table>
+<tr><th>Priority</th><th>Missing Content Topic</th><th>Format</th><th>Target Keywords</th><th>Rationale</th></tr>
+<tr class="critical">
+    <td><span class="tag tag-critical">P1</span></td>
+    <td>CBD Dosage Guide</td>
+    <td>Blog article (1,500+ words)</td>
+    <td>CBD dosage, how much CBD should I take, CBD dosing chart</td>
+    <td>Extremely high search volume; positions Fiddlers Green as expert; natural link to all product pages</td>
+</tr>
+<tr class="critical">
+    <td><span class="tag tag-critical">P1</span></td>
+    <td>Lab Results / COA Transparency Page</td>
+    <td>Dedicated page with PDF downloads</td>
+    <td>CBD lab results, certificate of analysis CBD, third party tested CBD</td>
+    <td>Critical for YMYL trust signals; Google expects this for CBD sites</td>
+</tr>
+<tr class="high">
+    <td><span class="tag tag-high">P2</span></td>
+    <td>CBD for Pain Relief</td>
+    <td>Blog article (2,000+ words)</td>
+    <td>CBD for pain, CBD for joint pain, CBD salve for arthritis</td>
+    <td>Massive search volume; links to topicals and extracts categories</td>
+</tr>
+<tr class="high">
+    <td><span class="tag tag-high">P2</span></td>
+    <td>CBD for Sleep &amp; Anxiety</td>
+    <td>Blog article (1,500+ words)</td>
+    <td>CBD for sleep, CBD gummies for anxiety, CBD for relaxation</td>
+    <td>Direct tie to gummies and extract products</td>
+</tr>
+<tr class="high">
+    <td><span class="tag tag-high">P2</span></td>
+    <td>Organic Flour Guide: Types &amp; Uses</td>
+    <td>Blog article (1,200+ words)</td>
+    <td>organic flour types, whole wheat vs all purpose, stone milled flour benefits</td>
+    <td>Differentiates the flour product line; low competition keyword space</td>
+</tr>
+<tr class="high">
+    <td><span class="tag tag-high">P2</span></td>
+    <td>CBD for Pets: Safety &amp; Benefits</td>
+    <td>Blog article (1,500+ words)</td>
+    <td>CBD for dogs, hemp oil for pets, CBD pet treats</td>
+    <td>Growing market; links to pet product category</td>
+</tr>
+<tr class="medium">
+    <td><span class="tag tag-medium">P3</span></td>
+    <td>What is Regenerative Farming?</td>
+    <td>Blog article (1,000+ words)</td>
+    <td>regenerative farming, regenerative agriculture CBD, sustainable hemp</td>
+    <td>Unique differentiator; builds E-E-A-T with farming expertise</td>
+</tr>
+<tr class="medium">
+    <td><span class="tag tag-medium">P3</span></td>
+    <td>CBD Topical vs Oral: Which is Right?</td>
+    <td>Blog article (1,200+ words)</td>
+    <td>CBD topical vs oral, CBD salve vs tincture, how to use CBD</td>
+    <td>Buyer's guide format; links to both product categories</td>
+</tr>
+<tr class="medium">
+    <td><span class="tag tag-medium">P3</span></td>
+    <td>Maryland Hemp Farming: Our Growing Process</td>
+    <td>Blog article with photos (1,000+ words)</td>
+    <td>Maryland hemp farm, organic hemp growing, hemp farming process</td>
+    <td>Unique first-person experience content; strengthens E-E-A-T "Experience"</td>
+</tr>
+<tr class="low">
+    <td><span class="tag tag-low">P4</span></td>
+    <td>CBD Recipes &amp; Cooking with Hemp</td>
+    <td>Blog series</td>
+    <td>CBD recipes, cooking with hemp oil, CBD honey recipes</td>
+    <td>Connects CBD + flour/honey product lines; shareable social content</td>
+</tr>
+<tr class="low">
+    <td><span class="tag tag-low">P4</span></td>
+    <td>Heirloom Wheat: Why Heritage Grains Matter</td>
+    <td>Blog article (1,000+ words)</td>
+    <td>heirloom wheat, heritage grains, ancient grains benefits</td>
+    <td>Differentiates flour line from commodity flour</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>6. FEATURED SNIPPET OPPORTUNITIES</h2>
+
+<p>Featured snippets appear in "Position 0" above organic results. The /learn/ page already has strong Q&amp;A content that could capture these with proper formatting.</p>
+
+<table>
+<tr><th>Target Query</th><th>Snippet Type</th><th>Current Page</th><th>Action Required</th></tr>
+<tr>
+    <td>"What is CBD?"</td>
+    <td>Paragraph (definition)</td>
+    <td>/learn/ (has answer)</td>
+    <td>Format answer as a concise 40-60 word paragraph immediately after the H2. Start with "CBD (cannabidiol) is..."</td>
+</tr>
+<tr>
+    <td>"What is the endocannabinoid system?"</td>
+    <td>Paragraph (definition)</td>
+    <td>/learn/ (has answer)</td>
+    <td>Lead with a 1-2 sentence definition before the detailed explanation</td>
+</tr>
+<tr>
+    <td>"Types of CBD extracts"</td>
+    <td>Table</td>
+    <td>/learn/ (has content)</td>
+    <td>Add an HTML table comparing Isolate vs. Broad Spectrum vs. Full Spectrum with columns for CBD content, THC content, entourage effect, best for</td>
+</tr>
+<tr>
+    <td>"How to use CBD"</td>
+    <td>Numbered list</td>
+    <td>/learn/ (has content)</td>
+    <td>Format as ordered list: 1) Sublingual, 2) Topical, 3) Edible, 4) Capsule</td>
+</tr>
+<tr>
+    <td>"CBD extraction methods"</td>
+    <td>List</td>
+    <td>/learn/ (has content)</td>
+    <td>Format as bulleted list with brief description of each method (CO2, ethanol, hydrocarbon)</td>
+</tr>
+<tr>
+    <td>"Benefits of full spectrum CBD"</td>
+    <td>Bulleted list</td>
+    <td>/learn/ (partially covered)</td>
+    <td>Create dedicated section with clear bullet points listing benefits and the entourage effect</td>
+</tr>
+<tr>
+    <td>"What is stone milled flour?"</td>
+    <td>Paragraph (definition)</td>
+    <td>NO PAGE EXISTS</td>
+    <td>Create blog article with definition snippet in first paragraph</td>
+</tr>
+<tr>
+    <td>"CBD for dogs safe?"</td>
+    <td>Paragraph</td>
+    <td>NO PAGE EXISTS</td>
+    <td>Create pet CBD guide with direct answer format</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>7. SCHEMA MARKUP AUDIT</h2>
+
+<h3>7.1 Current Schema Implementation</h3>
+
+<table>
+<tr><th>Page</th><th>Schema Types Present</th><th>Quality</th></tr>
+<tr>
+    <td>Homepage</td>
+    <td>Organization, WebPage, WebSite, BreadcrumbList</td>
+    <td><span class="needs-work">Basic</span> &mdash; Missing LocalBusiness, product highlights</td>
+</tr>
+<tr>
+    <td>CBD Gummies</td>
+    <td>Product (name, SKU, price, availability), AggregateRating (4.76/5, 17 reviews), Review (individual), BreadcrumbList</td>
+    <td><span class="pass">Good</span> &mdash; Best schema on the site</td>
+</tr>
+<tr>
+    <td>Learn</td>
+    <td>Organization, WebPage, BreadcrumbList</td>
+    <td><span class="fail">Poor</span> &mdash; Missing FAQPage schema for 13 Q&amp;A pairs</td>
+</tr>
+<tr>
+    <td>Our Story</td>
+    <td>Organization, WebPage, BreadcrumbList</td>
+    <td><span class="needs-work">Basic</span> &mdash; Missing LocalBusiness, Person schemas for team</td>
+</tr>
+<tr>
+    <td>Farm Store</td>
+    <td>CollectionPage, Organization, WebSite, BreadcrumbList</td>
+    <td><span class="needs-work">Basic</span> &mdash; Missing ItemList with product references</td>
+</tr>
+<tr>
+    <td>Topicals</td>
+    <td>WebPage, Organization, BreadcrumbList</td>
+    <td><span class="fail">Poor</span> &mdash; Should be CollectionPage with ItemList</td>
+</tr>
+</table>
+
+<h3>7.2 Recommended Schema Additions</h3>
+
+<table>
+<tr><th>Schema Type</th><th>Target Page(s)</th><th>Priority</th><th>Expected Impact</th></tr>
+<tr class="critical">
+    <td><strong>FAQPage</strong></td>
+    <td>/learn/</td>
+    <td><span class="tag tag-critical">CRITICAL</span></td>
+    <td>13 Q&amp;A pairs eligible for FAQ rich results in SERPs. Could dramatically increase click-through rate and visibility for CBD informational queries.</td>
+</tr>
+<tr class="critical">
+    <td><strong>LocalBusiness</strong></td>
+    <td>Homepage, /our-story/, /contact-2/</td>
+    <td><span class="tag tag-critical">CRITICAL</span></td>
+    <td>Enables Google Business Profile integration, local pack appearance, and knowledge panel. Include: name, address, phone, geo coordinates, openingHours, priceRange.</td>
+</tr>
+<tr class="high">
+    <td><strong>ItemList</strong></td>
+    <td>/farm-store/, /farm-store/topicals/, all category pages</td>
+    <td><span class="tag tag-high">HIGH</span></td>
+    <td>Enables product carousel rich results. List products with position, name, URL.</td>
+</tr>
+<tr class="high">
+    <td><strong>Product</strong> (enhanced)</td>
+    <td>All product pages</td>
+    <td><span class="tag tag-high">HIGH</span></td>
+    <td>Add brand ("Fiddlers Green Farm"), manufacturer, material ("organic hemp"), weight, nutritionalInformation where applicable.</td>
+</tr>
+<tr class="medium">
+    <td><strong>Person</strong></td>
+    <td>/our-story/</td>
+    <td><span class="tag tag-medium">MEDIUM</span></td>
+    <td>Add Person schema for each team member with name, jobTitle, description. Strengthens E-E-A-T.</td>
+</tr>
+<tr class="medium">
+    <td><strong>Article / BlogPosting</strong></td>
+    <td>Future blog posts</td>
+    <td><span class="tag tag-medium">MEDIUM</span></td>
+    <td>Add author, datePublished, dateModified for blog content. AIOSEO should handle this automatically.</td>
+</tr>
+<tr class="low">
+    <td><strong>SiteNavigationElement</strong></td>
+    <td>Site-wide</td>
+    <td><span class="tag tag-low">LOW</span></td>
+    <td>Markup main navigation for site links rich result.</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>8. INTERNAL LINKING OPPORTUNITIES</h2>
+
+<h3>8.1 Current Internal Linking Architecture</h3>
+
+<table>
+<tr><th>Page</th><th>Inbound Internal Links</th><th>Outbound Internal Links</th><th>Assessment</th></tr>
+<tr>
+    <td>Homepage</td>
+    <td>All pages (nav)</td>
+    <td>~25+ (categories, products, pages)</td>
+    <td><span class="pass">Good hub page</span></td>
+</tr>
+<tr>
+    <td>Farm Store</td>
+    <td>Nav + homepage</td>
+    <td>33 product links + 9 category links</td>
+    <td><span class="pass">Good</span></td>
+</tr>
+<tr>
+    <td>Learn</td>
+    <td>Nav only</td>
+    <td>Nav links only &mdash; no contextual product links</td>
+    <td><span class="fail">Poor</span> &mdash; 2,800 words with zero product links</td>
+</tr>
+<tr>
+    <td>Our Story</td>
+    <td>Nav only</td>
+    <td>Nav links only</td>
+    <td><span class="needs-work">Weak</span> &mdash; No links to products or learn page</td>
+</tr>
+<tr>
+    <td>Product Pages</td>
+    <td>Category + store pages</td>
+    <td>Related products (4 per page)</td>
+    <td><span class="needs-work">Adequate</span> &mdash; Could link to /learn/ for education</td>
+</tr>
+<tr>
+    <td>Category Pages</td>
+    <td>Nav + store page</td>
+    <td>Products within category</td>
+    <td><span class="needs-work">Adequate</span> &mdash; No cross-category links</td>
+</tr>
+</table>
+
+<h3>8.2 Recommended Internal Links to Add</h3>
+
+<table>
+<tr><th>From Page</th><th>To Page</th><th>Anchor Text</th><th>Context</th></tr>
+<tr>
+    <td>/learn/ (What is CBD section)</td>
+    <td>/farm-store/</td>
+    <td>"shop our organic CBD products"</td>
+    <td>After explaining what CBD is, link to the store</td>
+</tr>
+<tr>
+    <td>/learn/ (How to use CBD section)</td>
+    <td>/farm-store/topicals/</td>
+    <td>"organic CBD topicals"</td>
+    <td>When discussing topical application</td>
+</tr>
+<tr>
+    <td>/learn/ (How to use CBD section)</td>
+    <td>/farm-store/cbd-gummies/</td>
+    <td>"full spectrum CBD gummies"</td>
+    <td>When discussing edible CBD</td>
+</tr>
+<tr>
+    <td>/learn/ (How to use CBD section)</td>
+    <td>/farm-store/extracts/</td>
+    <td>"hemp extracts and tinctures"</td>
+    <td>When discussing sublingual methods</td>
+</tr>
+<tr>
+    <td>/learn/ (Third-party testing section)</td>
+    <td>NEW: /lab-results/</td>
+    <td>"view our lab results"</td>
+    <td>After explaining why testing matters</td>
+</tr>
+<tr>
+    <td>/our-story/ (product descriptions)</td>
+    <td>/farm-store/</td>
+    <td>"explore our farm store"</td>
+    <td>After describing what they make</td>
+</tr>
+<tr>
+    <td>/our-story/ (organic mentions)</td>
+    <td>/learn/</td>
+    <td>"learn about our CBD process"</td>
+    <td>When discussing their growing/production process</td>
+</tr>
+<tr>
+    <td>All product pages</td>
+    <td>/learn/</td>
+    <td>"learn more about CBD"</td>
+    <td>In product description or below reviews</td>
+</tr>
+<tr>
+    <td>CBD Gummies page</td>
+    <td>/farm-store/edibles/</td>
+    <td>"browse all edibles"</td>
+    <td>Above or below product description</td>
+</tr>
+<tr>
+    <td>Topicals category</td>
+    <td>/farm-store/skincare/</td>
+    <td>"see our skincare products"</td>
+    <td>Cross-promote related category in category description</td>
+</tr>
+<tr>
+    <td>Homepage (featured products)</td>
+    <td>/learn/</td>
+    <td>"learn about CBD benefits"</td>
+    <td>Add educational CTA near featured products section</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>9. PRIORITIZED RECOMMENDATIONS</h2>
+
+<h3>9.1 CRITICAL (Fix Within 1 Week)</h3>
+
+<table>
+<tr><th>#</th><th>Action</th><th>Impact</th><th>Effort</th></tr>
+<tr class="critical">
+    <td>C1</td>
+    <td><strong>Remove the holiday shipping banner.</strong> "ORDERS PLACED BETWEEN 12/23-12/28 WILL SHIP 12/29 OR AFTER" is still showing in March 2026. This immediately damages user trust and brand perception.</td>
+    <td>Trust / UX</td>
+    <td>5 min</td>
+</tr>
+<tr class="critical">
+    <td>C2</td>
+    <td><strong>Delete or noindex the 2 test blog posts.</strong> "Test Post 1" and "Test Post 2" with lorem ipsum are publicly indexed. Either delete them or set to draft/noindex.</td>
+    <td>Trust / Crawl</td>
+    <td>5 min</td>
+</tr>
+<tr class="critical">
+    <td>C3</td>
+    <td><strong>Fix the CBD Gummies meta description.</strong> Currently an FDA disclaimer. Replace with actual product description including keywords, price, rating, and CTA.</td>
+    <td>CTR / Rankings</td>
+    <td>10 min</td>
+</tr>
+<tr class="critical">
+    <td>C4</td>
+    <td><strong>Add homepage meta description.</strong> Currently missing entirely. Write a compelling 150-160 char description with primary keywords (organic CBD, hemp products, Maryland farm).</td>
+    <td>CTR / Rankings</td>
+    <td>10 min</td>
+</tr>
+<tr class="critical">
+    <td>C5</td>
+    <td><strong>Fix robots.txt.</strong> Add <code>Sitemap: https://www.fiddlersgreen.io/sitemap.xml</code> and remove or reduce <code>Crawl-delay: 30</code> to 1-2 seconds (or remove entirely).</td>
+    <td>Crawlability</td>
+    <td>10 min</td>
+</tr>
+<tr class="critical">
+    <td>C6</td>
+    <td><strong>Consolidate duplicate contact pages.</strong> 301 redirect /contact/ to /contact-2/ (or vice versa). Update all internal links to point to the surviving page.</td>
+    <td>Crawl / Link Equity</td>
+    <td>30 min</td>
+</tr>
+</table>
+
+<h3>9.2 HIGH (Fix Within 2-4 Weeks)</h3>
+
+<table>
+<tr><th>#</th><th>Action</th><th>Impact</th><th>Effort</th></tr>
+<tr class="high">
+    <td>H1</td>
+    <td><strong>Implement FAQPage schema on /learn/.</strong> Add JSON-LD markup for all 13 Q&amp;A pairs. This is the single highest-impact schema change &mdash; could generate FAQ rich results for multiple CBD queries.</td>
+    <td>Visibility / CTR</td>
+    <td>1-2 hours</td>
+</tr>
+<tr class="high">
+    <td>H2</td>
+    <td><strong>Add LocalBusiness schema.</strong> Include business name, address (3907 Old Taneytown Rd, Taneytown, MD 21787), phone (410-756-0727), geo coordinates, and opening hours. Deploy on homepage and contact page.</td>
+    <td>Local SEO</td>
+    <td>1 hour</td>
+</tr>
+<tr class="high">
+    <td>H3</td>
+    <td><strong>Configure Twitter Card tags site-wide via AIOSEO.</strong> Set default twitter:card type to summary_large_image. Verify og tags are outputting on all pages (currently missing on homepage).</td>
+    <td>Social / CTR</td>
+    <td>30 min</td>
+</tr>
+<tr class="high">
+    <td>H4</td>
+    <td><strong>Audit and fix all image alt text.</strong> Priority pages: /learn/ (screenshot filenames as alt text), /our-story/ (missing alt text), /farm-store/topicals/ (no alt on product images). Write keyword-rich, descriptive alt text for every image.</td>
+    <td>Image SEO / Accessibility</td>
+    <td>2-3 hours</td>
+</tr>
+<tr class="high">
+    <td>H5</td>
+    <td><strong>Add internal links from /learn/ to product pages.</strong> The 2,800-word education page has zero contextual product links. Add 5-8 natural product links within the Q&amp;A answers (see Section 8.2 for specifics).</td>
+    <td>Link Equity / Conversions</td>
+    <td>1 hour</td>
+</tr>
+<tr class="high">
+    <td>H6</td>
+    <td><strong>Create a Lab Results / COA transparency page.</strong> Upload third-party lab test PDFs. Link from every product page and from /learn/. Essential for YMYL trust.</td>
+    <td>E-E-A-T / Trust</td>
+    <td>2-4 hours</td>
+</tr>
+<tr class="high">
+    <td>H7</td>
+    <td><strong>Reduce homepage JavaScript payload.</strong> Audit 50+ JS files. Defer non-critical scripts, remove unused plugins, and implement asset minification/concatenation (WP Rocket or Autoptimize).</td>
+    <td>Core Web Vitals / Speed</td>
+    <td>4-8 hours</td>
+</tr>
+</table>
+
+<h3>9.3 MEDIUM (Fix Within 1-2 Months)</h3>
+
+<table>
+<tr><th>#</th><th>Action</th><th>Impact</th><th>Effort</th></tr>
+<tr class="medium">
+    <td>M1</td>
+    <td><strong>Write category descriptions for all 9 category pages.</strong> Each should have 200-300 words of unique content explaining the product category, benefits, ingredients, and use cases. Start with topicals and extracts (highest value).</td>
+    <td>Rankings / UX</td>
+    <td>4-6 hours</td>
+</tr>
+<tr class="medium">
+    <td>M2</td>
+    <td><strong>Expand product descriptions to 300+ words each.</strong> CBD Gummies has only ~110 words. Add usage instructions, ingredient explanations, dosing guidance, and comparison to alternatives. Start with best-selling products.</td>
+    <td>Rankings / Conversions</td>
+    <td>8-12 hours</td>
+</tr>
+<tr class="medium">
+    <td>M3</td>
+    <td><strong>Optimize H1 tags on underperforming pages.</strong> Replace generic H1s ("Farm Store", "Topicals") with keyword-rich versions. See page-specific recommendations above.</td>
+    <td>On-Page SEO</td>
+    <td>1 hour</td>
+</tr>
+<tr class="medium">
+    <td>M4</td>
+    <td><strong>Format /learn/ content for featured snippets.</strong> Add comparison table for CBD extract types. Format "How to use CBD" as numbered list. Lead each Q&amp;A with a 40-60 word concise answer.</td>
+    <td>SERP Position 0</td>
+    <td>2-3 hours</td>
+</tr>
+<tr class="medium">
+    <td>M5</td>
+    <td><strong>Add ItemList schema to category pages.</strong> Mark up product listings with structured data including position, name, URL, and price.</td>
+    <td>Rich Results</td>
+    <td>2-3 hours</td>
+</tr>
+<tr class="medium">
+    <td>M6</td>
+    <td><strong>Add author attribution to /learn/ content.</strong> Add "Written by [name], [credentials]" and Person schema. This strengthens E-E-A-T for YMYL content.</td>
+    <td>E-E-A-T</td>
+    <td>30 min</td>
+</tr>
+<tr class="medium">
+    <td>M7</td>
+    <td><strong>Optimize title tags.</strong> Several pages have titles that are too short (Topicals: 36 chars) or missing brand/location. See page-specific recommendations above. Target 50-60 characters with primary keyword + brand.</td>
+    <td>CTR / Rankings</td>
+    <td>1 hour</td>
+</tr>
+</table>
+
+<h3>9.4 LOW (Ongoing / When Resources Allow)</h3>
+
+<table>
+<tr><th>#</th><th>Action</th><th>Impact</th><th>Effort</th></tr>
+<tr class="low">
+    <td>L1</td>
+    <td><strong>Launch a content marketing blog.</strong> Publish 2-4 articles per month targeting content gap keywords (see Section 5). Start with CBD Dosage Guide and CBD for Pain. Ensure author bios with credentials on every post.</td>
+    <td>Organic Traffic</td>
+    <td>Ongoing (4-8 hrs/month)</td>
+</tr>
+<tr class="low">
+    <td>L2</td>
+    <td><strong>Add review solicitation to post-purchase emails.</strong> 17 reviews on gummies is good; scale this across all products. Reviews provide fresh UGC content and strengthen product schema.</td>
+    <td>Social Proof / SEO</td>
+    <td>2-3 hours setup</td>
+</tr>
+<tr class="low">
+    <td>L3</td>
+    <td><strong>Build a "Press &amp; Media" or "As Seen In" section.</strong> Pursue local media coverage (Taneytown, Carroll County, Baltimore). Display logos/links on homepage and Our Story page.</td>
+    <td>E-E-A-T / Authority</td>
+    <td>Ongoing</td>
+</tr>
+<tr class="low">
+    <td>L4</td>
+    <td><strong>Add Person schema for team members on /our-story/.</strong> Include name, jobTitle, description for each of the 5 team members.</td>
+    <td>E-E-A-T</td>
+    <td>1 hour</td>
+</tr>
+<tr class="low">
+    <td>L5</td>
+    <td><strong>Add nofollow to footer designer credit link.</strong> Tandem Design Lab link passes unnecessary link equity to unrelated site.</td>
+    <td>Link Equity</td>
+    <td>5 min</td>
+</tr>
+<tr class="low">
+    <td>L6</td>
+    <td><strong>Create a subscription landing page.</strong> 10 subscription products exist but no dedicated page explaining the subscription model, savings, and flexibility. This could rank for "CBD subscription box" keywords.</td>
+    <td>Rankings / Revenue</td>
+    <td>3-4 hours</td>
+</tr>
+<tr class="low">
+    <td>L7</td>
+    <td><strong>Implement breadcrumb improvements.</strong> Ensure consistent breadcrumb schema across all pages. Verify product pages show full path (Home &gt; Farm Store &gt; Category &gt; Product).</td>
+    <td>UX / Rich Results</td>
+    <td>1-2 hours</td>
+</tr>
+</table>
+
+<hr>
+
+<!-- ============================================================ -->
+<h2>10. SCORING METHODOLOGY</h2>
+
+<table>
+<tr><th>Category</th><th>Weight</th><th>Score</th><th>Weighted</th><th>Key Factors</th></tr>
+<tr>
+    <td>On-Page SEO</td><td>25%</td><td>35</td><td>8.75</td>
+    <td>Missing homepage meta, FDA disclaimer as meta, thin H1s, poor alt text</td>
+</tr>
+<tr>
+    <td>Technical SEO</td><td>20%</td><td>30</td><td>6.00</td>
+    <td>Crawl-delay:30, no sitemap in robots.txt, 50+ JS files, duplicate pages, stale banner</td>
+</tr>
+<tr>
+    <td>Content</td><td>20%</td><td>40</td><td>8.00</td>
+    <td>Strong /learn/ page but zero blog, thin product/category content, abandoned blog with test posts</td>
+</tr>
+<tr>
+    <td>E-E-A-T</td><td>15%</td><td>62</td><td>9.30</td>
+    <td>Good farm story and team bios, but missing lab results, expert credentials, and press mentions</td>
+</tr>
+<tr>
+    <td>Schema Markup</td><td>10%</td><td>40</td><td>4.00</td>
+    <td>Product schema decent, but missing FAQPage, LocalBusiness, ItemList, Twitter Cards</td>
+</tr>
+<tr>
+    <td>Internal Linking</td><td>10%</td><td>35</td><td>3.50</td>
+    <td>/learn/ has zero product links, no cross-category linking, Our Story isolated</td>
+</tr>
+<tr>
+    <td colspan="2"><strong>TOTAL</strong></td>
+    <td colspan="2"><strong>38/100</strong></td>
+    <td></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>APPENDIX: SITEMAP STRUCTURE</h2>
+
+<p>8 sub-sitemaps found at /sitemap.xml:</p>
+
+<table>
+<tr><th>Sitemap</th><th>Last Modified</th><th>Notes</th></tr>
+<tr><td>post-sitemap.xml</td><td>2021-02-18</td><td>Contains 2 test posts from 2021 &mdash; should be removed</td></tr>
+<tr><td>page-sitemap.xml</td><td>2025-04-04</td><td>Core pages</td></tr>
+<tr><td>product-sitemap.xml</td><td>2026-03-17</td><td>Active product pages (recently updated)</td></tr>
+<tr><td>team_member-sitemap.xml</td><td>2023-08-17</td><td>Team member pages</td></tr>
+<tr><td>testimonial-sitemap.xml</td><td>2020-10-12</td><td>Not updated since launch</td></tr>
+<tr><td>post-archive-sitemap.xml</td><td>2023-08-17</td><td>Archive page</td></tr>
+<tr><td>testimonial_categories-sitemap.xml</td><td>2020-10-12</td><td>Not updated since launch</td></tr>
+<tr><td>product_cat-sitemap.xml</td><td>2026-03-17</td><td>Product category pages (recently updated)</td></tr>
+</table>
+
+<p><strong>Note:</strong> Prior audit flagged epoch dates (1970-01-01) on product category timestamps. Current check shows valid dates, suggesting this may have been fixed or was a caching issue.</p>
+
+<hr>
+
+<p style="text-align: center; color: #888; font-size: 0.9em; margin-top: 40px;">
+SEO Audit Report generated March 18, 2026<br>
+Prepared for Fiddlers Green Farm (fiddlersgreen.io)<br>
+Taneytown, Maryland
+</p>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketing Audit: Fiddlers Green Farm</title>
+<style>
+:root {
+  --primary: #2d5016;
+  --primary-light: #4a7c2e;
+  --accent: #c8a951;
+  --bg: #fafaf5;
+  --card-bg: #ffffff;
+  --text: #1a1a1a;
+  --text-light: #555;
+  --border: #e0ddd4;
+  --red: #c0392b;
+  --orange: #e67e22;
+  --yellow: #f1c40f;
+  --green: #27ae60;
+  --blue: #2980b9;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 40px 0; margin-bottom: 30px; }
+header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+header h1 { font-size: 2rem; }
+header .meta { font-size: 0.95rem; opacity: 0.9; }
+.score-hero { background: var(--card-bg); border: 2px solid var(--border); border-radius: 12px; padding: 30px; text-align: center; margin-bottom: 30px; }
+.score-hero .score-number { font-size: 5rem; font-weight: 800; color: var(--orange); }
+.score-hero .grade { font-size: 2rem; color: var(--orange); font-weight: 700; margin-top: -10px; }
+.score-hero .grade-label { font-size: 1rem; color: var(--text-light); margin-top: 5px; }
+.card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; padding: 25px; margin-bottom: 20px; }
+.card h2 { color: var(--primary); font-size: 1.4rem; margin-bottom: 15px; border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
+.card h3 { color: var(--primary-light); font-size: 1.15rem; margin: 18px 0 10px; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.92rem; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--primary); color: white; font-weight: 600; }
+tr:nth-child(even) { background: #f9f9f6; }
+tr:hover { background: #f0efe8; }
+.score-bar-container { display: flex; align-items: center; gap: 10px; margin: 6px 0; }
+.score-bar-label { width: 220px; font-size: 0.9rem; font-weight: 500; }
+.score-bar-track { flex: 1; height: 24px; background: #e8e5dc; border-radius: 12px; overflow: hidden; position: relative; }
+.score-bar-fill { height: 100%; border-radius: 12px; transition: width 0.5s; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: white; font-weight: 700; font-size: 0.8rem; }
+.fill-red { background: linear-gradient(90deg, #e74c3c, #c0392b); }
+.fill-orange { background: linear-gradient(90deg, #f39c12, #e67e22); }
+.fill-yellow { background: linear-gradient(90deg, #f1c40f, #d4ac0d); }
+.fill-green { background: linear-gradient(90deg, #2ecc71, #27ae60); }
+ol, ul { margin: 10px 0 10px 24px; }
+li { margin-bottom: 8px; }
+.quick-win { border-left: 4px solid var(--green); padding-left: 15px; margin-bottom: 15px; }
+.strategic { border-left: 4px solid var(--blue); padding-left: 15px; margin-bottom: 15px; }
+.long-term { border-left: 4px solid var(--accent); padding-left: 15px; margin-bottom: 15px; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; color: white; margin-right: 6px; vertical-align: middle; }
+.tag-quick { background: var(--green); }
+.tag-strategic { background: var(--blue); }
+.tag-long { background: var(--accent); color: var(--text); }
+.tag-critical { background: var(--red); }
+.tag-high { background: var(--orange); }
+.tag-medium { background: var(--yellow); color: var(--text); }
+.tag-low { background: #95a5a6; }
+.exec-summary { font-size: 1.05rem; line-height: 1.75; }
+.exec-summary p { margin-bottom: 14px; }
+.impact-high { color: var(--green); font-weight: 600; }
+.impact-med { color: var(--blue); font-weight: 600; }
+.impact-low { color: var(--text-light); font-weight: 600; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } .score-bar-label { width: 160px; } }
+footer { text-align: center; padding: 30px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 30px; }
+.strength-list li::marker { content: "\2713  "; color: var(--green); }
+.weakness-list li::marker { content: "\2717  "; color: var(--red); }
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+  <div>
+    <h1>Marketing Audit: Fiddlers Green Farm</h1>
+    <div class="meta">
+      URL: <a href="https://www.fiddlersgreen.io/" style="color:#c8a951">fiddlersgreen.io</a> &nbsp;|&nbsp;
+      Date: March 18, 2026 &nbsp;|&nbsp;
+      Type: E-commerce (CBD &amp; Organic Flour) + Local Farm
+    </div>
+  </div>
+</div>
+</header>
+
+<div class="container">
+
+<!-- Score Hero -->
+<div class="score-hero">
+  <div class="score-number">51</div>
+  <div class="grade">Grade: D</div>
+  <div class="grade-label">Below Average &mdash; Major overhaul needed</div>
+</div>
+
+<!-- Executive Summary -->
+<div class="card">
+<h2>Executive Summary</h2>
+<div class="exec-summary">
+<p>Fiddlers Green Farm scores <strong>51/100</strong> on our comprehensive marketing audit, placing it in the "Below Average" tier with significant gaps that need addressing before the business can scale. This is not a reflection of product quality &mdash; the farm has genuinely strong foundations &mdash; but rather of marketing execution that has not kept pace with what the products deserve.</p>
+
+<p><strong>The biggest strength</strong> is brand authenticity. A multi-generational family farm (since 1946), USDA organic certification, regenerative farming practices, and a transparent team with real wellness credentials create a trust narrative that most CBD brands spend millions trying to fabricate. The 5.0-star rating across Google (6 reviews) and product reviews (4.76-5.0 stars) confirms customers love what they're buying.</p>
+
+<p><strong>The biggest gap</strong> is the complete absence of a growth engine. There is no functioning blog (2 test posts from 2021), no content marketing, no referral program, no loyalty program, limited payment options (no PayPal, no Apple Pay, no BNPL), and the site displays a months-old holiday shipping banner that signals abandonment. The business is effectively invisible to new customers beyond Instagram and word-of-mouth.</p>
+
+<p><strong>The top 3 actions</strong> that would move the needle most: (1) Fix critical trust-eroding signals (remove stale banner, link lab COAs on product pages, fix robots.txt), (2) Add modern payment options and a first-order discount popup to stop losing ready-to-buy visitors, and (3) Launch a content marketing engine leveraging the farm's rich story to drive organic discovery. Implementing all recommendations could generate an estimated <strong>$3,000&ndash;$12,000/month</strong> in additional revenue within 6 months.</p>
+</div>
+</div>
+
+<!-- Score Breakdown -->
+<div class="card">
+<h2>Score Breakdown</h2>
+
+<div class="score-bar-container">
+  <div class="score-bar-label">Content &amp; Messaging (25%)</div>
+  <div class="score-bar-track"><div class="score-bar-fill fill-orange" style="width:58%">58</div></div>
+</div>
+<div class="score-bar-container">
+  <div class="score-bar-label">Conversion Optimization (20%)</div>
+  <div class="score-bar-track"><div class="score-bar-fill fill-red" style="width:42%">42</div></div>
+</div>
+<div class="score-bar-container">
+  <div class="score-bar-label">SEO &amp; Discoverability (20%)</div>
+  <div class="score-bar-track"><div class="score-bar-fill fill-red" style="width:44%">44</div></div>
+</div>
+<div class="score-bar-container">
+  <div class="score-bar-label">Competitive Positioning (15%)</div>
+  <div class="score-bar-track"><div class="score-bar-fill fill-orange" style="width:58%">58</div></div>
+</div>
+<div class="score-bar-container">
+  <div class="score-bar-label">Brand &amp; Trust (10%)</div>
+  <div class="score-bar-track"><div class="score-bar-fill fill-yellow" style="width:68%">68</div></div>
+</div>
+<div class="score-bar-container">
+  <div class="score-bar-label">Growth &amp; Strategy (10%)</div>
+  <div class="score-bar-track"><div class="score-bar-fill fill-red" style="width:38%">38</div></div>
+</div>
+
+<table style="margin-top:20px">
+<tr><th>Category</th><th>Score</th><th>Weight</th><th>Weighted</th><th>Key Finding</th></tr>
+<tr><td>Content &amp; Messaging</td><td>58/100</td><td>25%</td><td>14.5</td><td>Strong farm story but vague homepage value prop and dead blog</td></tr>
+<tr><td>Conversion Optimization</td><td>42/100</td><td>20%</td><td>8.4</td><td>No guarantees, limited payments, zero proactive conversion tools</td></tr>
+<tr><td>SEO &amp; Discoverability</td><td>44/100</td><td>20%</td><td>8.8</td><td>Good product schema but crippled by crawl-delay and stale content</td></tr>
+<tr><td>Competitive Positioning</td><td>58/100</td><td>15%</td><td>8.7</td><td>Unique "whole farm" identity but lacks DTC infrastructure vs. rivals</td></tr>
+<tr><td>Brand &amp; Trust</td><td>68/100</td><td>10%</td><td>6.8</td><td>Authentic origin story undermined by operational neglect signals</td></tr>
+<tr><td>Growth &amp; Strategy</td><td>38/100</td><td>10%</td><td>3.8</td><td>No scalable acquisition engine; depends on word-of-mouth only</td></tr>
+<tr style="font-weight:700;background:#f0efe8"><td>TOTAL</td><td></td><td>100%</td><td>51/100</td><td></td></tr>
+</table>
+</div>
+
+<!-- Quick Wins -->
+<div class="card">
+<h2>Quick Wins (This Week)</h2>
+
+<div class="quick-win">
+<p><span class="tag tag-quick">QUICK WIN</span> <strong>1. Remove the stale holiday shipping banner.</strong></p>
+<p>The December "ORDERS PLACED BETWEEN 12/23-12/28 WILL SHIP 12/29" banner is still live in March. Replace with evergreen: "Free Shipping Over $100 | Organic &amp; Lab-Tested | Taneytown, MD."</p>
+<p><em>Impact: Immediate trust improvement; eliminates #1 "is this site abandoned?" signal.</em></p>
+</div>
+
+<div class="quick-win">
+<p><span class="tag tag-quick">QUICK WIN</span> <strong>2. Fix robots.txt.</strong></p>
+<p>Remove <code>Crawl-delay: 30</code> and add <code>Sitemap: https://www.fiddlersgreen.io/sitemap.xml</code>. The 30-second crawl delay is actively throttling Google's ability to index 33 products and 19 pages.</p>
+<p><em>Impact: Faster indexing of all products within 2-4 weeks.</em></p>
+</div>
+
+<div class="quick-win">
+<p><span class="tag tag-quick">QUICK WIN</span> <strong>3. Rewrite CBD product meta descriptions.</strong></p>
+<p>The CBD Gummies page uses an FDA disclaimer as its meta description. Replace all with compelling marketing copy. Example: "Organic CBD Gummies - 30ct, 20mg Full-Spectrum. Lab-tested, Maryland-grown hemp. Free shipping over $100."</p>
+<p><em>Impact: Higher SERP click-through rates on all product pages.</em></p>
+</div>
+
+<div class="quick-win">
+<p><span class="tag tag-quick">QUICK WIN</span> <strong>4. Link Certificates of Analysis (COAs) on every CBD product page.</strong></p>
+<p>The site promises lab testing but doesn't link actual results. Add per-product PDF links to lab reports. This is table stakes for premium CBD.</p>
+<p><em>Impact: Direct conversion lift on CBD products; builds trust with skeptical first-time buyers.</em></p>
+</div>
+
+<div class="quick-win">
+<p><span class="tag tag-quick">QUICK WIN</span> <strong>5. Add FAQ schema to the /learn/ page.</strong></p>
+<p>The page already has Q&amp;A-formatted content about CBD. Wrap it in FAQ structured data via AIOSEO. </p>
+<p><em>Impact: Featured snippet eligibility for CBD education queries.</em></p>
+</div>
+
+<div class="quick-win">
+<p><span class="tag tag-quick">QUICK WIN</span> <strong>6. Rewrite homepage headline.</strong></p>
+<p>Replace "products that our neighbors can trust" with: "Certified Organic, Full-Spectrum CBD &amp; Heritage Flour &mdash; Grown on Our Family Farm Since 1946." Follow with outcomes-focused subhead.</p>
+<p><em>Impact: Clearer 5-second value proposition for all visitors.</em></p>
+</div>
+
+<div class="quick-win">
+<p><span class="tag tag-quick">QUICK WIN</span> <strong>7. Set canonical URLs and resolve duplicates.</strong></p>
+<p>Fix /contact/ vs /contact-2/ duplicate. Ensure all product pages have self-referencing canonicals via AIOSEO.</p>
+<p><em>Impact: Eliminates duplicate content signals to search engines.</em></p>
+</div>
+
+<div class="quick-win">
+<p><span class="tag tag-quick">QUICK WIN</span> <strong>8. Add "30-Day Satisfaction Guarantee" badge near every Add to Cart button.</strong></p>
+<p>No return policy or guarantee is visible anywhere near the purchase decision point.</p>
+<p><em>Impact: Reduces perceived risk on $45-80 ingestible CBD products.</em></p>
+</div>
+</div>
+
+<!-- Strategic Recommendations -->
+<div class="card">
+<h2>Strategic Recommendations (This Month)</h2>
+
+<div class="strategic">
+<p><span class="tag tag-strategic">STRATEGIC</span> <strong>1. Add PayPal, Apple Pay, Google Pay, and BNPL (Afterpay/Klarna).</strong></p>
+<p>Currently only Square Credit Card and Cash App Pay. PayPal accounts for 30%+ of US e-commerce. BNPL lifts AOV 20-30% on wellness products. WooCommerce plugins make this achievable in days.</p>
+<p><em>Expected impact: <span class="impact-high">$1,500&ndash;$4,000/month</span></em></p>
+</div>
+
+<div class="strategic">
+<p><span class="tag tag-strategic">STRATEGIC</span> <strong>2. Implement first-order discount popup (10-15% off).</strong></p>
+<p>Triggered on first visit or exit-intent, capturing email for abandoned cart recovery. No welcome offer or email capture mechanism currently exists. Typically recovers 5-10% of abandoning visitors.</p>
+<p><em>Expected impact: <span class="impact-high">$500&ndash;$2,000/month</span></em></p>
+</div>
+
+<div class="strategic">
+<p><span class="tag tag-strategic">STRATEGIC</span> <strong>3. Consolidate subscription products into on-page toggle.</strong></p>
+<p>Currently 10 of 33 products are duplicate subscription listings. Replace with "One-time: $45 | Subscribe &amp; Save 15%: $38.25/mo" toggle on each product page. Cleans catalog from 33 to ~23 real products.</p>
+<p><em>Expected impact: <span class="impact-med">Higher subscription conversion, cleaner UX</span></em></p>
+</div>
+
+<div class="strategic">
+<p><span class="tag tag-strategic">STRATEGIC</span> <strong>4. Launch Google review generation program.</strong></p>
+<p>Currently 6 reviews (5.0 stars). Send post-purchase emails requesting reviews. Target 50+ within 6 months. List on CBD directories (Leafly, CBD.market).</p>
+<p><em>Expected impact: <span class="impact-med">$200&ndash;$500/month via local SEO</span></em></p>
+</div>
+
+<div class="strategic">
+<p><span class="tag tag-strategic">STRATEGIC</span> <strong>5. Create SEO comparison and education content.</strong></p>
+<p>Target: "organic CBD vs conventional," "Maryland CBD farm guide," "full spectrum vs broad spectrum," "CBD for runners," "heritage flour baking tips."</p>
+<p><em>Expected impact: <span class="impact-med">Capture high-intent search traffic</span></em></p>
+</div>
+
+<div class="strategic">
+<p><span class="tag tag-strategic">STRATEGIC</span> <strong>6. Add Open Graph and Twitter Card metadata site-wide.</strong></p>
+<p>Most pages lack social sharing metadata. Every product/page needs OG image, title, and description for proper social link previews.</p>
+<p><em>Expected impact: <span class="impact-med">Higher CTR from social shares</span></em></p>
+</div>
+</div>
+
+<!-- Long-Term -->
+<div class="card">
+<h2>Long-Term Initiatives (This Quarter)</h2>
+
+<div class="long-term">
+<p><span class="tag tag-long">LONG TERM</span> <strong>1. Launch a content marketing engine.</strong></p>
+<p>Blog with 2-4 posts/month across four pillars: farm updates, CBD wellness education, organic flour recipes, regenerative farming practices. Leverage Ben's film production background for video (YouTube, Reels). The dead blog is the single largest missed opportunity.</p>
+<p><em>Expected impact: <span class="impact-high">$2,000&ndash;$5,000/month within 6 months</span></em></p>
+</div>
+
+<div class="long-term">
+<p><span class="tag tag-long">LONG TERM</span> <strong>2. Build the "Whole Farm Wellness" brand category.</strong></p>
+<p>No competitor combines CBD + heritage flour + honey + skincare under one regenerative farm story. Create curated farm boxes, seasonal bundles, "seed to shelf" transparency series. Position as regenerative agriculture lifestyle brand.</p>
+<p><em>Expected impact: <span class="impact-high">Higher AOV, differentiated positioning</span></em></p>
+</div>
+
+<div class="long-term">
+<p><span class="tag tag-long">LONG TERM</span> <strong>3. Build referral and loyalty program.</strong></p>
+<p>Tools like Smile.io or ReferralCandy integrate with WooCommerce. Currently zero viral or retention loops exist beyond subscriptions.</p>
+<p><em>Expected impact: <span class="impact-med">10-20% increase in repeat purchase rate</span></em></p>
+</div>
+
+<div class="long-term">
+<p><span class="tag tag-long">LONG TERM</span> <strong>4. Expand distribution channels.</strong></p>
+<p>Explore Amazon (topicals permitted), farmers markets with QR-to-subscribe flows, retail partnerships with Maryland/DC wellness shops and co-ops. Currently 100% DTC-dependent.</p>
+<p><em>Expected impact: <span class="impact-med">$1,000&ndash;$3,000/month within 3 months</span></em></p>
+</div>
+
+<div class="long-term">
+<p><span class="tag tag-long">LONG TERM</span> <strong>5. Build guided product recommendation quiz.</strong></p>
+<p>"Find Your CBD Match" &mdash; segment by use case (pain, sleep, anxiety, skincare), recommend bundles with discount. Reduces decision paralysis across 33+ products.</p>
+<p><em>Expected impact: <span class="impact-med">Higher conversion + AOV for new visitors</span></em></p>
+</div>
+</div>
+
+<!-- Detailed Analysis -->
+<div class="card">
+<h2>Detailed Analysis by Category</h2>
+
+<h3>Content &amp; Messaging Analysis (58/100)</h3>
+
+<p><strong>Headline Clarity (45/100):</strong> The homepage partially passes the 5-second test &mdash; visitors can identify this is a farm selling CBD and wheat products. However, the tagline "products that our neighbors can trust" prioritizes warmth over specificity. It doesn't answer: Why this CBD? What makes it different? Who is it for? The three sustainability pillars (Regenerative, Reusable, Renewable) are good differentiators but presented as brand values rather than customer benefits.</p>
+
+<p><strong>Value Proposition (50/100):</strong> The unique value &mdash; certified organic, full-spectrum CBD from a multi-generational regenerative farm &mdash; is genuinely compelling but buried in the Our Story page rather than leading the homepage. Visitors have to scroll and click to discover what makes this farm special.</p>
+
+<p><strong>Copy Persuasion (55/100):</strong> Body copy leans on process (ethanol extraction, regenerative farming) but under-indexes on outcomes. Copy tells visitors what the products are but rarely addresses why someone needs them &mdash; pain relief, sleep improvement, anxiety reduction. The four homepage testimonials and 4.76-5.0 product ratings are valuable but limited in volume.</p>
+
+<p><strong>Content Depth (62/100):</strong> The Learn page is the strongest content asset &mdash; comprehensive CBD education demonstrating genuine expertise. However, it stands alone. With only 2 abandoned blog test posts, there is no ongoing content strategy.</p>
+
+<p><strong>Brand Voice (65/100):</strong> Generally consistent &mdash; approachable, earnest, family-oriented. Team bios are charming and humanizing. Brynn's wellness credentials and Ben's hands-on farming create authentic authority.</p>
+
+<h3>Conversion Optimization Analysis (42/100)</h3>
+
+<p><strong>CTA Effectiveness (4/10):</strong> Default WooCommerce button styling with no differentiation between primary conversion CTAs and secondary navigation. No urgency language, no value reinforcement, no sticky add-to-cart bars, no floating CTAs. Newsletter signup is bare &mdash; "Join our Newsletter" with zero incentive.</p>
+
+<p><strong>Trust Signals Near Conversion (4/10):</strong> While organic and lab-tested badges appear on product pages, no actual Certificates of Analysis are linked. No return policy, satisfaction guarantee, or money-back promise near the buy button. Critical gap for $45-80 ingestible CBD products.</p>
+
+<p><strong>Pricing &amp; Checkout (4/10):</strong> No per-unit value comparisons between sizes. Subscription savings not quantified. Only two payment options (Square CC + Cash App Pay). $100 free shipping threshold never reinforced with progress indicators. Catalog polluted with 10 duplicate subscription listings.</p>
+
+<p><strong>Proactive Conversion (0/10):</strong> Zero mechanisms: no welcome popup, no exit-intent offer, no cart abandonment recovery, no product quiz, no bundle deals, no loyalty program.</p>
+
+<h3>SEO &amp; Discoverability Analysis (44/100)</h3>
+
+<p><strong>Schema &amp; Structure (Strength):</strong> Solid product schema (Product, AggregateRating, BreadcrumbList) via AIOSEO. Clean URL hierarchy. Organization and WebPage schemas site-wide.</p>
+
+<p><strong>Critical Technical Issues:</strong></p>
+<ul>
+<li><span class="tag tag-critical">CRITICAL</span> robots.txt Crawl-delay: 30 with no sitemap directive</li>
+<li><span class="tag tag-critical">CRITICAL</span> Holiday banner still live months after December</li>
+<li><span class="tag tag-critical">CRITICAL</span> CBD Gummies meta description is FDA disclaimer, not marketing copy</li>
+<li><span class="tag tag-high">HIGH</span> Product category sitemap timestamps show epoch 1970-01-01</li>
+<li><span class="tag tag-high">HIGH</span> No canonical URLs; duplicate /contact/ and /contact-2/</li>
+<li><span class="tag tag-high">HIGH</span> Missing Open Graph and Twitter Card metadata</li>
+<li><span class="tag tag-medium">MEDIUM</span> No FAQ schema on /learn/ despite Q&amp;A format</li>
+<li><span class="tag tag-medium">MEDIUM</span> Blog dead since Feb 2021 (2 test posts only)</li>
+<li><span class="tag tag-medium">MEDIUM</span> Image alt tags missing or generic site-wide</li>
+<li><span class="tag tag-medium">MEDIUM</span> 50+ JS files loaded on homepage</li>
+</ul>
+
+<h3>Competitive Positioning Analysis (58/100)</h3>
+
+<p>Fiddlers Green occupies a genuinely unique position as a multi-generational organic farm producing both CBD and heritage flour. This "whole farm" identity is distinctive &mdash; neither national DTC brands (Cornbread Hemp, Head &amp; Heal) nor local competitors (Fingerboard Farm) combine CBD with artisan grain under one regenerative agriculture story.</p>
+
+<p>However, the DTC CBD market has professionalized. Cornbread Hemp has 26K+ Instagram followers, editorial placements, and robust subscription programs. Head &amp; Heal commands premium pricing ($120 for 2400mg oil). Even Fingerboard Farm in Frederick, MD has diversified into CBN/CBG and operates physical retail. Fiddlers Green's pricing ($10-$80) is competitive but the advantage goes uncommunicated without stronger marketing.</p>
+
+<h3>Brand &amp; Trust Analysis (68/100)</h3>
+
+<p>Strong foundations: multi-generational story (1946), Brynn's nutritional therapy credentials, organic/regenerative certifications, transparent "seed to bottle" narrative, and detailed ingredient sourcing philosophy. The Learn page demonstrates real expertise. Customer testimonials with real names add social proof.</p>
+
+<p>Trust erosion: stale holiday banner, test-only blog posts, no per-product COA links (industry standard for premium CBD), only 6 Google reviews. The gap between brand story quality and operational execution creates a credibility disconnect.</p>
+
+<h3>Growth &amp; Strategy Analysis (38/100)</h3>
+
+<p><strong>What exists:</strong> Subscription model (10 products), wholesale channel, diversified portfolio (CBD/flour/honey/skincare/pet), premium positioning supporting healthy margins.</p>
+
+<p><strong>What's missing:</strong> Zero content marketing engine (dead blog, no YouTube, no video despite Ben's film background), no referral/loyalty/affiliate programs, no Amazon or marketplace presence, only 2 social platforms, limited payment options, no email nurture sequences, no paid advertising. The business has no scalable customer acquisition engine.</p>
+</div>
+
+<!-- Competitor Comparison -->
+<div class="card">
+<h2>Competitor Comparison</h2>
+<table>
+<tr><th>Factor</th><th>Fiddlers Green</th><th>Cornbread Hemp (KY)</th><th>Head &amp; Heal (NY)</th><th>Fingerboard Farm (MD)</th></tr>
+<tr><td>Price Range</td><td>$10&ndash;$80</td><td>$25&ndash;$125</td><td>$45&ndash;$320</td><td>$9&ndash;$65</td></tr>
+<tr><td>Organic Certified</td><td>Yes (USDA)</td><td>Yes (USDA)</td><td>Yes (USDA)</td><td>Practices only</td></tr>
+<tr><td>Full Spectrum</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Subscription</td><td>Exists (buried)</td><td>Yes (prominent)</td><td>Yes (10% off)</td><td>No</td></tr>
+<tr><td>Third-Party Tested</td><td>Yes</td><td>Yes</td><td>Not prominent</td><td>Yes</td></tr>
+<tr><td>Farm-to-Product</td><td>Yes (5th gen)</td><td>Yes (KY)</td><td>Yes (NY)</td><td>Yes (MD)</td></tr>
+<tr><td>Social Following</td><td>~5K combined</td><td>~40K combined</td><td>Small</td><td>Unknown</td></tr>
+<tr><td>Google Reviews</td><td>6 (5.0&#9733;)</td><td>Many</td><td>Few</td><td>Unknown</td></tr>
+<tr><td>Unique Factor</td><td>CBD + flour + honey</td><td>Flower-only, media</td><td>Premium pricing</td><td>CBN/CBG, retail</td></tr>
+</table>
+</div>
+
+<!-- Revenue Impact -->
+<div class="card">
+<h2>Revenue Impact Summary</h2>
+<table>
+<tr><th>Recommendation</th><th>Est. Monthly Impact</th><th>Confidence</th><th>Timeline</th></tr>
+<tr><td>Add PayPal / Apple Pay / BNPL</td><td>$1,500&ndash;$4,000</td><td><span class="impact-high">High</span></td><td>1-2 weeks</td></tr>
+<tr><td>First-order discount + email capture popup</td><td>$500&ndash;$2,000</td><td><span class="impact-high">High</span></td><td>1 week</td></tr>
+<tr><td>Fix robots.txt + meta descriptions</td><td>$300&ndash;$800</td><td><span class="impact-med">Medium</span></td><td>1 day</td></tr>
+<tr><td>Link COAs + add guarantee badge</td><td>$200&ndash;$600</td><td><span class="impact-med">Medium</span></td><td>1 week</td></tr>
+<tr><td>Remove stale banner + update homepage copy</td><td>$100&ndash;$400</td><td><span class="impact-med">Medium</span></td><td>1 day</td></tr>
+<tr><td>Consolidate subscription UX</td><td>$300&ndash;$1,000</td><td><span class="impact-med">Medium</span></td><td>2 weeks</td></tr>
+<tr><td>Google review generation program</td><td>$200&ndash;$500</td><td><span class="impact-med">Medium</span></td><td>1-3 months</td></tr>
+<tr><td>Content marketing (blog + video)</td><td>$2,000&ndash;$5,000</td><td><span class="impact-med">Medium</span></td><td>3-6 months</td></tr>
+<tr><td>Referral / loyalty program</td><td>$500&ndash;$1,500</td><td><span class="impact-low">Low</span></td><td>1-2 months</td></tr>
+<tr><td>Channel expansion (Amazon / retail)</td><td>$1,000&ndash;$3,000</td><td><span class="impact-low">Low</span></td><td>2-3 months</td></tr>
+<tr style="font-weight:700;background:#f0efe8"><td>Total Potential</td><td>$3,000&ndash;$12,000/mo</td><td></td><td></td></tr>
+</table>
+</div>
+
+<!-- Next Steps -->
+<div class="card">
+<h2>Next Steps</h2>
+<ol>
+<li><strong>Immediate (today):</strong> Remove stale holiday banner, fix robots.txt, rewrite product meta descriptions</li>
+<li><strong>This week:</strong> Add COA links to all CBD products, add satisfaction guarantee badge, add FAQ schema to /learn/ page</li>
+<li><strong>This month:</strong> Add PayPal/Apple Pay/BNPL, implement first-order discount popup, consolidate subscription UX, start Google review generation</li>
+<li><strong>This quarter:</strong> Launch content marketing engine, build referral program, explore Amazon/retail distribution, develop "Whole Farm Wellness" brand positioning</li>
+</ol>
+</div>
+
+</div>
+
+<footer>
+Generated by AI Marketing Suite &mdash; <code>/market audit</code> &mdash; March 18, 2026
+</footer>
+
+</body>
+</html>
