@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiddlers Green Farm — Content Deliverables</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #f5f2ed; color: #2c2c2c; min-height: 100vh; }
+  .header { background: #1e3d1a; color: #fff; padding: 48px 24px; text-align: center; }
+  .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 8px; }
+  .header p { opacity: 0.7; font-size: 14px; }
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+  .batch-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 1px solid #e0dbd4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+  }
+  .batch-info h3 { font-size: 18px; margin-bottom: 4px; color: #1e3d1a; }
+  .batch-info p { font-size: 13px; color: #888; }
+  .batch-meta { display: flex; gap: 8px; margin-top: 8px; }
+  .batch-meta span {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .batch-meta .static { background: #e8f0e6; color: #2d5a27; }
+  .batch-meta .carousel { background: #e3f0ff; color: #0066cc; }
+  .batch-meta .reel { background: #f0f0f0; color: #333; }
+  .batch-links { display: flex; gap: 10px; flex-shrink: 0; }
+  .batch-links a {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-primary { background: #2d5a27; color: #fff; }
+  .btn-primary:hover { background: #1e3d1a; }
+  .btn-secondary { background: #f0e8db; color: #6b4f3a; }
+  .btn-secondary:hover { background: #e0d5c5; }
+  .section-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 2px; color: #999; margin-bottom: 16px; margin-top: 32px;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <h1>Fiddlers Green Farm</h1>
+    <p>Content Deliverables</p>
+  </div>
+  <div class="container">
+    <div class="section-label">Latest Batch</div>
+    <div class="batch-card">
+      <div class="batch-info">
+        <h3>Instagram Batch — April 4, 2026</h3>
+        <p>5 pieces: 3 static posts, 1 carousel (7 slides), 1 reel script</p>
+        <div class="batch-meta">
+          <span class="static">3 Static</span>
+          <span class="carousel">1 Carousel</span>
+          <span class="reel">1 Reel</span>
+        </div>
+      </div>
+      <div class="batch-links">
+        <a href="instagram-2026-04-04/instagram-batch-preview.html" class="btn-primary">Review Posts</a>
+        <a href="instagram-2026-04-04/carousel-heritage-grain.html" class="btn-secondary">Carousel Slides</a>
+      </div>
+    </div>
+
+    <div class="section-label">Audits</div>
+    <div class="batch-card">
+      <div class="batch-info">
+        <h3>Marketing Audit</h3>
+        <p>Full marketing assessment — Score: 51/100</p>
+      </div>
+      <div class="batch-links">
+        <a href="../marketing-audit.html" class="btn-secondary">View</a>
+      </div>
+    </div>
+    <div class="batch-card">
+      <div class="batch-info">
+        <h3>SEO Audit</h3>
+        <p>Technical SEO assessment — Score: 38/100</p>
+      </div>
+      <div class="batch-links">
+        <a href="../seo-audit.html" class="btn-secondary">View</a>
+      </div>
+    </div>
+    <div class="batch-card">
+      <div class="batch-info">
+        <h3>Competitor Intelligence</h3>
+        <p>6 competitors analyzed with threat rankings</p>
+      </div>
+      <div class="batch-links">
+        <a href="../competitor-report.html" class="btn-secondary">View</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
