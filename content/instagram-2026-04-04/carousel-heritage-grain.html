@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiddlers Green Farm — Heritage Grain Carousel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #e0ddd8;
+    font-family: 'Source Sans 3', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 0 60px 0;
+  }
+
+  .instruction-bar {
+    width: 100%;
+    max-width: 1120px;
+    background: #fff;
+    border: 1px solid #d4d0ca;
+    border-radius: 8px;
+    margin: 24px auto 8px;
+    padding: 14px 24px;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .instruction-bar strong { color: #333; }
+
+  .slide-wrapper {
+    margin-top: 20px;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Noise texture overlay for dark slides */
+  .slide--dark::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    opacity: 0.04;
+  }
+
+  /* Subtle secondary grain pattern */
+  .slide--dark::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: repeating-conic-gradient(rgba(255,255,255,0.008) 0% 25%, transparent 0% 50%) 0 0 / 4px 4px;
+  }
+
+  .slide--dark {
+    background-color: #1e3d1a;
+  }
+
+  .slide--light {
+    background-color: #faf6f0;
+  }
+
+  /* Inset border */
+  .slide__border {
+    position: absolute;
+    top: 40px; left: 40px; right: 40px; bottom: 40px;
+    pointer-events: none;
+    z-index: 5;
+  }
+  .slide--dark .slide__border {
+    border: 1px solid rgba(201, 168, 76, 0.15);
+  }
+  .slide--light .slide__border {
+    border: 1px solid rgba(30, 61, 26, 0.13);
+  }
+
+  /* Content layer */
+  .slide__content {
+    position: relative;
+    z-index: 10;
+    max-width: 780px;
+    padding: 0 80px;
+  }
+
+  /* Titles */
+  .slide__title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    line-height: 1.18;
+    letter-spacing: -0.01em;
+    margin-bottom: 30px;
+  }
+  .slide--dark .slide__title {
+    color: #c9a84c;
+  }
+  .slide--light .slide__title {
+    color: #1e3d1a;
+  }
+  .slide__title--cover {
+    font-size: 58px;
+    margin-bottom: 44px;
+  }
+  .slide__title--cta {
+    font-size: 60px;
+  }
+  .slide__title--standard {
+    font-size: 44px;
+  }
+
+  /* Body text */
+  .slide__body {
+    font-size: 21px;
+    line-height: 1.65;
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .slide--dark .slide__body {
+    color: rgba(255, 255, 255, 0.88);
+  }
+  .slide--light .slide__body {
+    color: #2c2c2c;
+  }
+
+  /* Pagination dots */
+  .slide__dots {
+    position: absolute;
+    bottom: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+  .slide__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    transition: background 0.2s;
+  }
+  .slide--dark .slide__dot {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  .slide--dark .slide__dot--active {
+    background: #c9a84c;
+  }
+  .slide--light .slide__dot {
+    background: rgba(30, 61, 26, 0.14);
+  }
+  .slide--light .slide__dot--active {
+    background: #2d5a27;
+  }
+
+  /* Brand watermark */
+  .slide__watermark {
+    position: absolute;
+    bottom: 54px;
+    right: 56px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.3;
+    z-index: 10;
+  }
+  .slide--dark .slide__watermark {
+    color: #fff;
+  }
+  .slide--light .slide__watermark {
+    color: #1e3d1a;
+  }
+
+  /* Swipe indicator */
+  .swipe-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.32);
+  }
+  .swipe-indicator svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Wheat accent SVG positioning */
+  .wheat-accent {
+    position: absolute;
+    z-index: 4;
+    pointer-events: none;
+  }
+  .wheat-accent--cover {
+    bottom: 350px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.35;
+  }
+  .wheat-accent--tl { top: 56px; left: 56px; opacity: 0.17; }
+  .wheat-accent--tr { top: 56px; right: 56px; opacity: 0.17; transform: scaleX(-1); }
+  .wheat-accent--bl { bottom: 86px; left: 56px; opacity: 0.17; transform: scaleY(-1); }
+  .wheat-accent--br { bottom: 86px; right: 56px; opacity: 0.17; transform: scale(-1, -1); }
+
+  /* CTA-specific */
+  .cta-divider {
+    width: 56px;
+    height: 1px;
+    background: rgba(201, 168, 76, 0.4);
+    margin: 36px auto 30px;
+  }
+  .cta-url {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #c9a84c;
+    letter-spacing: 0.03em;
+  }
+  .cta-tagline {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.38);
+    margin-top: 12px;
+    letter-spacing: 0.06em;
+  }
+  .cta-wheat-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+</style>
+</head>
+<body>
+
+<div class="instruction-bar">
+  <strong>Instagram Carousel Export</strong> &mdash; Right-click each slide and choose &ldquo;Save Image As,&rdquo; or use a screenshot tool. Each slide is exactly <strong>1080 &times; 1080 px</strong>.
+</div>
+
+<!-- ============ WHEAT SVG DEFINITION ============ -->
+<svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="wheat" viewBox="0 0 40 80">
+      <line x1="20" y1="78" x2="20" y2="10" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+      <ellipse cx="14" cy="14" rx="4.5" ry="7.5" transform="rotate(-18 14 14)" fill="none" stroke="currentColor" stroke-width="0.9"/>
+      <ellipse cx="26" cy="14" rx="4.5" ry="7.5" transform="rotate(18 26 14)" fill="none" stroke="currentColor" stroke-width="0.9"/>
+      <ellipse cx="15" cy="28" rx="4" ry="6.5" transform="rotate(-15 15 28)" fill="none" stroke="currentColor" stroke-width="0.9"/>
+      <ellipse cx="25" cy="28" rx="4" ry="6.5" transform="rotate(15 25 28)" fill="none" stroke="currentColor" stroke-width="0.9"/>
+      <ellipse cx="16" cy="41" rx="3.5" ry="5.5" transform="rotate(-12 16 41)" fill="none" stroke="currentColor" stroke-width="0.9"/>
+      <ellipse cx="24" cy="41" rx="3.5" ry="5.5" transform="rotate(12 24 41)" fill="none" stroke="currentColor" stroke-width="0.9"/>
+      <ellipse cx="20" cy="6" rx="3" ry="5.5" fill="none" stroke="currentColor" stroke-width="0.9"/>
+      <line x1="20" y1="54" x2="13" y2="49" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+      <line x1="20" y1="62" x2="27" y2="57" stroke="currentColor" stroke-width="0.7" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+
+<!-- ==================== SLIDE 1 — COVER ==================== -->
+<div class="slide-wrapper">
+<div id="slide-1" class="slide slide--dark">
+  <div class="slide__border"></div>
+
+  <svg class="wheat-accent wheat-accent--cover" width="44" height="88" style="color: #c9a84c;">
+    <use href="#wheat"/>
+  </svg>
+
+  <div class="slide__content" style="margin-top: 20px;">
+    <h1 class="slide__title slide__title--cover">Your flour used<br>to be alive.</h1>
+    <div class="swipe-indicator">
+      <span>swipe</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+    </div>
+  </div>
+
+  <div class="slide__dots">
+    <span class="slide__dot slide__dot--active"></span>
+    <span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span>
+    <span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span>
+  </div>
+  <span class="slide__watermark">Fiddlers Green Farm</span>
+</div>
+</div>
+
+
+<!-- ==================== SLIDE 2 ==================== -->
+<div class="slide-wrapper">
+<div id="slide-2" class="slide slide--light">
+  <div class="slide__border"></div>
+
+  <svg class="wheat-accent wheat-accent--tr" width="32" height="64" style="color: #2d5a27;">
+    <use href="#wheat"/>
+  </svg>
+
+  <div class="slide__content">
+    <h2 class="slide__title slide__title--standard">Heritage vs.<br>Modern Wheat</h2>
+    <p class="slide__body">Modern wheat was bred for one thing: maximum yield. Heritage varieties like Turkey Red and Bolles have been around 100+ years. Bred for flavor, nutrition, and resilience&nbsp;&mdash; not factory efficiency.</p>
+  </div>
+
+  <div class="slide__dots">
+    <span class="slide__dot"></span>
+    <span class="slide__dot slide__dot--active"></span>
+    <span class="slide__dot"></span><span class="slide__dot"></span>
+    <span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span>
+  </div>
+  <span class="slide__watermark">Fiddlers Green Farm</span>
+</div>
+</div>
+
+
+<!-- ==================== SLIDE 3 ==================== -->
+<div class="slide-wrapper">
+<div id="slide-3" class="slide slide--dark">
+  <div class="slide__border"></div>
+
+  <svg class="wheat-accent wheat-accent--bl" width="32" height="64" style="color: #c9a84c;">
+    <use href="#wheat"/>
+  </svg>
+
+  <div class="slide__content">
+    <h2 class="slide__title slide__title--standard">Stone-Milled, Not<br>Roller-Milled</h2>
+    <p class="slide__body">Roller mills strip the bran and germ to extend shelf life. Our stone mill crushes the whole kernel and keeps everything intact. More fiber, more protein, more of the stuff that makes bread actually taste like bread.</p>
+  </div>
+
+  <div class="slide__dots">
+    <span class="slide__dot"></span><span class="slide__dot"></span>
+    <span class="slide__dot slide__dot--active"></span>
+    <span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span>
+  </div>
+  <span class="slide__watermark">Fiddlers Green Farm</span>
+</div>
+</div>
+
+
+<!-- ==================== SLIDE 4 ==================== -->
+<div class="slide-wrapper">
+<div id="slide-4" class="slide slide--light">
+  <div class="slide__border"></div>
+
+  <svg class="wheat-accent wheat-accent--tl" width="32" height="64" style="color: #2d5a27;">
+    <use href="#wheat"/>
+  </svg>
+
+  <div class="slide__content">
+    <h2 class="slide__title slide__title--standard">Why It<br>Bakes Different</h2>
+    <p class="slide__body">Heritage flour absorbs water differently and has lower gluten than commercial flour. Your dough will feel different. Your bread will have more flavor and a denser, chewier crumb. Most people never go back.</p>
+  </div>
+
+  <div class="slide__dots">
+    <span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span>
+    <span class="slide__dot slide__dot--active"></span>
+    <span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span>
+  </div>
+  <span class="slide__watermark">Fiddlers Green Farm</span>
+</div>
+</div>
+
+
+<!-- ==================== SLIDE 5 ==================== -->
+<div class="slide-wrapper">
+<div id="slide-5" class="slide slide--dark">
+  <div class="slide__border"></div>
+
+  <svg class="wheat-accent wheat-accent--tr" width="32" height="64" style="color: #c9a84c;">
+    <use href="#wheat"/>
+  </svg>
+
+  <div class="slide__content">
+    <h2 class="slide__title slide__title--standard">No Pesticides.<br>No Fungicides. Ever.</h2>
+    <p class="slide__body">Our fields are USDA certified organic. We manage weeds mechanically and through crop rotation. It&rsquo;s more work. Way more work. But the soil gets healthier every year instead of more depleted.</p>
+  </div>
+
+  <div class="slide__dots">
+    <span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span>
+    <span class="slide__dot slide__dot--active"></span>
+    <span class="slide__dot"></span><span class="slide__dot"></span>
+  </div>
+  <span class="slide__watermark">Fiddlers Green Farm</span>
+</div>
+</div>
+
+
+<!-- ==================== SLIDE 6 ==================== -->
+<div class="slide-wrapper">
+<div id="slide-6" class="slide slide--light">
+  <div class="slide__border"></div>
+
+  <svg class="wheat-accent wheat-accent--br" width="32" height="64" style="color: #2d5a27;">
+    <use href="#wheat"/>
+  </svg>
+
+  <div class="slide__content">
+    <h2 class="slide__title slide__title--standard">78 Years on<br>the Same Land</h2>
+    <p class="slide__body">Fiddlers Green Farm has been in operation since 1946. Ben is the current generation. We grow it, clean it, mill it, bag it. Seed to shelf&nbsp;&mdash; no middlemen, no mystery.</p>
+  </div>
+
+  <div class="slide__dots">
+    <span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span>
+    <span class="slide__dot slide__dot--active"></span>
+    <span class="slide__dot"></span>
+  </div>
+  <span class="slide__watermark">Fiddlers Green Farm</span>
+</div>
+</div>
+
+
+<!-- ==================== SLIDE 7 — CTA ==================== -->
+<div class="slide-wrapper">
+<div id="slide-7" class="slide slide--dark">
+  <div class="slide__border"></div>
+
+  <div class="slide__content">
+    <h2 class="slide__title slide__title--cta">Try a bag.</h2>
+    <p class="slide__body">Turkey Red, Bolles, and seasonal blends.<br>2lb bags start at $12. We ship nationwide.</p>
+
+    <div class="cta-divider"></div>
+
+    <div class="cta-wheat-row">
+      <svg width="24" height="48" style="color: #c9a84c; opacity: 0.45; transform: rotate(-8deg);">
+        <use href="#wheat"/>
+      </svg>
+      <span class="cta-url">fiddlersgreen.io</span>
+      <svg width="24" height="48" style="color: #c9a84c; opacity: 0.45; transform: scaleX(-1) rotate(-8deg);">
+        <use href="#wheat"/>
+      </svg>
+    </div>
+    <p class="cta-tagline">tag us with your bakes</p>
+  </div>
+
+  <div class="slide__dots">
+    <span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span><span class="slide__dot"></span>
+    <span class="slide__dot slide__dot--active"></span>
+  </div>
+  <span class="slide__watermark">Fiddlers Green Farm</span>
+</div>
+</div>
+
+</body>
+</html>
