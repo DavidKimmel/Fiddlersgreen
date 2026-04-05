@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From the Farm — Fiddlers Green Farm Blog</title>
+    <meta name="description" content="Stories, science, and updates from Fiddlers Green Farm in Taneytown, Maryland.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: #faf8f3;
+            color: #2c2c2c;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: #2d5a27; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .site-header {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 0;
+        }
+
+        .back-link {
+            font-size: 0.9rem;
+            color: #8a7e6d;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        .back-link:hover { color: #2d5a27; }
+
+        .blog-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            color: #3d2b1f;
+            margin-bottom: 0.3rem;
+        }
+
+        .blog-subtitle {
+            font-size: 1.05rem;
+            color: #8a7e6d;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+        }
+
+        .card-list {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e5ddd0;
+            border-radius: 8px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-left: 4px solid #e5ddd0;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        }
+        .card--cbd { border-left-color: #2d5a27; }
+        .card--farm { border-left-color: #8a7e6d; }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            margin-bottom: 0.8rem;
+        }
+        .card-tag--cbd { background: #e8f0e6; color: #2d5a27; }
+        .card-tag--farm { background: #f0ebe0; color: #6b5d4f; }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            color: #3d2b1f;
+            margin-bottom: 0.6rem;
+            line-height: 1.35;
+        }
+        .card-title a { color: inherit; }
+        .card-title a:hover { text-decoration: none; color: #2d5a27; }
+
+        .card-excerpt {
+            font-size: 0.98rem;
+            color: #4a4a4a;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: #8a7e6d;
+        }
+        .card-meta span + span::before {
+            content: "·";
+            margin: 0 0.5rem;
+        }
+
+        .site-footer {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8a7e6d;
+            border-top: 1px solid #e5ddd0;
+        }
+
+        @media (max-width: 600px) {
+            .blog-title { font-size: 1.8rem; }
+            .card { padding: 1.4rem 1.2rem; }
+            .card-title { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav>
+            <a href="../../index.html" class="back-link">&larr; Back to Portal</a>
+        </nav>
+        <h1 class="blog-title">From the Farm</h1>
+        <p class="blog-subtitle">Stories, science, and updates from Fiddlers Green Farm</p>
+    </header>
+
+    <main class="card-list">
+        <article class="card card--cbd">
+            <span class="card-tag card-tag--cbd">CBD Education</span>
+            <h2 class="card-title">
+                <a href="full-spectrum-vs-broad-spectrum-vs-isolate.html">Full Spectrum vs Broad Spectrum vs CBD Isolate Explained</a>
+            </h2>
+            <p class="card-excerpt">You're standing in a store, or scrolling through yet another website, and there they are. Three terms on three different bottles. Nobody seems to explain the difference without trying to sell you something.</p>
+            <div class="card-meta">
+                <span>April 4, 2026</span>
+                <span>10 min read</span>
+            </div>
+        </article>
+
+        <article class="card card--cbd">
+            <span class="card-tag card-tag--cbd">CBD Education</span>
+            <h2 class="card-title">
+                <a href="cbd-dosage-guide.html">CBD Dosage Guide: How Much CBD Should I Take?</a>
+            </h2>
+            <p class="card-excerpt">The single most common question we hear — at the farmers market, in emails, even from friends at dinner — is some version of "how much of this stuff do I actually take?"</p>
+            <div class="card-meta">
+                <span>April 4, 2026</span>
+                <span>11 min read</span>
+            </div>
+        </article>
+
+        <article class="card card--farm">
+            <span class="card-tag card-tag--farm">Farm &amp; Soil</span>
+            <h2 class="card-title">
+                <a href="what-is-regenerative-farming.html">What Is Regenerative Farming (And Why Your CBD Should Come From One)</a>
+            </h2>
+            <p class="card-excerpt">"Regenerative" is everywhere right now. It's on coffee bags, clothing labels, and about half the booths at every farmers' market. Everybody's using the word. Most of them can't tell you what it actually means.</p>
+            <div class="card-meta">
+                <span>April 4, 2026</span>
+                <span>11 min read</span>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        Fiddlers Green Farm &middot; Taneytown, Maryland &middot; fiddlersgreen.io
+    </footer>
+</body>
+</html>

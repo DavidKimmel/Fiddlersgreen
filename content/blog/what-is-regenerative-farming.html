@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Is Regenerative Farming? Why Your CBD Should Come From One — Fiddlers Green Farm</title>
+    <meta name="description" content="What regenerative farming actually means, what the science says about soil health, and why it matters for the CBD you put in your body.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: #faf8f3;
+            color: #2c2c2c;
+            font-size: 18px;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a { color: #2d5a27; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .site-header {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 0;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .nav-links a {
+            font-size: 0.9rem;
+            color: #8a7e6d;
+        }
+        .nav-links a:hover { color: #2d5a27; }
+
+        .blog-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: #3d2b1f;
+            margin-bottom: 2rem;
+        }
+
+        article {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem;
+        }
+
+        .article-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            background: #f0ebe0;
+            color: #6b5d4f;
+            margin-bottom: 1rem;
+        }
+
+        .article-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #3d2b1f;
+            line-height: 1.25;
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #8a7e6d;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #e5ddd0;
+        }
+        .article-meta span + span::before {
+            content: "·";
+            margin: 0 0.5rem;
+        }
+
+        .article-body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #3d2b1f;
+            margin: 2.5rem 0 1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #3d2b1f;
+            margin: 2rem 0 0.8rem;
+        }
+
+        .article-body p {
+            margin-bottom: 1.2rem;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+            color: #3d2b1f;
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 0 0 1.2rem 1.5rem;
+        }
+        .article-body li {
+            margin-bottom: 0.4rem;
+        }
+
+        .article-body blockquote {
+            border-left: 3px solid #2d5a27;
+            padding: 0.8rem 1.2rem;
+            margin: 1.5rem 0;
+            background: #f0ebe0;
+            border-radius: 0 6px 6px 0;
+            font-style: italic;
+            color: #4a4a4a;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: #f0ebe0;
+            border-radius: 8px;
+            padding: 2rem 2rem 1rem;
+            margin: 2.5rem 0;
+        }
+        .faq-section h2 {
+            margin-top: 0;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e5ddd0;
+            padding: 1.2rem 0;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-question {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #3d2b1f;
+            margin-bottom: 0.5rem;
+        }
+        .faq-answer {
+            color: #4a4a4a;
+            font-size: 0.98rem;
+            line-height: 1.7;
+        }
+
+        /* More from the Farm */
+        .more-section {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem;
+        }
+        .more-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: #3d2b1f;
+            margin-bottom: 1.2rem;
+        }
+        .more-cards {
+            display: flex;
+            gap: 1.2rem;
+        }
+        .more-card {
+            flex: 1;
+            background: #ffffff;
+            border: 1px solid #e5ddd0;
+            border-radius: 8px;
+            padding: 1.3rem 1.4rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .more-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        }
+        .more-card-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 0.15rem 0.6rem;
+            border-radius: 20px;
+            margin-bottom: 0.6rem;
+        }
+        .more-card-tag--cbd { background: #e8f0e6; color: #2d5a27; }
+        .more-card-tag--farm { background: #f0ebe0; color: #6b5d4f; }
+        .more-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            color: #3d2b1f;
+            line-height: 1.35;
+            margin-bottom: 0.5rem;
+        }
+        .more-card-title a { color: inherit; }
+        .more-card-title a:hover { color: #2d5a27; text-decoration: none; }
+        .more-card-meta {
+            font-size: 0.8rem;
+            color: #8a7e6d;
+        }
+
+        .site-footer {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8a7e6d;
+            border-top: 1px solid #e5ddd0;
+        }
+
+        @media (max-width: 600px) {
+            .article-title { font-size: 1.7rem; }
+            .more-cards { flex-direction: column; }
+            .faq-section { padding: 1.5rem 1.2rem 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-links">
+            <a href="../../index.html">&larr; Back to Portal</a>
+            <a href="index.html">&larr; All Posts</a>
+        </nav>
+        <div class="blog-name">From the Farm</div>
+    </header>
+
+    <article>
+        <span class="article-tag">Farm &amp; Soil</span>
+        <h1 class="article-title">What Is Regenerative Farming (And Why Your CBD Should Come From One)</h1>
+        <div class="article-meta">
+            <span>April 4, 2026</span>
+            <span>11 min read</span>
+        </div>
+
+        <div class="article-body">
+            <p>"Regenerative" is everywhere right now. It's on coffee bags, clothing labels, and about half the booths at every farmers' market from here to Portland. Everybody's using the word. Most of them can't tell you what it actually means.</p>
+
+            <p>We can. Not because we read it in a marketing deck, but because we've been doing it — on this same piece of ground in Taneytown, Maryland since 1946. Back then nobody called it regenerative. They just called it farming. You took care of your soil because your soil took care of you, and if you wrecked it, you didn't get to order more from a catalog.</p>
+
+            <p>Here's what regenerative farming actually is, what the science says, and why it should matter to you if you're putting CBD in your body.</p>
+
+            <h2>Regenerative Farming Is Not Just "Organic Plus"</h2>
+
+            <p><strong>Conventional farming</strong> extracts. You plant a monocrop, dump synthetic fertilizer on it, spray for pests, harvest, and repeat. The soil gets worse every year.</p>
+
+            <p><strong>Organic farming</strong> stops the worst of the damage. No synthetic pesticides, no synthetic fertilizers. But organic certification is mostly a list of things you don't do. You can be certified organic and still till your fields into dust.</p>
+
+            <p><strong>Regenerative farming</strong> asks a fundamentally different question. Instead of "how do we produce the most crop with the least damage?" it asks "how do we leave this ground better than we found it?"</p>
+
+            <p>That's a measurable outcome. Regenerative agriculture prioritizes soil restoration, biodiversity, water health, and long-term climate resilience. The Regenerative Organic Certified (ROC) standard builds on the USDA Organic framework and adds requirements for soil health, animal welfare, and farmer fairness.</p>
+
+            <p>The USDA's Natural Resources Conservation Service now recognizes soil health principles that align with regenerative practices. There's a $700 million USDA regenerative pilot program that says the federal government is finally paying attention.</p>
+
+            <p>We've been paying attention since Grandpa bought this farm.</p>
+
+            <h2>What It Actually Looks Like on Our Farm</h2>
+
+            <h3>We Don't Till</h3>
+
+            <p>Tilling breaks up soil structure, destroys fungal networks, and releases stored carbon into the atmosphere. We use reduced tillage and no-till methods wherever we can. It means the mycorrhizal fungi stay intact and the carbon stays in the ground.</p>
+
+            <p>It also means we deal with some ambitious weeds. That's the trade-off. We'll take it.</p>
+
+            <h3>We Keep the Ground Covered</h3>
+
+            <p>After harvest, our fields don't sit bare. We plant cover crops — clover, rye, vetch — that shield the soil from erosion, fix nitrogen naturally, and keep living roots in the ground year-round.</p>
+
+            <h3>We Rotate Everything</h3>
+
+            <p>Our hemp doesn't grow in the same field every year. It rotates with heritage grain and cover crops. This breaks pest cycles, improves water and nutrient retention, and supports the pollinators we depend on — including our own bees.</p>
+
+            <h3>We Integrate, Not Separate</h3>
+
+            <p>Hemp, heritage wheat, bees, cover crops — they're all on the same land because that's how ecosystems actually work. We don't use pesticides. We don't use fungicides. When you have healthy soil biology and genuine biodiversity, you need a lot less intervention.</p>
+
+            <h2>What the Science Says</h2>
+
+            <h3>Carbon Sequestration</h3>
+
+            <p>Restored agricultural lands can remove between 2.6 and 13.6 gigatons of CO2 from the atmosphere annually. Global emissions are roughly 37 gigatons per year. Regenerative agriculture isn't a silver bullet, but it's one of the biggest tools we have.</p>
+
+            <h3>Nutrient Runoff</h3>
+
+            <p>Regenerative organic fertilizers release 45% less nitrate than synthetic alternatives. That matters for water quality downstream.</p>
+
+            <h3>Water Resilience</h3>
+
+            <p>Healthy soil holds more water. When you have good soil structure — aggregates held together by fungal hyphae, organic matter acting like a sponge — your ground handles both drought and heavy rain better.</p>
+
+            <h3>Yield</h3>
+
+            <p>On-farm corn trials showed a 639 pounds-per-acre yield increase on regeneratively managed ground. The narrative that you have to choose between productivity and soil health is wrong.</p>
+
+            <h2>The Economics Are Better Than You Think</h2>
+
+            <p>Regenerative operations have demonstrated long-term profits up to 120% higher than conventional farms. When you stop buying synthetic fertilizer and pesticides every season, your input costs drop. When your soil actually holds water and nutrients, you lose less to waste. When consumers demand transparency, you can charge what the product is worth.</p>
+
+            <p>The transition years are hard. We won't pretend otherwise. But once the system matures, the economics shift in your favor and stay there.</p>
+
+            <h2>Why This Matters for Your CBD</h2>
+
+            <p>We've grown hemp on regenerative ground for years, and here's what we've observed: plants grown in biologically active soil produce more consistently than plants fed synthetic spikes. They don't stall mid-season. The flower quality is more uniform.</p>
+
+            <p>We believe — based on what we see on this farm, not from a clinical trial — that healthier soil grows healthier hemp, and healthier hemp produces better cannabinoid and terpene profiles. Every step in that chain matters.</p>
+
+            <p>Most CBD on the market comes from industrial hemp operations. Big acreage, monocrop, synthetic inputs. Nobody's testing the soil. The hemp is a commodity.</p>
+
+            <p>We think the soil is the whole point.</p>
+
+            <h2>How to Know If Your CBD Comes From a Regenerative Farm</h2>
+
+            <p>Ask about the farm. If a CBD company can't tell you where their hemp was grown, that's your answer.</p>
+
+            <p>Look for soil health language, not just "organic." Ask about no-till, cover crops, crop rotation.</p>
+
+            <p>Look for diversified operations. A farm growing only hemp is a monocrop, even if it's organic.</p>
+
+            <p>Check for transparency on practices. They should be able to explain their soil management in plain language.</p>
+
+            <p>Look for "seed to shelf." One operation controls the process from planting through finished product.</p>
+
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-question">What is regenerative farming in simple terms?</div>
+                    <div class="faq-answer">Regenerative farming is a system designed to improve the land over time, not just maintain it. It focuses on rebuilding soil health through cover cropping, crop rotation, reduced tillage, and integrating diverse plants and animals.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How is regenerative farming different from organic farming?</div>
+                    <div class="faq-answer">Organic farming prohibits synthetic pesticides and fertilizers. Regenerative farming goes further by actively rebuilding soil biology, sequestering carbon, and increasing biodiversity. You can be certified organic and still degrade your soil.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Does regenerative farming affect CBD quality?</div>
+                    <div class="faq-answer">Healthier soil produces healthier plants with more consistent growth and more uniform flower quality. While large-scale clinical studies on regenerative hemp specifically are limited, the principle — that what's in the soil ends up in the plant — applies to hemp as to any crop.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is regenerative farming more expensive?</div>
+                    <div class="faq-answer">Transition costs are real. However, long-term studies show regenerative operations can achieve profits up to 120% higher than conventional farms, primarily through reduced input costs.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">How can I tell if a CBD company uses regenerative farming?</div>
+                    <div class="faq-answer">Ask them directly. A genuine operation will name their farm, describe their soil management, and show you what else grows on their land. If they can't answer, they're probably sourcing bulk extract.</div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <section class="more-section">
+        <h2>More from the Farm</h2>
+        <div class="more-cards">
+            <div class="more-card">
+                <span class="more-card-tag more-card-tag--cbd">CBD Education</span>
+                <div class="more-card-title">
+                    <a href="full-spectrum-vs-broad-spectrum-vs-isolate.html">Full Spectrum vs Broad Spectrum vs CBD Isolate Explained</a>
+                </div>
+                <div class="more-card-meta">April 4, 2026 &middot; 10 min read</div>
+            </div>
+            <div class="more-card">
+                <span class="more-card-tag more-card-tag--cbd">CBD Education</span>
+                <div class="more-card-title">
+                    <a href="cbd-dosage-guide.html">CBD Dosage Guide: How Much CBD Should I Take?</a>
+                </div>
+                <div class="more-card-meta">April 4, 2026 &middot; 11 min read</div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        Fiddlers Green Farm &middot; Taneytown, Maryland &middot; fiddlersgreen.io
+    </footer>
+</body>
+</html>
