@@ -4,361 +4,271 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Full Spectrum vs Broad Spectrum vs CBD Isolate Explained — Fiddlers Green Farm</title>
-    <meta name="description" content="A straightforward comparison of full spectrum, broad spectrum, and CBD isolate. What the science says, who each type is for, and how to tell what you're actually buying.">
+    <meta name="description" content="What's the difference between full spectrum, broad spectrum, and CBD isolate? A straightforward breakdown from the farmers who grow the hemp.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
         body {
-            font-family: 'Source Sans 3', sans-serif;
-            background: #faf8f3;
-            color: #2c2c2c;
-            font-size: 18px;
-            line-height: 1.8;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #1b1b1b;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
-
         a { color: #2d5a27; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        .site-header {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 2.5rem 1.5rem 0;
-        }
+        /* NAV */
+        .site-nav { width:100%; background:#fff; border-bottom:1px solid #e8e8e8; position:sticky; top:0; z-index:100; }
+        .site-nav-inner { max-width:1240px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:72px; }
+        .site-nav-logo img { height:48px; width:auto; }
+        .site-nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+        .site-nav-links a { color:#1b1b1b; font-size:0.95rem; font-weight:500; letter-spacing:0.01em; transition:color 0.2s; }
+        .site-nav-links a:hover { color:#2d5a27; text-decoration:none; }
+        .site-nav-links a.active { color:#2d5a27; font-weight:600; }
+        .nav-toggle { display:none; background:none; border:none; cursor:pointer; padding:0.5rem; }
+        .nav-toggle span { display:block; width:24px; height:2px; background:#1b1b1b; margin:5px 0; transition:0.3s; }
 
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-        .nav-links a {
-            font-size: 0.9rem;
-            color: #8a7e6d;
-        }
-        .nav-links a:hover { color: #2d5a27; }
+        /* HERO */
+        .hero { position:relative; width:100%; height:420px; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; }
+        .hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+        .hero-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.45); }
+        .hero-content { position:relative; z-index:2; color:#fff; padding:0 2rem; max-width:800px; }
+        .hero-content h1 { font-family:'Playfair Display',Georgia,serif; font-size:2.8rem; font-weight:700; line-height:1.2; }
 
-        .blog-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            color: #3d2b1f;
-            margin-bottom: 2rem;
-        }
+        /* META BAR */
+        .article-meta-bar { max-width:720px; margin:0 auto; padding:1.5rem 2rem 0; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+        .meta-tag { display:inline-block; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:#2d5a27; background:rgba(45,90,39,0.08); padding:0.25rem 0.75rem; border-radius:9999px; }
+        .meta-date, .meta-read { font-size:0.85rem; color:#888; }
+        .meta-date::after { content:"\00b7"; margin:0 0.4rem; }
 
-        article {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 0 1.5rem 3rem;
-        }
-
-        .article-tag {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            padding: 0.2rem 0.7rem;
-            border-radius: 20px;
-            background: #e8f0e6;
-            color: #2d5a27;
-            margin-bottom: 1rem;
-        }
-
-        .article-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: #3d2b1f;
-            line-height: 1.25;
-            margin-bottom: 1rem;
-        }
-
-        .article-meta {
-            font-size: 0.9rem;
-            color: #8a7e6d;
-            margin-bottom: 2.5rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #e5ddd0;
-        }
-        .article-meta span + span::before {
-            content: "·";
-            margin: 0 0.5rem;
-        }
-
-        .article-body h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #3d2b1f;
-            margin: 2.5rem 0 1rem;
-        }
-
-        .article-body h3 {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #3d2b1f;
-            margin: 2rem 0 0.8rem;
-        }
-
-        .article-body p {
-            margin-bottom: 1.2rem;
-        }
-
-        .article-body strong {
-            font-weight: 600;
-            color: #3d2b1f;
-        }
-
-        .article-body ul, .article-body ol {
-            margin: 0 0 1.2rem 1.5rem;
-        }
-        .article-body li {
-            margin-bottom: 0.4rem;
-        }
-
-        .article-body blockquote {
-            border-left: 3px solid #2d5a27;
-            padding: 0.8rem 1.2rem;
-            margin: 1.5rem 0;
-            background: #f0ebe0;
-            border-radius: 0 6px 6px 0;
-            font-style: italic;
-            color: #4a4a4a;
-        }
+        /* ARTICLE BODY */
+        .article-body { max-width:720px; margin:0 auto; padding:2rem 2rem 4rem; font-size:1.125rem; line-height:1.75; }
+        .article-body h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.75rem; font-weight:700; margin:2.5rem 0 1rem; color:#1b1b1b; }
+        .article-body h3 { font-size:1.25rem; font-weight:600; margin:2rem 0 0.75rem; }
+        .article-body p { margin-bottom:1.25rem; }
+        .article-body ul, .article-body ol { margin:0 0 1.25rem 1.5rem; }
+        .article-body li { margin-bottom:0.5rem; }
+        .article-body blockquote { border-left:3px solid #2d5a27; margin:1.5rem 0; padding:0.75rem 1.25rem; background:rgba(45,90,39,0.04); font-style:italic; }
 
         /* FAQ */
-        .faq-section {
-            background: #f0ebe0;
-            border-radius: 8px;
-            padding: 2rem 2rem 1rem;
-            margin: 2.5rem 0;
-        }
-        .faq-section h2 {
-            margin-top: 0;
-        }
-        .faq-item {
-            border-bottom: 1px solid #e5ddd0;
-            padding: 1.2rem 0;
-        }
-        .faq-item:last-child { border-bottom: none; }
-        .faq-question {
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: #3d2b1f;
-            margin-bottom: 0.5rem;
-        }
-        .faq-answer {
-            color: #4a4a4a;
-            font-size: 0.98rem;
-            line-height: 1.7;
-        }
+        .faq-section { background:#faf5ed; border-radius:8px; padding:2rem 2rem 1.5rem; margin:2.5rem 0; }
+        .faq-section h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; margin-bottom:1.5rem; }
+        .faq-item { margin-bottom:1.5rem; }
+        .faq-item:last-child { margin-bottom:0; }
+        .faq-item h3 { font-size:1.05rem; font-weight:600; margin-bottom:0.4rem; color:#1b1b1b; }
+        .faq-item p { margin-bottom:0; font-size:1rem; color:#444; }
 
-        /* More from the Farm */
-        .more-section {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 0 1.5rem 3rem;
-        }
-        .more-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            color: #3d2b1f;
-            margin-bottom: 1.2rem;
-        }
-        .more-cards {
-            display: flex;
-            gap: 1.2rem;
-        }
-        .more-card {
-            flex: 1;
-            background: #ffffff;
-            border: 1px solid #e5ddd0;
-            border-radius: 8px;
-            padding: 1.3rem 1.4rem;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .more-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-        }
-        .more-card-tag {
-            display: inline-block;
-            font-size: 0.7rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            padding: 0.15rem 0.6rem;
-            border-radius: 20px;
-            margin-bottom: 0.6rem;
-        }
-        .more-card-tag--cbd { background: #e8f0e6; color: #2d5a27; }
-        .more-card-tag--farm { background: #f0ebe0; color: #6b5d4f; }
-        .more-card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.05rem;
-            color: #3d2b1f;
-            line-height: 1.35;
-            margin-bottom: 0.5rem;
-        }
-        .more-card-title a { color: inherit; }
-        .more-card-title a:hover { color: #2d5a27; text-decoration: none; }
-        .more-card-meta {
-            font-size: 0.8rem;
-            color: #8a7e6d;
-        }
+        /* READ NEXT */
+        .read-next { max-width:720px; margin:0 auto; padding:0 2rem 4rem; }
+        .read-next h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; margin-bottom:1.5rem; }
+        .read-next-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+        .read-next-card { border:1px solid #e8e8e8; border-radius:8px; overflow:hidden; transition:transform 0.25s ease, box-shadow 0.25s ease; }
+        .read-next-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.07); }
+        .read-next-card a { display:block; text-decoration:none; color:inherit; }
+        .read-next-card img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+        .read-next-card .rn-body { padding:1.25rem; }
+        .read-next-card .rn-tag { display:inline-block; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:#2d5a27; background:rgba(45,90,39,0.08); padding:0.2rem 0.6rem; border-radius:9999px; margin-bottom:0.5rem; }
+        .read-next-card h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.05rem; font-weight:700; line-height:1.35; }
 
-        .site-footer {
-            max-width: 680px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 3rem;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #8a7e6d;
-            border-top: 1px solid #e5ddd0;
-        }
+        /* FOOTER */
+        .site-footer { background:#32373c; color:#fff; padding:3.5rem 2rem 2rem; }
+        .footer-inner { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; }
+        .footer-col h4 { font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem; color:rgba(255,255,255,0.7); }
+        .footer-col p, .footer-col a { font-size:0.92rem; color:rgba(255,255,255,0.85); line-height:1.8; }
+        .footer-col a:hover { color:#fff; text-decoration:none; }
+        .footer-logo img { height:40px; width:auto; margin-bottom:1rem; }
+        .footer-social { display:flex; gap:1rem; margin-top:1rem; }
+        .footer-social a { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.85); transition:border-color 0.2s, color 0.2s; }
+        .footer-social a:hover { border-color:#fff; color:#fff; text-decoration:none; }
+        .footer-bottom { max-width:1240px; margin:2.5rem auto 0; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.15); text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.5); }
 
-        @media (max-width: 600px) {
-            .article-title { font-size: 1.7rem; }
-            .more-cards { flex-direction: column; }
-            .faq-section { padding: 1.5rem 1.2rem 0.5rem; }
+        /* RESPONSIVE */
+        @media (max-width:778px) {
+            .site-nav-links { display:none; }
+            .site-nav-links.open { display:flex; flex-direction:column; position:absolute; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e8e8e8; padding:1.5rem 2rem; gap:1rem; box-shadow:0 8px 24px rgba(0,0,0,0.06); }
+            .nav-toggle { display:block; }
+            .footer-inner { grid-template-columns:1fr; }
+            .hero { height:340px; }
+            .hero-content h1 { font-size:2rem; }
+            .read-next-grid { grid-template-columns:1fr; }
+        }
+        @media (max-width:480px) {
+            .hero { height:280px; }
+            .hero-content h1 { font-size:1.7rem; }
+            .article-body { padding:1.5rem 1rem 3rem; font-size:1rem; }
+            .article-meta-bar { padding:1.25rem 1rem 0; }
+            .read-next { padding:0 1rem 3rem; }
         }
     </style>
 </head>
 <body>
-    <header class="site-header">
-        <nav class="nav-links">
-            <a href="../../index.html">&larr; Back to Portal</a>
-            <a href="index.html">&larr; All Posts</a>
-        </nav>
-        <div class="blog-name">From the Farm</div>
-    </header>
 
-    <article>
-        <span class="article-tag">CBD Education</span>
-        <h1 class="article-title">Full Spectrum vs Broad Spectrum vs CBD Isolate: What Actually Matters</h1>
-        <div class="article-meta">
-            <span>April 4, 2026</span>
-            <span>10 min read</span>
+<nav class="site-nav">
+    <div class="site-nav-inner">
+        <a href="https://www.fiddlersgreen.io/" class="site-nav-logo"><img src="assets/FGF_logo_color_rgb.png" alt="Fiddlers Green Farm"></a>
+        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.site-nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+        <ul class="site-nav-links">
+            <li><a href="https://www.fiddlersgreen.io/our-story/">Our Story</a></li>
+            <li><a href="https://www.fiddlersgreen.io/learn-more/">Learn More</a></li>
+            <li><a href="https://www.fiddlersgreen.io/farm-store/">Farm Store</a></li>
+            <li><a href="index.html" class="active">Blog</a></li>
+            <li><a href="https://www.fiddlersgreen.io/contact/">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <img class="hero-img" src="assets/DSC_3209.jpg" alt="Full spectrum CBD hemp products">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Full Spectrum vs Broad Spectrum vs CBD Isolate: What Actually Matters</h1>
+    </div>
+</section>
+
+<div class="article-meta-bar">
+    <span class="meta-tag">CBD Education</span>
+    <span class="meta-date">April 4, 2026</span>
+    <span class="meta-read">10 min read</span>
+</div>
+
+<article class="article-body">
+
+    <p>You're standing in a store, or scrolling through yet another website, and there they are. Three terms on three different bottles: <strong>full spectrum</strong>, <strong>broad spectrum</strong>, <strong>CBD isolate</strong>. The prices are all over the place. The labels all look vaguely scientific. And nobody seems to explain the difference without trying to sell you something.</p>
+
+    <p>We get it. When we started growing hemp on our farm in Taneytown, Maryland, even we had to cut through a mountain of confusing marketing to figure out what these terms actually mean. And we grow the stuff.</p>
+
+    <p>So here's the straightforward version. No sales pitch. Just what these three types of CBD are, what the current science says, and why we chose to make the kind we make. You can decide what's right for you.</p>
+
+    <h2>What's Actually in Each Type</h2>
+
+    <p><strong>Full spectrum hemp extract</strong> contains the complete range of compounds from the hemp plant. CBD is the main one, but you also get minor cannabinoids like CBG, CBC, and CBN, plus terpenes (the compounds that give hemp its smell) and flavonoids. And yes, it contains trace amounts of THC. Federal law caps that at 0.3% or less. Not enough to get you high, but enough to matter. We'll explain why in a minute.</p>
+
+    <p><strong>Broad spectrum</strong> is similar but with the THC removed entirely. You still get multiple cannabinoids and terpenes, just with a zero next to THC on the lab report.</p>
+
+    <p><strong>CBD isolate</strong> is exactly what it sounds like. Pure CBD, 99% or higher, with everything else stripped away. No other cannabinoids, no terpenes, no THC. It's the most processed form you can buy.</p>
+
+    <p>We think of it this way. Full spectrum is the whole orange. Broad spectrum is the orange with certain seeds carefully picked out. Isolate is just the vitamin C tablet.</p>
+
+    <h2>The Entourage Effect: What We Know and What We Don't</h2>
+
+    <p>You'll see the phrase "entourage effect" on a lot of CBD websites. The basic idea is that hemp compounds work better together than any single one does alone. Like how a band sounds different from one guitar playing by itself.</p>
+
+    <p>There's real research behind this. A 2023 study in the <em>European Journal of Drug Metabolism and Pharmacokinetics</em> found that full spectrum CBD had measurably higher oral bioavailability compared to CBD isolate. We're talking <strong>12% higher in male subjects and 21% higher in female subjects</strong>. The researchers pinpointed that even just 0.2% THC was the key driver, increasing CBD's intestinal permeability. Your body literally absorbs more CBD when that trace THC is present.</p>
+
+    <p>But here's where we want to be straight with you, because that matters more to us than making a sale. A 2023 review of entourage effect research found that the solid evidence is still limited. Some studies show clear synergy between compounds. Others show certain compounds can actually work against each other. Most CBD brands conveniently leave that part out.</p>
+
+    <p>The trend line points toward full spectrum being more effective. The science isn't settled though, not the way some marketing copy makes it sound. We believe in full spectrum because of what we've seen in the research and what thousands of customers have told us works for them. But we're farmers, not doctors, and we're not going to pretend the debate is closed when it isn't.</p>
+
+    <h2>Who Each Type Is For</h2>
+
+    <p><strong>Full spectrum</strong> is for people who want the whole plant and are fine with trace THC. If you don't get drug tested and you want the formulation that current research suggests is most bioavailable, this is the direction to look. It's what we make at Fiddlers Green.</p>
+
+    <p><strong>Broad spectrum</strong> makes sense if you need to avoid THC entirely. Maybe you get tested for work. Maybe you just prefer zero THC for your own reasons. No argument from us. You're still getting a range of cannabinoids and terpenes.</p>
+
+    <p><strong>CBD isolate</strong> has its uses too. It's flavorless. It's the simplest ingredient if you're adding CBD to food or drinks. You're just missing everything else the plant makes.</p>
+
+    <p>There's no universally "best" type. There's the best type for your situation.</p>
+
+    <h2>How to Tell What You're Actually Buying</h2>
+
+    <p>Every reputable CBD company, us included, should have recent lab results from an independent third-party lab. The <strong>Certificate of Analysis (COA)</strong> should show the cannabinoid profile, THC content, and test for contaminants. If a company doesn't have COAs available, that tells you something.</p>
+
+    <ul>
+        <li><strong>Check whether the COA matches the label.</strong> If a product says "full spectrum" but the COA shows only CBD with no other cannabinoids detected, somebody's not being straight with you.</li>
+        <li><strong>Ask about extraction method.</strong> CO2 extraction is considered the cleanest approach.</li>
+        <li><strong>Look at carrier oils and additives.</strong> Simpler is usually better. Our extracts use organic MCT coconut oil.</li>
+        <li><strong>Pay attention to organic certification.</strong> Hemp is a bioaccumulator, meaning it pulls whatever is in the soil right into the plant. Organic certification means the growing practices were verified by an outside agency.</li>
+    </ul>
+
+    <h2>Why We Chose Full Spectrum</h2>
+
+    <p>We could make isolate. We could strip the THC out and call it broad spectrum. But we're seed to shelf. We grow our hemp organically on our family farm, the same land our family has farmed since 1946. We extract it ourselves in small batches. The goal is to keep the plant as close to how it grew as possible.</p>
+
+    <p>That said, if broad spectrum or isolate is what you need, go find the best version of it you can. Read the COAs. Ask hard questions. We'd honestly rather you buy a good broad spectrum product from someone else than a bad full spectrum from anyone. Including us.</p>
+
+    <h2>The Short Version</h2>
+
+    <p>The difference between full spectrum, broad spectrum, and isolate comes down to how much of the original plant is still in the bottle. Current research leans toward full spectrum for better absorption. But the science is still developing, and we'd rather tell you that than pretend we have all the answers.</p>
+
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>What is the difference between full spectrum and broad spectrum CBD?</h3>
+            <p>Full spectrum contains all the cannabinoids, terpenes, and flavonoids from the hemp plant, including trace THC (0.3% or less). Broad spectrum has the same range of compounds but with THC completely removed.</p>
         </div>
 
-        <div class="article-body">
-            <p>You're standing in a store, or scrolling through yet another website, and there they are. Three terms on three different bottles: full spectrum, broad spectrum, CBD isolate. The prices are all over the place. The labels all look vaguely scientific. And nobody seems to explain the difference without trying to sell you something.</p>
+        <div class="faq-item">
+            <h3>Will full spectrum CBD show up on a drug test?</h3>
+            <p>It can, yes. Even though full spectrum CBD contains only trace THC, regular use can cause it to accumulate. If you get drug tested, broad spectrum or isolate is safer.</p>
+        </div>
 
-            <p>We get it. When we started growing hemp on our farm in Taneytown, Maryland, even we had to cut through a mountain of confusing marketing to figure out what these terms actually mean. And we grow the stuff.</p>
+        <div class="faq-item">
+            <h3>Is CBD isolate less effective than full spectrum?</h3>
+            <p>A 2023 study found 12-21% higher absorption rates for full spectrum compared to isolate, with trace THC identified as the key factor. That said, isolate still contains CBD and people do find it helpful.</p>
+        </div>
 
-            <p>So here's the straightforward version. No sales pitch. Just what these three types of CBD are, what the current science says, and why we chose to make the kind we make. You can decide what's right for you.</p>
+        <div class="faq-item">
+            <h3>How do I verify if my CBD is really full spectrum?</h3>
+            <p>Ask for the Certificate of Analysis from a third-party lab. A real full spectrum product will show CBD plus smaller amounts of CBG, CBC, CBN, and others, along with trace THC at or below 0.3%.</p>
+        </div>
 
-            <h2>What's Actually in Each Type</h2>
+        <div class="faq-item">
+            <h3>Why does organic certification matter for CBD?</h3>
+            <p>Hemp pulls whatever is in the soil into the plant, including pesticides and heavy metals. USDA organic certification means an outside agency verified the growing practices.</p>
+        </div>
+    </div>
 
-            <p><strong>Full spectrum</strong> hemp extract contains the complete range of compounds from the hemp plant. CBD is the main one, but you also get minor cannabinoids like CBG, CBC, and CBN, plus terpenes (the compounds that give hemp its smell) and flavonoids. And yes, it contains trace amounts of THC. Federal law caps that at 0.3% or less. Not enough to get you high, but enough to matter. We'll explain why in a minute.</p>
+</article>
 
-            <p><strong>Broad spectrum</strong> is similar but with the THC removed entirely. You still get multiple cannabinoids and terpenes, just with a zero next to THC on the lab report.</p>
-
-            <p><strong>CBD isolate</strong> is exactly what it sounds like. Pure CBD, 99% or higher, with everything else stripped away. No other cannabinoids, no terpenes, no THC. It's the most processed form you can buy.</p>
-
-            <p>We think of it this way. Full spectrum is the whole orange. Broad spectrum is the orange with certain seeds carefully picked out. Isolate is just the vitamin C tablet.</p>
-
-            <h2>The Entourage Effect: What We Know and What We Don't</h2>
-
-            <p>You'll see the phrase "entourage effect" on a lot of CBD websites. The basic idea is that hemp compounds work better together than any single one does alone. Like how a band sounds different from one guitar playing by itself.</p>
-
-            <p>There's real research behind this. A 2023 study in the European Journal of Drug Metabolism and Pharmacokinetics found that full spectrum CBD had measurably higher oral bioavailability compared to CBD isolate. We're talking 12% higher in male subjects and 21% higher in female subjects. The researchers pinpointed that even just 0.2% THC was the key driver, increasing CBD's intestinal permeability. Your body literally absorbs more CBD when that trace THC is present.</p>
-
-            <p>But here's where we want to be straight with you, because that matters more to us than making a sale. A 2023 review of entourage effect research found that the solid evidence is still limited. Some studies show clear synergy between compounds. Others show certain compounds can actually work against each other. Most CBD brands conveniently leave that part out.</p>
-
-            <p>The trend line points toward full spectrum being more effective. The science isn't settled though, not the way some marketing copy makes it sound. We believe in full spectrum because of what we've seen in the research and what thousands of customers have told us works for them. But we're farmers, not doctors, and we're not going to pretend the debate is closed when it isn't.</p>
-
-            <h2>Who Each Type Is For</h2>
-
-            <p><strong>Full spectrum</strong> is for people who want the whole plant and are fine with trace THC. If you don't get drug tested and you want the formulation that current research suggests is most bioavailable, this is the direction to look. It's what we make at Fiddlers Green. Our organic hemp extract is full spectrum because we think the whole plant matters.</p>
-
-            <p><strong>Broad spectrum</strong> makes sense if you need to avoid THC entirely. Maybe you get tested for work. Maybe you just prefer zero THC for your own reasons. No argument from us. You're still getting a range of cannabinoids and terpenes, just without the one compound that research suggests helps with absorption.</p>
-
-            <p><strong>CBD isolate</strong> has its uses too. It's flavorless, which matters to some people. It's the simplest ingredient if you're adding CBD to food or drinks. And if you want a single-compound product with no surprises, isolate gives you that. You're just missing everything else the plant makes.</p>
-
-            <p>There's no universally "best" type. There's the best type for your situation.</p>
-
-            <h2>How to Tell What You're Actually Buying</h2>
-
-            <p>Every reputable CBD company, us included, should have recent lab results from an independent third party lab. Not their own internal testing. The Certificate of Analysis (COA) should show the cannabinoid profile, THC content, and test for contaminants like heavy metals and pesticides. If a company doesn't have COAs available or makes you jump through hoops to find them, that tells you something.</p>
-
-            <p>Check whether the COA matches the label. If a product says "full spectrum" but the COA shows only CBD with no other cannabinoids detected, somebody's not being straight with you.</p>
-
-            <p>Ask about extraction method. CO2 extraction is considered the cleanest approach. It doesn't leave solvent residues and preserves the plant compounds well.</p>
-
-            <p>Look at carrier oils and additives. Simpler is usually better. Our extracts use organic MCT coconut oil as a carrier.</p>
-
-            <p>And pay attention to organic certification. We're USDA certified organic, so obviously we think this matters. Hemp is a bioaccumulator, meaning it pulls whatever is in the soil right into the plant. If that soil has pesticides or heavy metals, they end up in your extract. Organic certification means the growing practices were verified by an outside agency, not just claimed on a label.</p>
-
-            <h2>Why We Chose Full Spectrum</h2>
-
-            <p>We could make isolate. We could strip the THC out and call it broad spectrum. Either option would probably be easier to market.</p>
-
-            <p>But we're seed to shelf. We grow our hemp organically on our family farm, the same land our family has farmed since 1946. We extract it ourselves in small batches. And through that entire process, the goal is to keep the plant as close to how it grew as possible. Full spectrum is the least processed form of hemp extract, and that lines up with everything else we do here.</p>
-
-            <p>That said, if broad spectrum or isolate is what you need, go find the best version of it you can. Read the COAs. Ask hard questions. We'd honestly rather you buy a good broad spectrum product from someone else than a bad full spectrum from anyone. Including us.</p>
-
-            <h2>The Short Version</h2>
-
-            <p>The difference between full spectrum, broad spectrum, and isolate comes down to how much of the original plant is still in the bottle. Full spectrum keeps everything, including trace THC. Broad spectrum removes the THC. Isolate removes everything except CBD.</p>
-
-            <p>Current research leans toward full spectrum for better absorption. But the science is still developing, and we'd rather tell you that than pretend we have all the answers.</p>
-
-            <p>If you want to try a USDA organic, small batch, full spectrum extract made by the people who actually grew the hemp, that's what we do.</p>
-
-            <div class="faq-section">
-                <h2>Frequently Asked Questions</h2>
-
-                <div class="faq-item">
-                    <div class="faq-question">What is the difference between full spectrum and broad spectrum CBD?</div>
-                    <div class="faq-answer">Full spectrum contains all the cannabinoids, terpenes, and flavonoids from the hemp plant, including trace THC (0.3% or less). Broad spectrum has the same range of compounds but with THC completely removed. The practical difference: full spectrum includes the trace THC that research shows helps your body absorb CBD more effectively.</div>
+<section class="read-next">
+    <h2>Read Next</h2>
+    <div class="read-next-grid">
+        <div class="read-next-card">
+            <a href="cbd-dosage-guide.html">
+                <img src="assets/Ben_hemp_field.jpeg" alt="Ben in the hemp field">
+                <div class="rn-body">
+                    <span class="rn-tag">CBD Education</span>
+                    <h3>CBD Dosage Guide: How Much CBD Should I Take?</h3>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Will full spectrum CBD show up on a drug test?</div>
-                    <div class="faq-answer">It can, yes. Even though full spectrum CBD contains only trace THC, regular use can cause it to accumulate in your system. If you get drug tested for work, broad spectrum or isolate is the safer bet.</div>
+            </a>
+        </div>
+        <div class="read-next-card">
+            <a href="what-is-regenerative-farming.html">
+                <img src="assets/Brynn_Wheat_01.jpeg" alt="Brynn in wheat field">
+                <div class="rn-body">
+                    <span class="rn-tag">Farm &amp; Soil</span>
+                    <h3>What Is Regenerative Farming (And Why Your CBD Should Come From One)</h3>
                 </div>
+            </a>
+        </div>
+    </div>
+</section>
 
-                <div class="faq-item">
-                    <div class="faq-question">Is CBD isolate less effective than full spectrum?</div>
-                    <div class="faq-answer">A 2023 study found 12-21% higher absorption rates for full spectrum compared to isolate, with trace THC identified as the key factor. That said, isolate still contains CBD and people do find it helpful.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">How do I verify if my CBD is really full spectrum?</div>
-                    <div class="faq-answer">Ask for the Certificate of Analysis from a third party lab. A real full spectrum product will show CBD as the dominant cannabinoid plus smaller amounts of CBG, CBC, CBN, and others, along with trace THC at or below 0.3%.</div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">Why does organic certification matter for CBD?</div>
-                    <div class="faq-answer">Hemp pulls whatever is in the soil into the plant, including pesticides and heavy metals. USDA organic certification means an outside agency verified the growing practices.</div>
-                </div>
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-col">
+            <div class="footer-logo"><img src="assets/FGF_logo_white.png" alt="Fiddlers Green Farm"></div>
+            <p>Seed to shelf hemp products from our family farm in Taneytown, Maryland. Farmed on this land since 1946.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/fiddlersgreenmd/" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="https://www.facebook.com/fiddlersgreenmd/" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
             </div>
         </div>
-    </article>
-
-    <section class="more-section">
-        <h2>More from the Farm</h2>
-        <div class="more-cards">
-            <div class="more-card">
-                <span class="more-card-tag more-card-tag--cbd">CBD Education</span>
-                <div class="more-card-title">
-                    <a href="cbd-dosage-guide.html">CBD Dosage Guide: How Much CBD Should I Take?</a>
-                </div>
-                <div class="more-card-meta">April 4, 2026 &middot; 11 min read</div>
-            </div>
-            <div class="more-card">
-                <span class="more-card-tag more-card-tag--farm">Farm &amp; Soil</span>
-                <div class="more-card-title">
-                    <a href="what-is-regenerative-farming.html">What Is Regenerative Farming (And Why Your CBD Should Come From One)</a>
-                </div>
-                <div class="more-card-meta">April 4, 2026 &middot; 11 min read</div>
-            </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <p><a href="https://www.fiddlersgreen.io/our-story/">Our Story</a><br><a href="https://www.fiddlersgreen.io/farm-store/">Farm Store</a><br><a href="https://www.fiddlersgreen.io/learn-more/">Learn More</a><br><a href="index.html">Blog</a><br><a href="https://www.fiddlersgreen.io/contact/">Contact</a></p>
         </div>
-    </section>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p><a href="mailto:ben@fiddlersgreen.io">ben@fiddlersgreen.io</a><br><a href="tel:4107560727">410-756-0727</a><br><br>3907 Old Taneytown Road<br>Taneytown, MD 21787</p>
+        </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Fiddlers Green Farm. All rights reserved.</div>
+</footer>
 
-    <footer class="site-footer">
-        Fiddlers Green Farm &middot; Taneytown, Maryland &middot; fiddlersgreen.io
-    </footer>
 </body>
 </html>

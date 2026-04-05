@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>From the Farm — Fiddlers Green Farm Blog</title>
-    <meta name="description" content="Stories, science, and updates from Fiddlers Green Farm in Taneytown, Maryland.">
+    <meta name="description" content="Stories, science, and updates from Fiddlers Green Farm in Taneytown, Maryland. CBD education, regenerative farming, and life on the land.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Source Sans 3', sans-serif;
-            background: #faf8f3;
-            color: #2c2c2c;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #1b1b1b;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
         }
@@ -22,164 +22,402 @@
         a { color: #2d5a27; text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        .site-header {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 2.5rem 1.5rem 0;
-        }
-
-        .back-link {
-            font-size: 0.9rem;
-            color: #8a7e6d;
-            display: inline-block;
-            margin-bottom: 1.5rem;
-        }
-        .back-link:hover { color: #2d5a27; }
-
-        .blog-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.4rem;
-            color: #3d2b1f;
-            margin-bottom: 0.3rem;
-        }
-
-        .blog-subtitle {
-            font-size: 1.05rem;
-            color: #8a7e6d;
-            font-weight: 300;
-            margin-bottom: 2.5rem;
-        }
-
-        .card-list {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 0 1.5rem 3rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .card {
+        /* ── NAV ── */
+        .site-nav {
+            width: 100%;
             background: #ffffff;
-            border: 1px solid #e5ddd0;
-            border-radius: 8px;
-            padding: 1.8rem 2rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            border-left: 4px solid #e5ddd0;
+            border-bottom: 1px solid #e8e8e8;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+        .site-nav-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
         }
-        .card--cbd { border-left-color: #2d5a27; }
-        .card--farm { border-left-color: #8a7e6d; }
+        .site-nav-logo img {
+            height: 48px;
+            width: auto;
+        }
+        .site-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        .site-nav-links a {
+            color: #1b1b1b;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            transition: color 0.2s;
+        }
+        .site-nav-links a:hover {
+            color: #2d5a27;
+            text-decoration: none;
+        }
+        .site-nav-links a.active {
+            color: #2d5a27;
+            font-weight: 600;
+        }
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .nav-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #1b1b1b;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
 
-        .card-tag {
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 420px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            padding: 0 2rem;
+        }
+        .hero-content h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            opacity: 0.92;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        /* ── CARDS GRID ── */
+        .blog-section {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 4rem 2rem 5rem;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        .blog-card {
+            background: #ffffff;
+            border: 1px solid #e8e8e8;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+        }
+        .blog-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .blog-card-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+        .blog-card-body {
+            padding: 1.5rem;
+        }
+        .blog-card-tag {
             display: inline-block;
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.04em;
-            padding: 0.2rem 0.7rem;
-            border-radius: 20px;
-            margin-bottom: 0.8rem;
+            letter-spacing: 0.06em;
+            color: #2d5a27;
+            background: rgba(45, 90, 39, 0.08);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 0.75rem;
         }
-        .card-tag--cbd { background: #e8f0e6; color: #2d5a27; }
-        .card-tag--farm { background: #f0ebe0; color: #6b5d4f; }
-
-        .card-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.35rem;
-            color: #3d2b1f;
-            margin-bottom: 0.6rem;
+        .blog-card-body h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.25rem;
+            font-weight: 700;
             line-height: 1.35;
+            margin-bottom: 0.6rem;
+            color: #1b1b1b;
         }
-        .card-title a { color: inherit; }
-        .card-title a:hover { text-decoration: none; color: #2d5a27; }
+        .blog-card-body p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .blog-card-meta {
+            font-size: 0.82rem;
+            color: #888;
+        }
+        .blog-card-meta span + span::before {
+            content: "\00b7";
+            margin: 0 0.4rem;
+        }
 
-        .card-excerpt {
-            font-size: 0.98rem;
-            color: #4a4a4a;
-            line-height: 1.65;
+        /* ── FOOTER ── */
+        .site-footer {
+            background: #32373c;
+            color: #ffffff;
+            padding: 3.5rem 2rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            color: rgba(255,255,255,0.7);
+        }
+        .footer-col p, .footer-col a {
+            font-size: 0.92rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+        }
+        .footer-col a:hover { color: #ffffff; text-decoration: none; }
+        .footer-logo img {
+            height: 40px;
+            width: auto;
             margin-bottom: 1rem;
         }
-
-        .card-meta {
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.85);
             font-size: 0.85rem;
-            color: #8a7e6d;
+            transition: border-color 0.2s, color 0.2s;
         }
-        .card-meta span + span::before {
-            content: "·";
-            margin: 0 0.5rem;
+        .footer-social a:hover {
+            border-color: #ffffff;
+            color: #ffffff;
+            text-decoration: none;
         }
-
-        .site-footer {
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 3rem;
+        .footer-bottom {
+            max-width: 1240px;
+            margin: 2.5rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
             text-align: center;
-            font-size: 0.85rem;
-            color: #8a7e6d;
-            border-top: 1px solid #e5ddd0;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
         }
 
-        @media (max-width: 600px) {
-            .blog-title { font-size: 1.8rem; }
-            .card { padding: 1.4rem 1.2rem; }
-            .card-title { font-size: 1.15rem; }
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 778px) {
+            .site-nav-links { display: none; }
+            .site-nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: #ffffff;
+                border-bottom: 1px solid #e8e8e8;
+                padding: 1.5rem 2rem;
+                gap: 1rem;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            }
+            .nav-toggle { display: block; }
+            .footer-inner { grid-template-columns: 1fr; }
+            .hero { height: 340px; }
+            .hero-content h1 { font-size: 2.2rem; }
+        }
+        @media (max-width: 480px) {
+            .blog-grid { grid-template-columns: 1fr; }
+            .hero { height: 280px; }
+            .hero-content h1 { font-size: 1.8rem; }
+            .hero-content p { font-size: 1rem; }
+            .blog-section { padding: 2.5rem 1rem 3rem; }
         }
     </style>
 </head>
 <body>
-    <header class="site-header">
-        <nav>
-            <a href="../../index.html" class="back-link">&larr; Back to Portal</a>
-        </nav>
-        <h1 class="blog-title">From the Farm</h1>
-        <p class="blog-subtitle">Stories, science, and updates from Fiddlers Green Farm</p>
-    </header>
 
-    <main class="card-list">
-        <article class="card card--cbd">
-            <span class="card-tag card-tag--cbd">CBD Education</span>
-            <h2 class="card-title">
-                <a href="full-spectrum-vs-broad-spectrum-vs-isolate.html">Full Spectrum vs Broad Spectrum vs CBD Isolate Explained</a>
-            </h2>
-            <p class="card-excerpt">You're standing in a store, or scrolling through yet another website, and there they are. Three terms on three different bottles. Nobody seems to explain the difference without trying to sell you something.</p>
-            <div class="card-meta">
-                <span>April 4, 2026</span>
-                <span>10 min read</span>
-            </div>
+<!-- NAV -->
+<nav class="site-nav">
+    <div class="site-nav-inner">
+        <a href="https://www.fiddlersgreen.io/" class="site-nav-logo">
+            <img src="assets/FGF_logo_color_rgb.png" alt="Fiddlers Green Farm">
+        </a>
+        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.site-nav-links').classList.toggle('open')">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="site-nav-links">
+            <li><a href="https://www.fiddlersgreen.io/our-story/">Our Story</a></li>
+            <li><a href="https://www.fiddlersgreen.io/learn-more/">Learn More</a></li>
+            <li><a href="https://www.fiddlersgreen.io/farm-store/">Farm Store</a></li>
+            <li><a href="index.html" class="active">Blog</a></li>
+            <li><a href="https://www.fiddlersgreen.io/contact/">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <img class="hero-img" src="assets/hemp_rows3.jpeg" alt="Hemp field rows at Fiddlers Green Farm">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>From the Farm</h1>
+        <p>Stories, science, and updates from Fiddlers Green Farm</p>
+    </div>
+</section>
+
+<!-- ARTICLES -->
+<section class="blog-section">
+    <div class="blog-grid">
+
+        <article class="blog-card">
+            <a href="full-spectrum-vs-broad-spectrum-vs-isolate.html">
+                <img class="blog-card-img" src="assets/DSC_3209.jpg" alt="Full spectrum CBD product">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">CBD Education</span>
+                    <h3>Full Spectrum vs Broad Spectrum vs CBD Isolate Explained</h3>
+                    <p>You're standing in a store, or scrolling through yet another website, and there they are. Three terms on three different bottles...</p>
+                    <div class="blog-card-meta">
+                        <span>April 4, 2026</span>
+                        <span>10 min read</span>
+                    </div>
+                </div>
+            </a>
         </article>
 
-        <article class="card card--cbd">
-            <span class="card-tag card-tag--cbd">CBD Education</span>
-            <h2 class="card-title">
-                <a href="cbd-dosage-guide.html">CBD Dosage Guide: How Much CBD Should I Take?</a>
-            </h2>
-            <p class="card-excerpt">The single most common question we hear — at the farmers market, in emails, even from friends at dinner — is some version of "how much of this stuff do I actually take?"</p>
-            <div class="card-meta">
-                <span>April 4, 2026</span>
-                <span>11 min read</span>
-            </div>
+        <article class="blog-card">
+            <a href="cbd-dosage-guide.html">
+                <img class="blog-card-img" src="assets/Ben_hemp_field.jpeg" alt="Ben in the hemp field">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">CBD Education</span>
+                    <h3>CBD Dosage Guide: How Much CBD Should I Take?</h3>
+                    <p>The single most common question we hear — at the farmers market, in emails, even from friends at dinner...</p>
+                    <div class="blog-card-meta">
+                        <span>April 4, 2026</span>
+                        <span>11 min read</span>
+                    </div>
+                </div>
+            </a>
         </article>
 
-        <article class="card card--farm">
-            <span class="card-tag card-tag--farm">Farm &amp; Soil</span>
-            <h2 class="card-title">
-                <a href="what-is-regenerative-farming.html">What Is Regenerative Farming (And Why Your CBD Should Come From One)</a>
-            </h2>
-            <p class="card-excerpt">"Regenerative" is everywhere right now. It's on coffee bags, clothing labels, and about half the booths at every farmers' market. Everybody's using the word. Most of them can't tell you what it actually means.</p>
-            <div class="card-meta">
-                <span>April 4, 2026</span>
-                <span>11 min read</span>
-            </div>
+        <article class="blog-card">
+            <a href="what-is-regenerative-farming.html">
+                <img class="blog-card-img" src="assets/Brynn_Wheat_01.jpeg" alt="Brynn in wheat field">
+                <div class="blog-card-body">
+                    <span class="blog-card-tag">Farm &amp; Soil</span>
+                    <h3>What Is Regenerative Farming (And Why Your CBD Should Come From One)</h3>
+                    <p>"Regenerative" is everywhere right now. Everybody's using the word. Most of them can't tell you what it actually means.</p>
+                    <div class="blog-card-meta">
+                        <span>April 4, 2026</span>
+                        <span>11 min read</span>
+                    </div>
+                </div>
+            </a>
         </article>
-    </main>
 
-    <footer class="site-footer">
-        Fiddlers Green Farm &middot; Taneytown, Maryland &middot; fiddlersgreen.io
-    </footer>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-col">
+            <div class="footer-logo">
+                <img src="assets/FGF_logo_white.png" alt="Fiddlers Green Farm">
+            </div>
+            <p>Seed to shelf hemp products from our family farm in Taneytown, Maryland. Farmed on this land since 1946.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/fiddlersgreenmd/" aria-label="Instagram">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/fiddlersgreenmd/" aria-label="Facebook">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <p>
+                <a href="https://www.fiddlersgreen.io/our-story/">Our Story</a><br>
+                <a href="https://www.fiddlersgreen.io/farm-store/">Farm Store</a><br>
+                <a href="https://www.fiddlersgreen.io/learn-more/">Learn More</a><br>
+                <a href="index.html">Blog</a><br>
+                <a href="https://www.fiddlersgreen.io/contact/">Contact</a>
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p>
+                <a href="mailto:ben@fiddlersgreen.io">ben@fiddlersgreen.io</a><br>
+                <a href="tel:4107560727">410-756-0727</a><br><br>
+                3907 Old Taneytown Road<br>
+                Taneytown, MD 21787
+            </p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 Fiddlers Green Farm. All rights reserved.
+    </div>
+</footer>
+
 </body>
 </html>
