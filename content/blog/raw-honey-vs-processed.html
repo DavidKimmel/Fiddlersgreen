@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw Honey vs Processed Honey: What's Actually in the Jar — Fiddlers Green Farm</title>
+    <meta name="description" content="Most grocery store honey is heated, ultra-filtered, and stripped of pollen. Learn what raw honey actually means, why the bees' diet matters, and how our organic farm shapes every jar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #1b1b1b;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: #2d5a27; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* NAV */
+        .site-nav { width:100%; background:#fff; border-bottom:1px solid #e8e8e8; position:sticky; top:0; z-index:100; }
+        .site-nav-inner { max-width:1240px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:72px; }
+        .site-nav-logo img { height:48px; width:auto; }
+        .site-nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+        .site-nav-links a { color:#1b1b1b; font-size:0.95rem; font-weight:500; letter-spacing:0.01em; transition:color 0.2s; }
+        .site-nav-links a:hover { color:#2d5a27; text-decoration:none; }
+        .site-nav-links a.active { color:#2d5a27; font-weight:600; }
+        .nav-toggle { display:none; background:none; border:none; cursor:pointer; padding:0.5rem; }
+        .nav-toggle span { display:block; width:24px; height:2px; background:#1b1b1b; margin:5px 0; transition:0.3s; }
+
+        /* HERO */
+        .hero { position:relative; width:100%; height:420px; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; }
+        .hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+        .hero-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.45); }
+        .hero-content { position:relative; z-index:2; color:#fff; padding:0 2rem; max-width:800px; }
+        .hero-content h1 { font-family:'Playfair Display',Georgia,serif; font-size:2.8rem; font-weight:700; line-height:1.2; }
+
+        /* META BAR */
+        .article-meta-bar { max-width:720px; margin:0 auto; padding:1.5rem 2rem 0; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+        .meta-tag { display:inline-block; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:#2d5a27; background:rgba(45,90,39,0.08); padding:0.25rem 0.75rem; border-radius:9999px; }
+        .meta-date, .meta-read { font-size:0.85rem; color:#888; }
+        .meta-date::after { content:"\00b7"; margin:0 0.4rem; }
+
+        /* ARTICLE BODY */
+        .article-body { max-width:720px; margin:0 auto; padding:2rem 2rem 4rem; font-size:1.125rem; line-height:1.75; }
+        .article-body h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.75rem; font-weight:700; margin:2.5rem 0 1rem; color:#1b1b1b; }
+        .article-body h3 { font-size:1.25rem; font-weight:600; margin:2rem 0 0.75rem; }
+        .article-body p { margin-bottom:1.25rem; }
+        .article-body ul, .article-body ol { margin:0 0 1.25rem 1.5rem; }
+        .article-body li { margin-bottom:0.5rem; }
+        .article-body blockquote { border-left:3px solid #2d5a27; margin:1.5rem 0; padding:0.75rem 1.25rem; background:rgba(45,90,39,0.04); font-style:italic; }
+        .article-body table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:1rem; }
+        .article-body th { background:#2d5a27; color:#fff; padding:0.75rem 1rem; text-align:left; font-weight:600; font-size:0.9rem; }
+        .article-body td { padding:0.75rem 1rem; border-bottom:1px solid #e8e8e8; }
+        .article-body tr:nth-child(even) td { background:#f9f9f7; }
+        .article-body table { border-radius:8px; overflow:hidden; }
+
+        /* FAQ */
+        .faq-section { background:#faf5ed; border-radius:8px; padding:2rem 2rem 1.5rem; margin:2.5rem 0; }
+        .faq-section h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; margin-bottom:1.5rem; }
+        .faq-item { margin-bottom:1.5rem; }
+        .faq-item:last-child { margin-bottom:0; }
+        .faq-item h3 { font-size:1.05rem; font-weight:600; margin-bottom:0.4rem; color:#1b1b1b; }
+        .faq-item p { margin-bottom:0; font-size:1rem; color:#444; }
+
+        /* READ NEXT */
+        .read-next { max-width:720px; margin:0 auto; padding:0 2rem 4rem; }
+        .read-next h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; margin-bottom:1.5rem; }
+        .read-next-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+        .read-next-card { border:1px solid #e8e8e8; border-radius:8px; overflow:hidden; transition:transform 0.25s ease, box-shadow 0.25s ease; }
+        .read-next-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.07); }
+        .read-next-card a { display:block; text-decoration:none; color:inherit; }
+        .read-next-card img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+        .read-next-card .rn-body { padding:1.25rem; }
+        .read-next-card .rn-tag { display:inline-block; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:#2d5a27; background:rgba(45,90,39,0.08); padding:0.2rem 0.6rem; border-radius:9999px; margin-bottom:0.5rem; }
+        .read-next-card h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.05rem; font-weight:700; line-height:1.35; }
+
+        /* FOOTER */
+        .site-footer { background:#32373c; color:#fff; padding:3.5rem 2rem 2rem; }
+        .footer-inner { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; }
+        .footer-col h4 { font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem; color:rgba(255,255,255,0.7); }
+        .footer-col p, .footer-col a { font-size:0.92rem; color:rgba(255,255,255,0.85); line-height:1.8; }
+        .footer-col a:hover { color:#fff; text-decoration:none; }
+        .footer-logo img { height:40px; width:auto; margin-bottom:1rem; }
+        .footer-social { display:flex; gap:1rem; margin-top:1rem; }
+        .footer-social a { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.85); transition:border-color 0.2s, color 0.2s; }
+        .footer-social a:hover { border-color:#fff; color:#fff; text-decoration:none; }
+        .footer-bottom { max-width:1240px; margin:2.5rem auto 0; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.15); text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.5); }
+
+        /* RESPONSIVE */
+        @media (max-width:778px) {
+            .site-nav-links { display:none; }
+            .site-nav-links.open { display:flex; flex-direction:column; position:absolute; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e8e8e8; padding:1.5rem 2rem; gap:1rem; box-shadow:0 8px 24px rgba(0,0,0,0.06); }
+            .nav-toggle { display:block; }
+            .footer-inner { grid-template-columns:1fr; }
+            .hero { height:340px; }
+            .hero-content h1 { font-size:2rem; }
+            .read-next-grid { grid-template-columns:1fr; }
+            .article-body table { font-size:0.85rem; }
+            .article-body th, .article-body td { padding:0.5rem 0.6rem; }
+        }
+        @media (max-width:480px) {
+            .hero { height:280px; }
+            .hero-content h1 { font-size:1.7rem; }
+            .article-body { padding:1.5rem 1rem 3rem; font-size:1rem; }
+            .article-meta-bar { padding:1.25rem 1rem 0; }
+            .read-next { padding:0 1rem 3rem; }
+            .article-body table { font-size:0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <div class="site-nav-inner">
+        <a href="https://www.fiddlersgreen.io/" class="site-nav-logo"><img src="assets/FGF_logo_color_rgb.png" alt="Fiddlers Green Farm"></a>
+        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.site-nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+        <ul class="site-nav-links">
+            <li><a href="https://www.fiddlersgreen.io/our-story/">Our Story</a></li>
+            <li><a href="https://www.fiddlersgreen.io/learn-more/">Learn More</a></li>
+            <li><a href="https://www.fiddlersgreen.io/farm-store/">Farm Store</a></li>
+            <li><a href="index.html" class="active">Blog</a></li>
+            <li><a href="https://www.fiddlersgreen.io/contact/">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <img class="hero-img" src="assets/Hemp and Honey Bees Fiddlers Green.jpeg" alt="Honey bees at Fiddlers Green Farm">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Raw Honey vs Processed Honey: What&rsquo;s Actually in the Jar</h1>
+    </div>
+</section>
+
+<div class="article-meta-bar">
+    <span class="meta-tag">Honey</span>
+    <span class="meta-date">April 12, 2026</span>
+    <span class="meta-read">9 min read</span>
+</div>
+
+<article class="article-body">
+
+    <p>Pick up a bottle of honey at the grocery store. The label says &ldquo;pure honey.&rdquo; Maybe there is a picture of a bee on it. It looks golden and clear, pours perfectly, and costs five dollars.</p>
+
+    <p>Now open a jar of raw honey from a local farm. It is thicker. Maybe a little cloudy. Possibly crystallized around the edges. It costs more. And it is a completely different product from what is sitting on that grocery shelf.</p>
+
+    <p>Most people do not know the difference because nobody has a reason to tell them. The honey industry is not exactly racing to explain why the cheap stuff is cheap. So here is the straightforward version &mdash; what &ldquo;raw&rdquo; actually means, what happens to most commercial honey before it reaches you, and why the land the bees forage on changes everything about what ends up in the jar.</p>
+
+    <h2>What &ldquo;Raw&rdquo; Actually Means</h2>
+
+    <p>Raw honey is honey that has not been heated above the natural temperature of the hive and has not been ultra-filtered. That is the whole definition. It sounds simple because it is.</p>
+
+    <p>When honey comes straight from the comb, it contains pollen, enzymes, amino acids, antioxidants, and trace vitamins and minerals. These exist naturally &mdash; the bees put them there as part of how they process nectar into honey. Raw honey keeps all of that intact.</p>
+
+    <p>There are a few things to expect with raw honey that might surprise you if you have only ever bought the grocery store version:</p>
+
+    <ul>
+        <li><strong>It crystallizes.</strong> This is not a defect. All real honey crystallizes over time because it is a supersaturated sugar solution. The rate depends on the ratio of glucose to fructose in that particular batch. Crystallized honey is perfectly good &mdash; gently warm it in warm water if you want it liquid again.</li>
+        <li><strong>It is not perfectly clear.</strong> That slight cloudiness is pollen and naturally occurring particles. Those are good things.</li>
+        <li><strong>The color and flavor change between batches.</strong> This is because the bees are foraging on whatever is blooming, and that changes with the season. More on this later.</li>
+    </ul>
+
+    <p>Our honey is always raw honey. We do not heat it, we do not ultra-filter it, and we do not blend it with honey from somewhere else. What is in the jar is what the bees made, period.</p>
+
+    <h2>What Happens to Most Grocery Store Honey</h2>
+
+    <p>The honey most people grow up eating has been through a process that would be unrecognizable to the bees that made it.</p>
+
+    <p>Here is the typical commercial path:</p>
+
+    <ol>
+        <li><strong>Heating to 150&ndash;170&deg;F.</strong> This makes the honey thinner and easier to filter and bottle at high speed. It also destroys heat-sensitive enzymes and reduces the antioxidant content. The natural temperature inside a beehive stays around 95&deg;F &mdash; so commercial processing heats honey 55 to 75 degrees above what the bees intended.</li>
+        <li><strong>Ultra-filtration.</strong> This pushes the honey through extremely fine filters under pressure. It removes all pollen. In a 2011 investigation by Food Safety News, more than 75% of grocery store honey tested contained no pollen at all. Without pollen, there is no way to trace where the honey came from.</li>
+        <li><strong>Blending.</strong> Many large brands mix honeys from multiple countries to create a consistent product. Consistency is the goal &mdash; same color, same flavor, same viscosity, every bottle, every time. That consistency comes at the cost of everything that made the honey interesting in the first place.</li>
+    </ol>
+
+    <p>Then there is the import problem. The United States imports most of its honey. Some of that imported honey has been found to be adulterated with corn syrup, rice syrup, or other cheap sweeteners. Ultra-filtering makes this harder to detect because it removes the pollen that could identify the honey&rsquo;s country of origin.</p>
+
+    <p>None of this means every bottle at the grocery store is fake. But it means the system is set up in a way that makes it very easy for low-quality or adulterated honey to reach the shelf looking exactly like the real thing.</p>
+
+    <p>The simplest way around all of this is to buy from someone whose bees you can visit. Which brings us to the part that actually matters most.</p>
+
+    <h2>Why the Bees&rsquo; Diet Matters</h2>
+
+    <p>It starts in the soil.</p>
+
+    <p>Honey is only as good as what the bees are eating. And what the bees are eating depends entirely on the land they are foraging on. A bee&rsquo;s foraging range is roughly two to three miles from the hive. Everything within that radius &mdash; every flower, every crop, every treated lawn &mdash; is part of their diet.</p>
+
+    <p>The bees in our apiary have the benefit of feeding from our 100-acre Certified Organic farm. That is not a marketing line. It means the land within their primary foraging range is managed without synthetic pesticides, herbicides, or fertilizers. Working with nature, not against it.</p>
+
+    <p>Why does this matter for honey?</p>
+
+    <ul>
+        <li><strong>No pesticide residues in the nectar.</strong> When bees forage on conventionally treated crops or chemically maintained landscapes, trace amounts of those chemicals can end up in the honey. Studies have found neonicotinoids and other pesticides in honey samples from around the world.</li>
+        <li><strong>Diverse forage means complex flavor.</strong> Our bees are not parked next to a single monoculture crop. They have access to a wide variety of flowering plants across the farm and surrounding woodland, which creates a richer, more nuanced honey.</li>
+        <li><strong>Healthy land, healthy bees.</strong> Bees on organic land are not dealing with the same chemical stress as bees in conventional agricultural areas. Healthier bees make better honey. It is not complicated.</li>
+    </ul>
+
+    <p>We also only take excess honey stores, leaving the bees with plenty of their own bounty to get through the year. Some commercial operations take most of the honey and feed the bees sugar syrup over winter instead. We do not do that. The bees keep what they need first. We get the surplus.</p>
+
+    <h2>Honey That Changes With the Seasons</h2>
+
+    <p>If you have bought our honey more than once, you may have noticed that it does not always look or taste the same. That is not inconsistency. That is the whole point.</p>
+
+    <p>They feed heavily on clover and black locust early in the year and then find darker flowers later in the season, creating a beautiful spectrum of the season&rsquo;s nectar. Early-season honey tends to be lighter in color and milder in flavor &mdash; floral, a little sweet, with that classic honey taste most people picture. As summer progresses and the bees shift to goldenrod, wildflowers, and other late-blooming plants, the honey gets darker. The flavor deepens. You might taste caramel notes, or something almost molasses-like.</p>
+
+    <p>Commercial honey brands blend away these differences to create one uniform product. We think that misses the point entirely. Each jar is a snapshot of what was blooming on the farm during that harvest. A jar from June tells a different story than a jar from September. Both are good. They are just different, the same way a tomato in July tastes different from a tomato in October.</p>
+
+    <p>This is what &ldquo;real&rdquo; food looks like. It varies. It has character. And when you understand why it varies, the variation becomes the best part.</p>
+
+    <p>Sunny&rsquo;s Honey &mdash; our straight raw honey &mdash; runs $15 for a 12-ounce jar. People in our community buy it for allergies, for cooking, or just because they like knowing exactly where their food comes from and how it was made. It has a 5-star rating from everyone who has tried it, which is a small sample size but a perfect score.</p>
+
+    <h2>Hemp Honey &mdash; When You Want Both</h2>
+
+    <p>For people who already use our raw honey and our CBD products separately, we make a product that puts them together.</p>
+
+    <p>Our Hemp Honey is organic hemp-infused honey made with raw honey harvested from our family&rsquo;s bees and our CBD-rich hemp extract made from Fiddlers Green Farm certified organic hemp flower. It delivers 13mg of CBD per teaspoon &mdash; full-spectrum, meaning it contains the full range of cannabinoids, terpenes, and plant compounds naturally present in the hemp plant. THC content is below 0.3%, which is the federal legal threshold.</p>
+
+    <p>It comes in three sizes:</p>
+
+    <ul>
+        <li><strong>3oz jar &mdash; $16.</strong> Good for trying it out.</li>
+        <li><strong>6oz jar &mdash; $30.</strong> The most popular size.</li>
+        <li><strong>12oz jar &mdash; $55.</strong> For people who already know they like it.</li>
+    </ul>
+
+    <p>The most common ways people use it:</p>
+
+    <ul>
+        <li>Stirred into hot tea or coffee</li>
+        <li>Drizzled over sliced apples</li>
+        <li>Spread on toast</li>
+    </ul>
+
+    <p>The honey base is the same raw honey from our apiary, so you get all the same benefits of unprocessed, single-source honey &mdash; plus the hemp extract. The flavor is honey-forward with a slight earthiness from the hemp.</p>
+
+    <p><em>Important: We cannot and do not make health claims about the CBD in our Hemp Honey. These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease. Talk to your doctor before adding any CBD product to your routine, especially if you are pregnant, nursing, or taking medication.</em></p>
+
+    <h2>You&rsquo;re Part of This</h2>
+
+    <p>When you buy a jar of honey from a farm like ours, you are not just buying a sweetener. You are supporting a way of doing things that most of the food industry abandoned a long time ago &mdash; bees foraging on clean land, keepers who leave enough honey for the hive, and a product that has not been heated, filtered, or blended into something unrecognizable.</p>
+
+    <p>Every jar is a small piece of this farm. The soil we tend, the flowers we grow, the bees we take care of &mdash; it all ends up in that jar. And when you choose it over the generic bottle on the shelf, you are choosing to be part of a food system that actually works the way food is supposed to work.</p>
+
+    <p>That matters. And we do not take it for granted.</p>
+
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>Why does raw honey crystallize?</h3>
+            <p>Crystallization is a natural process that happens to all real honey over time. Honey is a supersaturated sugar solution, and as glucose molecules come out of solution, they form crystals. It is actually a sign of quality &mdash; heavily processed honey crystallizes more slowly because the filtration and heating alter its natural structure. To return crystallized honey to liquid, place the jar in warm (not hot) water and stir occasionally.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How is your honey different from what I find at the grocery store?</h3>
+            <p>Our honey is raw &mdash; never heated above hive temperature and never ultra-filtered. It comes from bees foraging on our 100-acre Certified Organic farm. Most grocery store honey has been heated to 150&ndash;170&deg;F, ultra-filtered to remove all pollen, and blended from multiple sources. The flavor, nutritional profile, and traceability are completely different.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why does the honey taste different from batch to batch?</h3>
+            <p>Because the bees eat different things depending on the time of year. Early in the season they forage heavily on clover and black locust, producing lighter, milder honey. Later in the year they find darker flowers like goldenrod, which produces a deeper, richer honey. Each jar reflects what was blooming during that harvest.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can local honey help with allergies?</h3>
+            <p>Many people in our community use local raw honey for seasonal allergy support. The idea is that raw honey contains trace amounts of local pollen, which may help your body build tolerance over time. We are not doctors and cannot make medical claims, but it is one of the most common reasons people seek out local raw honey.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is the difference between your raw honey and Hemp Honey?</h3>
+            <p>Sunny&rsquo;s Honey is our straight raw honey &mdash; nothing added. Hemp Honey starts with the same raw honey base and is infused with our CBD-rich hemp extract from certified organic hemp flower grown on our farm. It contains 13mg of full-spectrum CBD per teaspoon. Both use honey from the same apiary; the Hemp Honey simply has the added hemp extract.</p>
+        </div>
+    </div>
+
+</article>
+
+<section class="read-next">
+    <h2>Read Next</h2>
+    <div class="read-next-grid">
+        <div class="read-next-card">
+            <a href="heritage-flour-guide.html">
+                <img src="assets/md flour.jpg" alt="Heritage flour from Fiddlers Green Farm">
+                <div class="rn-body">
+                    <span class="rn-tag">Heritage Grain</span>
+                    <h3>Heritage Flour Guide</h3>
+                </div>
+            </a>
+        </div>
+        <div class="read-next-card">
+            <a href="cbd-salve-vs-oil.html">
+                <img src="assets/DSC_3209.jpg" alt="CBD products from Fiddlers Green Farm">
+                <div class="rn-body">
+                    <span class="rn-tag">CBD Education</span>
+                    <h3>CBD Salve vs Oil</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<div style="max-width:720px;margin:0 auto 48px;padding:24px 28px;background:#faf5ed;border-left:3px solid #c9a84c;border-radius:0 8px 8px 0;font-size:13px;line-height:1.7;color:#6b5d4a;">
+    <strong style="display:block;margin-bottom:6px;font-size:14px;color:#3d2b1f;">Medical Disclaimer</strong>
+    The Hemp Honey section of this article references CBD (cannabidiol). These statements have not been evaluated by the Food and Drug Administration. Our Hemp Honey product is not intended to diagnose, treat, cure, or prevent any disease. CBD content is derived from certified organic hemp containing less than 0.3% THC. Consult a qualified healthcare provider before using any CBD product, especially if you are pregnant, nursing, taking medication, or have a medical condition.
+</div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-col">
+            <div class="footer-logo"><img src="assets/FGF_logo_white.png" alt="Fiddlers Green Farm"></div>
+            <p>Seed to shelf hemp products from our family farm in Taneytown, Maryland. Farmed on this land since 1946.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/fiddlersgreenmd/" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="https://www.facebook.com/fiddlersgreenmd/" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <p><a href="https://www.fiddlersgreen.io/our-story/">Our Story</a><br><a href="https://www.fiddlersgreen.io/farm-store/">Farm Store</a><br><a href="https://www.fiddlersgreen.io/learn-more/">Learn More</a><br><a href="index.html">Blog</a><br><a href="https://www.fiddlersgreen.io/contact/">Contact</a></p>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p><a href="mailto:ben@fiddlersgreen.io">ben@fiddlersgreen.io</a><br><a href="tel:4107560727">410-756-0727</a><br><br>3907 Old Taneytown Road<br>Taneytown, MD 21787</p>
+        </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Fiddlers Green Farm. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
