@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Makes Heritage Flour Different (And Why It Matters) — Fiddlers Green Farm</title>
+    <meta name="description" content="Heritage grain flour bakes different. Learn why Turkey Red and Bolles wheat from our regenerative farm produce bread with more flavor and better texture.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #ffffff;
+            color: #1b1b1b;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: #2d5a27; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* NAV */
+        .site-nav { width:100%; background:#fff; border-bottom:1px solid #e8e8e8; position:sticky; top:0; z-index:100; }
+        .site-nav-inner { max-width:1240px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:72px; }
+        .site-nav-logo img { height:48px; width:auto; }
+        .site-nav-links { display:flex; align-items:center; gap:2rem; list-style:none; }
+        .site-nav-links a { color:#1b1b1b; font-size:0.95rem; font-weight:500; letter-spacing:0.01em; transition:color 0.2s; }
+        .site-nav-links a:hover { color:#2d5a27; text-decoration:none; }
+        .site-nav-links a.active { color:#2d5a27; font-weight:600; }
+        .nav-toggle { display:none; background:none; border:none; cursor:pointer; padding:0.5rem; }
+        .nav-toggle span { display:block; width:24px; height:2px; background:#1b1b1b; margin:5px 0; transition:0.3s; }
+
+        /* HERO */
+        .hero { position:relative; width:100%; height:420px; overflow:hidden; display:flex; align-items:center; justify-content:center; text-align:center; }
+        .hero-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+        .hero-overlay { position:absolute; inset:0; background:rgba(0,0,0,0.45); }
+        .hero-content { position:relative; z-index:2; color:#fff; padding:0 2rem; max-width:800px; }
+        .hero-content h1 { font-family:'Playfair Display',Georgia,serif; font-size:2.8rem; font-weight:700; line-height:1.2; }
+
+        /* META BAR */
+        .article-meta-bar { max-width:720px; margin:0 auto; padding:1.5rem 2rem 0; display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+        .meta-tag { display:inline-block; font-size:0.75rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:#2d5a27; background:rgba(45,90,39,0.08); padding:0.25rem 0.75rem; border-radius:9999px; }
+        .meta-date, .meta-read { font-size:0.85rem; color:#888; }
+        .meta-date::after { content:"\00b7"; margin:0 0.4rem; }
+
+        /* ARTICLE BODY */
+        .article-body { max-width:720px; margin:0 auto; padding:2rem 2rem 4rem; font-size:1.125rem; line-height:1.75; }
+        .article-body h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.75rem; font-weight:700; margin:2.5rem 0 1rem; color:#1b1b1b; }
+        .article-body h3 { font-size:1.25rem; font-weight:600; margin:2rem 0 0.75rem; }
+        .article-body p { margin-bottom:1.25rem; }
+        .article-body ul, .article-body ol { margin:0 0 1.25rem 1.5rem; }
+        .article-body li { margin-bottom:0.5rem; }
+        .article-body blockquote { border-left:3px solid #2d5a27; margin:1.5rem 0; padding:0.75rem 1.25rem; background:rgba(45,90,39,0.04); font-style:italic; }
+
+        /* FAQ */
+        .faq-section { background:#faf5ed; border-radius:8px; padding:2rem 2rem 1.5rem; margin:2.5rem 0; }
+        .faq-section h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; margin-bottom:1.5rem; }
+        .faq-item { margin-bottom:1.5rem; }
+        .faq-item:last-child { margin-bottom:0; }
+        .faq-item h3 { font-size:1.05rem; font-weight:600; margin-bottom:0.4rem; color:#1b1b1b; }
+        .faq-item p { margin-bottom:0; font-size:1rem; color:#444; }
+
+        /* READ NEXT */
+        .read-next { max-width:720px; margin:0 auto; padding:0 2rem 4rem; }
+        .read-next h2 { font-family:'Playfair Display',Georgia,serif; font-size:1.5rem; margin-bottom:1.5rem; }
+        .read-next-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+        .read-next-card { border:1px solid #e8e8e8; border-radius:8px; overflow:hidden; transition:transform 0.25s ease, box-shadow 0.25s ease; }
+        .read-next-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,0,0,0.07); }
+        .read-next-card a { display:block; text-decoration:none; color:inherit; }
+        .read-next-card img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; }
+        .read-next-card .rn-body { padding:1.25rem; }
+        .read-next-card .rn-tag { display:inline-block; font-size:0.7rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; color:#2d5a27; background:rgba(45,90,39,0.08); padding:0.2rem 0.6rem; border-radius:9999px; margin-bottom:0.5rem; }
+        .read-next-card h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.05rem; font-weight:700; line-height:1.35; }
+
+        /* FOOTER */
+        .site-footer { background:#32373c; color:#fff; padding:3.5rem 2rem 2rem; }
+        .footer-inner { max-width:1240px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr 1fr; gap:2rem; }
+        .footer-col h4 { font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1rem; color:rgba(255,255,255,0.7); }
+        .footer-col p, .footer-col a { font-size:0.92rem; color:rgba(255,255,255,0.85); line-height:1.8; }
+        .footer-col a:hover { color:#fff; text-decoration:none; }
+        .footer-logo img { height:40px; width:auto; margin-bottom:1rem; }
+        .footer-social { display:flex; gap:1rem; margin-top:1rem; }
+        .footer-social a { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); color:rgba(255,255,255,0.85); transition:border-color 0.2s, color 0.2s; }
+        .footer-social a:hover { border-color:#fff; color:#fff; text-decoration:none; }
+        .footer-bottom { max-width:1240px; margin:2.5rem auto 0; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.15); text-align:center; font-size:0.82rem; color:rgba(255,255,255,0.5); }
+
+        /* RESPONSIVE */
+        @media (max-width:778px) {
+            .site-nav-links { display:none; }
+            .site-nav-links.open { display:flex; flex-direction:column; position:absolute; top:72px; left:0; right:0; background:#fff; border-bottom:1px solid #e8e8e8; padding:1.5rem 2rem; gap:1rem; box-shadow:0 8px 24px rgba(0,0,0,0.06); }
+            .nav-toggle { display:block; }
+            .footer-inner { grid-template-columns:1fr; }
+            .hero { height:340px; }
+            .hero-content h1 { font-size:2rem; }
+            .read-next-grid { grid-template-columns:1fr; }
+        }
+        @media (max-width:480px) {
+            .hero { height:280px; }
+            .hero-content h1 { font-size:1.7rem; }
+            .article-body { padding:1.5rem 1rem 3rem; font-size:1rem; }
+            .article-meta-bar { padding:1.25rem 1rem 0; }
+            .read-next { padding:0 1rem 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="site-nav">
+    <div class="site-nav-inner">
+        <a href="https://www.fiddlersgreen.io/" class="site-nav-logo"><img src="assets/FGF_logo_color_rgb.png" alt="Fiddlers Green Farm"></a>
+        <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.site-nav-links').classList.toggle('open')"><span></span><span></span><span></span></button>
+        <ul class="site-nav-links">
+            <li><a href="https://www.fiddlersgreen.io/our-story/">Our Story</a></li>
+            <li><a href="https://www.fiddlersgreen.io/learn-more/">Learn More</a></li>
+            <li><a href="https://www.fiddlersgreen.io/farm-store/">Farm Store</a></li>
+            <li><a href="index.html" class="active">Blog</a></li>
+            <li><a href="https://www.fiddlersgreen.io/contact/">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero">
+    <img class="hero-img" src="assets/flour-turkey-red.jpeg" alt="Turkey Red heritage flour from Fiddlers Green Farm">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>What Makes Heritage Flour Different (And Why Your Bread Will Thank You)</h1>
+    </div>
+</section>
+
+<div class="article-meta-bar">
+    <span class="meta-tag">Heritage Grain</span>
+    <span class="meta-date">April 12, 2026</span>
+    <span class="meta-read">8 min read</span>
+</div>
+
+<article class="article-body">
+
+    <p>You&rsquo;ve followed the recipe. Good butter, good yeast, the right temperature, the right timing. And still &mdash; the bread comes out bland. Flat-tasting. Like it&rsquo;s missing something you can&rsquo;t name.</p>
+
+    <p>It&rsquo;s not your technique. It&rsquo;s your flour.</p>
+
+    <p>Most flour on grocery store shelves comes from modern commodity wheat &mdash; bred for maximum yield, processed through industrial roller mills that strip out most of the flavor and nutrition, then bleached and enriched to put some of it back. It works. It&rsquo;s consistent. And it tastes like almost nothing.</p>
+
+    <p>Heritage flour is a different thing entirely. It starts with a different grain, grown a different way, milled on stone instead of steel. And when you bake with it for the first time, you&rsquo;ll notice the difference before the loaf even comes out of the oven. The smell alone will tell you something has changed.</p>
+
+    <h2>What Heritage Grain Actually Means</h2>
+
+    <p>Heritage grains are older varieties of wheat that existed before modern industrial breeding programs took over in the mid-20th century. Where modern wheat was bred primarily for high yield and uniformity, heritage varieties were selected over generations for flavor, hardiness, and adaptability to local conditions.</p>
+
+    <p>Our Turkey Red wheat is a perfect example. It&rsquo;s an heirloom variety originally brought to the United States from Ukraine by Mennonite immigrants in the 1870s. These families carried the seed with them because they knew what it could do &mdash; it was hardy, drought-tolerant, and made exceptional bread. Turkey Red became the foundation of Kansas wheat country and helped build the American bread basket.</p>
+
+    <p>Then modern agriculture happened. Breeders developed new varieties that produced more bushels per acre, responded better to synthetic fertilizers, and worked efficiently in industrial roller mills. The old varieties got pushed aside. Not because they were worse &mdash; because they didn&rsquo;t fit the system.</p>
+
+    <p>Growing heritage grain means working outside that system. Our Turkey Red is grown on our certified organic and regenerative farm in Taneytown, Maryland. No synthetic fertilizers. No pesticides. The grain grows in soil that&rsquo;s been cared for, not just used. It takes longer. It yields less per acre. But what comes off the field has a depth of flavor that modern commodity wheat simply can&rsquo;t match.</p>
+
+    <p>That&rsquo;s not nostalgia. That&rsquo;s biology. Heritage varieties maintain a broader range of proteins, minerals, and flavor compounds that were bred out of modern wheat in the push for uniformity.</p>
+
+    <h2>Stone-Milled vs Roller-Milled</h2>
+
+    <p>Growing the grain is half the story. How it gets milled is the other half.</p>
+
+    <p>Industrial roller milling &mdash; the standard process for virtually all grocery store flour &mdash; works by passing the grain through a series of steel rollers at high speed. The rollers separate the bran and germ from the starchy endosperm with extreme efficiency. The result is white flour that&rsquo;s shelf-stable, consistent, and stripped of most of the grain&rsquo;s natural flavor, oils, and nutrients.</p>
+
+    <p>Stone milling is the older method. Two large stones turn slowly, crushing the entire grain between them. The process generates less heat, which preserves the natural oils and volatile flavor compounds that high-speed rollers destroy. The bran and germ get distributed through the flour rather than removed entirely.</p>
+
+    <p>We grow the grain here on our farm. The milling happens at Patapsco Grist and Mill in Randallstown, Maryland, on a stone mill. We chose them because they understand what we&rsquo;re trying to preserve. When you rush the milling or use steel rollers, you lose exactly the things that make heritage grain worth growing in the first place.</p>
+
+    <p>Our flour is milled to an 80 extraction rate. That means 80% of the whole grain makes it into the final product. For comparison, standard white flour is around 72% extraction &mdash; more of the bran and germ removed. Whole wheat flour is 100% extraction &mdash; everything stays in. Our 80 extraction hits a sweet spot: you get more of the grain&rsquo;s natural flavor and nutrition than white flour, but with a lighter texture than full whole wheat.</p>
+
+    <p>One more thing about stone-milled flour: it&rsquo;s alive. Those natural oils from the germ mean the flour is fresher and more perishable than the dead-shelf-stable stuff in grocery store bags. Store it in your freezer if you won&rsquo;t use it within a few weeks. It&rsquo;s worth the extra step.</p>
+
+    <h2>Why It Bakes Different</h2>
+
+    <p>Heritage flour doesn&rsquo;t behave exactly like the all-purpose you&rsquo;re used to. That&rsquo;s a good thing, but you should know what to expect.</p>
+
+    <p><strong>Protein content matters.</strong> Our Turkey Red All Purpose comes in at 12% protein with 13% moisture. That&rsquo;s solid middle ground &mdash; enough structure for bread, relaxed enough for pancakes and pizza dough. Our Bolles Bread Flour runs 13.8% protein, which puts it firmly in bread flour territory. Higher protein means more gluten development, which means more chew and better rise in yeasted doughs.</p>
+
+    <p><strong>Water absorption is different.</strong> Stone-milled flour with bran particles tends to absorb more water than roller-milled white flour. If your usual bread recipe calls for a certain hydration, expect to add a bit more water. Start with your normal amount and add gradually until the dough feels right. It should be slightly tackier than you&rsquo;re used to.</p>
+
+    <p><strong>The crumb will be different.</strong> Heritage flour produces a denser, more textured crumb than commodity flour. Not heavy &mdash; just more substantial. There&rsquo;s more going on in each bite. The crumb has character. Little flecks of bran give it a natural, rustic look that tells you this bread was made from real grain, not industrial powder.</p>
+
+    <p><strong>The flavor is the whole point.</strong> This is where heritage flour pulls away from everything else. There&rsquo;s a nuttiness, a sweetness, a complexity that modern wheat doesn&rsquo;t have. Sourdough bakers notice it immediately &mdash; the natural fermentation brings out even more depth. But you&rsquo;ll taste the difference in a simple sandwich loaf too.</p>
+
+    <p>A few practical tips for baking:</p>
+
+    <ul>
+        <li>Let your dough rest longer. Heritage flour benefits from an extended autolyse (just flour and water, mixed and rested for 30&ndash;60 minutes before adding salt and yeast). This gives the flour time to fully hydrate.</li>
+        <li>Don&rsquo;t over-knead. Heritage wheat develops gluten differently. A gentler touch with more time often works better than aggressive kneading.</li>
+        <li>Expect a slightly longer rise time. The dough is doing more work. Let it.</li>
+    </ul>
+
+    <h2>Turkey Red vs Bolles &mdash; Which One to Grab</h2>
+
+    <p>We grow and sell two heritage wheat varieties, and they&rsquo;re built for different jobs.</p>
+
+    <p><strong>Turkey Red All Purpose Flour</strong> is the versatile one. At 12% protein, it handles a wide range of baking: pizza dough, tortillas, pancakes, waffles, quick breads, and everyday loaves. It&rsquo;s the flour to keep on hand if you want one bag that does everything well. Available in 2lb, 5lb, and 10lb bags, priced from $12 to $32.</p>
+
+    <p><strong>Bolles Bread Flour</strong> is the specialist. It&rsquo;s a hard spring wheat variety running 13.8% protein &mdash; nearly two full percentage points higher than the Turkey Red. That extra protein translates directly to stronger gluten networks, which means taller rise, chewier crumb, and better structure in yeasted breads and sourdough. If bread is your thing, this is your flour. Available in 5lb and 10lb bags, $19 to $32.</p>
+
+    <p>Both are milled to the same 80 extraction at 13% moisture. Both come from grain we grow on our certified organic and regenerative farm. The difference is what you&rsquo;re baking.</p>
+
+    <p>Here&rsquo;s a simple way to think about it:</p>
+
+    <ul>
+        <li><strong>Making pizza?</strong> Turkey Red. The lower protein gives you a tender, slightly chewy crust without being too tough.</li>
+        <li><strong>Making sourdough?</strong> Bolles. The high protein gives your starter more to work with, and the structure holds up through long fermentation.</li>
+        <li><strong>Making pancakes or waffles?</strong> Turkey Red. You want tender, not chewy.</li>
+        <li><strong>Making sandwich bread?</strong> Either works. Turkey Red for a softer loaf, Bolles for more structure and chew.</li>
+        <li><strong>Making pasta?</strong> Turkey Red. The moderate protein gives you a smooth, workable dough.</li>
+    </ul>
+
+    <p>We also sell <strong>Whole Wheat Flour</strong> for bakers who want the full grain &mdash; all the bran, all the germ, nothing removed. It&rsquo;s available in the same size range, $12 to $32.</p>
+
+    <h2>How to Start Baking With Heritage Flour</h2>
+
+    <p>If you&rsquo;ve only ever used grocery store flour, switching to heritage flour can feel uncertain. Here&rsquo;s how to make it easy on yourself.</p>
+
+    <p><strong>Start with a 50/50 blend.</strong> Mix heritage flour with your usual all-purpose for your first few bakes. This lets you get a feel for how it absorbs water and develops gluten without changing everything at once. As you get comfortable, increase the heritage flour percentage until you&rsquo;re baking 100%.</p>
+
+    <p><strong>Pick a forgiving first recipe.</strong> Pancakes are perfect. They&rsquo;re fast, they&rsquo;re hard to mess up, and they let you taste the flour without a bunch of other ingredients getting in the way. Make a batch of pancakes with Turkey Red and a batch with your usual flour. Side by side. You&rsquo;ll understand immediately what heritage grain brings to the table.</p>
+
+    <p><strong>Pizza dough is another great starting point.</strong> Turkey Red makes an excellent pizza crust &mdash; slightly chewy, flavorful, with a natural sweetness that pairs well with simple toppings. Use your normal recipe, add a little extra water, and give the dough a longer rest.</p>
+
+    <p><strong>Adjust your hydration.</strong> This is the most important practical change. Stone-milled flour with bran particles absorbs more water than white flour. Add water a tablespoon at a time until your dough reaches the right consistency. After a few bakes, you&rsquo;ll know exactly how much your recipe needs.</p>
+
+    <p><strong>Be patient with bread.</strong> If you&rsquo;re making yeasted bread or sourdough, give the dough more time than you normally would. A longer autolyse (30&ndash;60 minutes), a longer bulk fermentation, and a longer proof. Heritage flour rewards patience. Rushing it is the only way to get a bad result.</p>
+
+    <p><strong>Store it properly.</strong> Our flour is stone-milled with the natural oils intact, which means it&rsquo;s fresher and more perishable than industrial flour. Keep it in an airtight container in a cool, dark place. If you won&rsquo;t use it within two to three weeks, store it in the freezer. Bring it to room temperature before baking.</p>
+
+    <p><strong>Keep notes.</strong> Seriously. Write down your hydration adjustments, your timing, and your results. Heritage flour is more variable than commodity flour &mdash; that variability is part of what gives it character. Your notes will make you a better baker faster than any recipe book.</p>
+
+    <h2>This Is How Your Food Is Grown</h2>
+
+    <p>Every bag of flour has a story. Most of the time, that story involves anonymous commodity grain from an unknown field, processed through an industrial mill, and shipped in bulk to a factory that bags it under a brand name. Nobody can tell you where it came from. Nobody can tell you how the soil was treated. Nobody is accountable for the flavor, because flavor was never the goal.</p>
+
+    <p>Our story is different. We grow Turkey Red and Bolles wheat on our certified organic and regenerative farm in Taneytown, Maryland &mdash; the same land our family has farmed since 1946. The grain goes to Patapsco Grist and Mill in Randallstown, where it&rsquo;s stone-milled with care. Then it comes back to us, and we put it in a bag with our name on it.</p>
+
+    <p>That&rsquo;s it. No middlemen. No anonymous supply chain. You know the farm, you know the miller, you know the grain.</p>
+
+    <p>When you bake with this flour, you&rsquo;re part of this. You&rsquo;re choosing to support a way of farming that builds soil instead of depleting it. You&rsquo;re choosing flavor over convenience. You&rsquo;re choosing to know where your food comes from.</p>
+
+    <p>It starts in the soil. It ends on your table. And your bread will absolutely thank you for it.</p>
+
+    <div class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>What is heritage flour?</h3>
+            <p>Heritage flour is milled from older wheat varieties that existed before modern industrial breeding programs. These grains &mdash; like our Turkey Red, originally brought to the U.S. from Ukraine &mdash; were selected over generations for flavor and hardiness rather than maximum yield. They produce flour with more complex flavor, different baking characteristics, and a broader range of natural nutrients.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can I substitute heritage flour 1:1 for regular all-purpose flour?</h3>
+            <p>You can, but expect some differences. Heritage flour absorbs more water than standard white flour, so you may need to increase your liquid slightly. Start with your normal recipe and add water a tablespoon at a time. For your first few bakes, try a 50/50 blend of heritage and regular flour to get comfortable with the differences.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What&rsquo;s the difference between Turkey Red and Bolles flour?</h3>
+            <p>Turkey Red is our all-purpose flour at 12% protein &mdash; good for pizza, pancakes, tortillas, and everyday baking. Bolles is our bread flour at 13.8% protein &mdash; built for yeasted breads and sourdough where you want stronger gluten development and more chew. Both are stone-milled to an 80 extraction from grain grown on our organic, regenerative farm.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How should I store heritage flour?</h3>
+            <p>Stone-milled flour retains the natural oils from the wheat germ, making it fresher but more perishable than industrial flour. Store it in an airtight container in a cool, dark place. If you won&rsquo;t use it within two to three weeks, keep it in the freezer and bring it to room temperature before baking.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why does heritage flour cost more than grocery store flour?</h3>
+            <p>Grocery store flour comes from commodity wheat grown at massive scale with synthetic inputs, roller-milled for maximum efficiency. Our flour comes from heritage grain grown organically on a regenerative farm, then stone-milled in small batches at Patapsco Grist and Mill. Lower yields, higher-quality inputs, and small-batch milling cost more &mdash; but the flavor and the farming practices behind it are worth it.</p>
+        </div>
+    </div>
+
+</article>
+
+<section class="read-next">
+    <h2>Read Next</h2>
+    <div class="read-next-grid">
+        <div class="read-next-card">
+            <a href="cbd-salve-vs-oil.html">
+                <img src="assets/DSC_3209.jpg" alt="CBD salve and oil products">
+                <div class="rn-body">
+                    <span class="rn-tag">CBD Education</span>
+                    <h3>CBD Salve vs Oil: Which One Is Right for You?</h3>
+                </div>
+            </a>
+        </div>
+        <div class="read-next-card">
+            <a href="raw-honey-vs-processed.html">
+                <img src="assets/Ben_hemp_field.jpeg" alt="Raw honey from the farm">
+                <div class="rn-body">
+                    <span class="rn-tag">Honey</span>
+                    <h3>Raw Honey vs Processed: What You&rsquo;re Actually Getting</h3>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-col">
+            <div class="footer-logo"><img src="assets/FGF_logo_white.png" alt="Fiddlers Green Farm"></div>
+            <p>Seed to shelf hemp products from our family farm in Taneytown, Maryland. Farmed on this land since 1946.</p>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/fiddlersgreenmd/" aria-label="Instagram"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                <a href="https://www.facebook.com/fiddlersgreenmd/" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <p><a href="https://www.fiddlersgreen.io/our-story/">Our Story</a><br><a href="https://www.fiddlersgreen.io/farm-store/">Farm Store</a><br><a href="https://www.fiddlersgreen.io/learn-more/">Learn More</a><br><a href="index.html">Blog</a><br><a href="https://www.fiddlersgreen.io/contact/">Contact</a></p>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <p><a href="mailto:ben@fiddlersgreen.io">ben@fiddlersgreen.io</a><br><a href="tel:4107560727">410-756-0727</a><br><br>3907 Old Taneytown Road<br>Taneytown, MD 21787</p>
+        </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Fiddlers Green Farm. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
