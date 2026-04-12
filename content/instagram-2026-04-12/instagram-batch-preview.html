@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiddlers Green Farm — Instagram Batch Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #e8e8e8;
+  color: #262626;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Layout */
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 32px 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.label-column {
+  flex: 0 0 180px;
+  position: relative;
+}
+.post-label-sticky {
+  position: sticky;
+  top: 40%;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.post-label-sticky .label-number {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 4px;
+}
+.post-label-sticky .label-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+.post-label-sticky .label-type {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: #fff;
+}
+.post-label-sticky .label-type.static { background: #2d5a27; }
+.post-label-sticky .label-type.carousel { background: #0095f6; }
+.post-label-sticky .label-type.reel { background: #1a1a1a; }
+.phone-column { flex: 0 0 auto; }
+.details-column {
+  flex: 0 1 420px;
+  min-width: 300px;
+}
+
+/* Phone Frame */
+.phone-frame {
+  width: 420px;
+  max-width: 100%;
+  background: #fafafa;
+  border-radius: 40px;
+  border: 3px solid #1a1a1a;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(0,0,0,0.05);
+  position: relative;
+}
+.phone-notch {
+  width: 150px;
+  height: 28px;
+  background: #1a1a1a;
+  border-radius: 0 0 18px 18px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+.phone-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 24px 0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #262626;
+  margin-top: -22px;
+  position: relative;
+  z-index: 5;
+}
+.phone-status-bar .time { margin-left: 4px; }
+.phone-status-bar .icons { display: flex; gap: 4px; align-items: center; }
+
+/* Instagram Header */
+.ig-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #fff;
+  border-bottom: 1px solid #dbdbdb;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.ig-header .logo {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.ig-header-icons { display: flex; gap: 18px; align-items: center; }
+.ig-header-icons svg { cursor: pointer; }
+
+/* Stories Bar */
+.stories-bar {
+  display: flex;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #fff;
+  border-bottom: 1px solid #dbdbdb;
+  overflow-x: auto;
+}
+.story-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.story-avatar {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #2d5a27, #4a8c3f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  border: 3px solid #fff;
+  position: relative;
+}
+.story-ring {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.story-ring.green {
+  background: linear-gradient(45deg, #2d5a27, #4a8c3f);
+}
+.story-label {
+  font-size: 11px;
+  color: #8e8e8e;
+  max-width: 64px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.story-label.yours { color: #262626; font-weight: 500; }
+
+/* Scrollable Feed */
+.feed-scroll {
+  height: 720px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background: #fafafa;
+}
+.feed-scroll::-webkit-scrollbar { width: 0; }
+
+/* Post Card */
+.post-card {
+  background: #fff;
+  border-bottom: 1px solid #efefef;
+  margin-bottom: 8px;
+}
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  gap: 10px;
+}
+.post-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #2d5a27;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.post-username {
+  font-size: 14px;
+  font-weight: 600;
+  flex: 1;
+}
+.post-menu { cursor: pointer; padding: 4px; }
+.post-menu svg { display: block; }
+
+/* Image Area */
+.post-image {
+  width: 100%;
+  position: relative;
+  background: #efefef;
+  overflow: hidden;
+}
+.post-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.post-image.ratio-4-5 { aspect-ratio: 4/5; }
+.post-image.ratio-1-1 { aspect-ratio: 1/1; }
+.post-image.ratio-9-16 { aspect-ratio: 9/16; max-height: 560px; }
+
+/* Carousel Overlay */
+.carousel-indicator {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 4px;
+}
+.carousel-dots span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-dots span.active { background: #0095f6; }
+.carousel-arrows {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+  pointer-events: none;
+}
+.carousel-arrow {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.carousel-arrow svg { width: 14px; height: 14px; fill: #fff; }
+
+/* Carousel Slides Container */
+.carousel-track {
+  display: flex;
+  width: 600%;
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+#carousel-container { overflow: hidden; }
+.carousel-slide {
+  width: calc(100% / 6);
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 32px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.carousel-slide.dark {
+  background: #1e3d1a;
+}
+.carousel-slide.light {
+  background: #faf6f0;
+}
+.carousel-slide .slide-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+.carousel-slide.dark .slide-title { color: #c9a84c; }
+.carousel-slide.light .slide-title { color: #1e3d1a; }
+.carousel-slide .slide-body {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 320px;
+  opacity: 0.9;
+}
+.carousel-slide.dark .slide-body { color: #fff; }
+.carousel-slide.light .slide-body { color: #2c2c2c; }
+.carousel-slide .slide-swipe {
+  margin-top: 20px;
+  font-size: 12px;
+  opacity: 0.4;
+  letter-spacing: 2px;
+}
+.carousel-slide.dark .slide-swipe { color: #fff; }
+
+/* Reel Overlay */
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.play-button {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.play-button svg { width: 28px; height: 28px; margin-left: 4px; }
+.reel-badge {
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+/* Action Bar */
+.action-bar {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+}
+.action-bar .left { display: flex; gap: 14px; flex: 1; }
+.action-bar svg { width: 24px; height: 24px; cursor: pointer; display: block; }
+
+/* Likes */
+.likes-line {
+  padding: 0 16px 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Caption */
+.caption-area {
+  padding: 0 16px 4px;
+  font-size: 14px;
+  white-space: pre-line;
+}
+.caption-area .cap-user {
+  font-weight: 600;
+  margin-right: 4px;
+}
+.caption-text { display: inline; }
+.caption-text.collapsed .full-caption { display: none; }
+.caption-text.collapsed .truncated { display: inline; }
+.caption-text:not(.collapsed) .truncated { display: none; }
+.caption-text:not(.collapsed) .full-caption { display: inline; }
+.more-btn {
+  color: #8e8e8e;
+  cursor: pointer;
+  font-size: 14px;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+}
+.hashtags {
+  color: #00376b;
+  font-size: 14px;
+  display: block;
+  margin-top: 4px;
+  word-spacing: 2px;
+}
+.caption-text.collapsed .hashtags { display: none; }
+
+/* Timestamp */
+.timestamp {
+  padding: 4px 16px 12px;
+  font-size: 11px;
+  color: #8e8e8e;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+/* Post Badges (outside phone - overlaid) */
+.post-badge-wrap { display: none; }
+.post-badge {
+  position: absolute;
+  left: -12px;
+  top: 16px;
+  z-index: 6;
+  background: #2d5a27;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 14px 4px 12px;
+  border-radius: 4px 0 0 4px;
+  white-space: nowrap;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.post-badge::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 0;
+  border-left: 6px solid #2d5a27;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+}
+.post-badge.reel { background: #1a1a1a; }
+.post-badge.reel::after { border-left-color: #1a1a1a; }
+.post-badge.carousel { background: #0095f6; }
+.post-badge.carousel::after { border-left-color: #0095f6; }
+
+/* Phone Bottom Bar */
+.phone-bottom-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 16px 6px;
+  background: #fff;
+  border-top: 1px solid #dbdbdb;
+}
+.phone-bottom-bar svg { width: 24px; height: 24px; }
+.phone-home-indicator {
+  width: 134px;
+  height: 5px;
+  background: #1a1a1a;
+  border-radius: 3px;
+  margin: 4px auto 8px;
+}
+
+/* Details Panel */
+.details-panel {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 32px;
+}
+.details-panel h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #262626;
+}
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #efefef;
+  font-size: 14px;
+}
+.detail-row:last-child { border-bottom: none; }
+.detail-label { color: #8e8e8e; font-weight: 500; }
+.detail-value { font-weight: 600; text-align: right; }
+.status-badge {
+  display: inline-block;
+  background: #fff3cd;
+  color: #856404;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid #ffc107;
+}
+.voice-badge {
+  display: inline-block;
+  background: #d4edda;
+  color: #155724;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 12px;
+  border: 1px solid #28a745;
+}
+.details-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #efefef;
+}
+.details-section h3 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #262626;
+}
+.details-section ul {
+  list-style: none;
+  font-size: 13px;
+  color: #555;
+}
+.details-section li {
+  padding: 5px 0;
+  padding-left: 16px;
+  position: relative;
+}
+.details-section li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #2d5a27;
+}
+.next-steps li::before { background: #0095f6; }
+
+/* Review Header */
+.review-header {
+  text-align: center;
+  padding: 20px 0 0;
+}
+.review-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #262626;
+}
+.review-header .subtitle {
+  font-size: 13px;
+  color: #8e8e8e;
+  margin-top: 2px;
+}
+.review-badge {
+  display: inline-block;
+  margin-top: 10px;
+  background: #fff3cd;
+  color: #856404;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: 12px;
+  border: 1px solid #ffc107;
+}
+
+/* Storyboard */
+.storyboard-toggle {
+  display: block;
+  width: 100%;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+.storyboard-toggle:hover { background: #333; }
+.storyboard-table {
+  display: none;
+  width: 100%;
+  margin-top: 8px;
+  font-size: 12px;
+  border-collapse: collapse;
+}
+.storyboard-table.open { display: table; }
+.storyboard-table th {
+  background: #f5f5f5;
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #8e8e8e;
+}
+.storyboard-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #efefef;
+  vertical-align: top;
+}
+.scene-time {
+  font-family: monospace;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #2d5a27;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .page-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  .label-column { display: none; }
+  .details-column {
+    width: 100%;
+    max-width: 420px;
+    min-width: unset;
+  }
+  .details-panel { position: static; }
+  .post-badge-wrap { display: block; }
+}
+@media (max-width: 440px) {
+  .phone-frame {
+    width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  .phone-notch { display: none; }
+  .phone-status-bar { margin-top: 0; }
+  .page-wrapper { padding: 0; gap: 16px; }
+  .details-column { padding: 0 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <!-- Label Column -->
+  <div class="label-column" id="label-column">
+    <div class="post-label-sticky" id="post-label">
+      <div class="label-number" id="label-number">POST 1 OF 5</div>
+      <div class="label-title" id="label-title">Bath Soaks</div>
+      <span class="label-type static" id="label-type">Static Post</span>
+    </div>
+  </div>
+  <!-- Phone Column -->
+  <div class="phone-column">
+    <div class="review-header">
+      <h1>Fiddlers Green Farm</h1>
+      <div class="subtitle">Instagram Content Batch &middot; April 12, 2026</div>
+      <div class="review-badge">Ready for Review</div>
+    </div>
+
+    <div style="height:20px"></div>
+
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-status-bar">
+        <span class="time">9:41</span>
+        <span class="icons">
+          <svg width="16" height="12" viewBox="0 0 16 12"><rect x="0" y="5" width="3" height="7" rx="0.5" fill="#262626"/><rect x="4.5" y="3" width="3" height="9" rx="0.5" fill="#262626"/><rect x="9" y="1" width="3" height="11" rx="0.5" fill="#262626"/><rect x="13.5" y="0" width="2.5" height="12" rx="0.5" fill="#262626"/></svg>
+          <svg width="16" height="12" viewBox="0 0 16 12"><path d="M8 2C5.5 2 3.3 3 1.8 4.6L0 2.8C2 0.8 4.8 -0.4 8 -0.4s6 1.2 8 3.2L14.2 4.6C12.7 3 10.5 2 8 2z" fill="#262626"/><path d="M8 5.5c-1.7 0-3.2.7-4.3 1.8L2 5.5c1.5-1.5 3.5-2.5 6-2.5s4.5 1 6 2.5l-1.7 1.8C11.2 6.2 9.7 5.5 8 5.5z" fill="#262626"/><circle cx="8" cy="10" r="2" fill="#262626"/></svg>
+          <svg width="24" height="12" viewBox="0 0 24 12"><rect x="0" y="1" width="20" height="10" rx="2" stroke="#262626" stroke-width="1" fill="none"/><rect x="2" y="3" width="14" height="6" rx="1" fill="#2d5a27"/><rect x="21" y="4" width="3" height="4" rx="1" fill="#262626"/></svg>
+        </span>
+      </div>
+
+      <!-- Instagram Header -->
+      <div class="ig-header">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="18" cy="6" r="1.5" fill="#262626" stroke="none"/></svg>
+        <span class="logo">Instagram</span>
+        <div class="ig-header-icons">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9"/></svg>
+        </div>
+      </div>
+
+      <!-- Stories -->
+      <div class="stories-bar">
+        <div class="story-circle">
+          <div class="story-ring green">
+            <div class="story-avatar">FG</div>
+          </div>
+          <span class="story-label yours">Your story</span>
+        </div>
+        <div class="story-circle">
+          <div class="story-ring">
+            <div class="story-avatar" style="background:#8b6914;font-size:12px;">B</div>
+          </div>
+          <span class="story-label">brynnseats</span>
+        </div>
+        <div class="story-circle">
+          <div class="story-ring">
+            <div class="story-avatar" style="background:#5a7247;font-size:12px;">T</div>
+          </div>
+          <span class="story-label">taneytown</span>
+        </div>
+        <div class="story-circle">
+          <div class="story-ring">
+            <div class="story-avatar" style="background:#7a4a2f;font-size:12px;">M</div>
+          </div>
+          <span class="story-label">mdorganic</span>
+        </div>
+      </div>
+
+      <!-- Scrollable Feed -->
+      <div class="feed-scroll">
+
+        <!-- POST 1: Bath Soaks -->
+        <div class="post-badge-wrap">
+          <div class="post-badge">Post 1 &mdash; Bath Soaks</div>
+        </div>
+        <div class="post-card" data-post-num="1" data-post-title="Bath Soaks" data-post-type="static">
+          <div class="post-header">
+            <div class="post-avatar">FG</div>
+            <span class="post-username">fiddlersgreenfarmlife</span>
+            <div class="post-menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="#262626"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg></div>
+          </div>
+          <div class="post-image ratio-4-5">
+            <img src="fgf_soak_recover_relax.jpeg" alt="Bath soak products - Recover and Relax" loading="lazy">
+          </div>
+          <div class="action-bar">
+            <div class="left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9"/></svg>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="likes-line">Liked by <strong>brynnseats</strong> and <strong>34 others</strong></div>
+          <div class="caption-area">
+            <span class="cap-user">fiddlersgreenfarmlife</span>
+            <span class="caption-text collapsed" data-post="1">
+              <span class="truncated">Your body has been carrying a lot. Put it down for twenty minutes...</span>
+              <button class="more-btn" onclick="toggleCaption(1)">more</button>
+              <span class="full-caption">Your body has been carrying a lot. Put it down for twenty minutes.
+
+We made two soaks for two different kinds of tired.
+
+Recover is for the physical kind. The sore muscles, the long days on your feet, the ache that follows honest work. Epsom salt, Dead Sea salt, himalayan pink salt, eucalyptus, peppermint, and 25mg of our full-spectrum CBD per serving.
+
+Relax is for everything else. The kind of tired that sits behind your eyes. Same mineral-rich salts with calming essential oils. No screens. Just warm water and quiet.
+
+Both are handcrafted in small batches with organic ingredients. No synthetic fragrance. No dyes. Nothing we wouldn't use ourselves.
+
+You don't need a reason. You don't need to earn it.
+
+You just need twenty minutes.
+
+$20 each. Link in bio.
+              <button class="more-btn" onclick="toggleCaption(1)">less</button>
+              <span class="hashtags">#bathsoak #naturalsoak #recoverysoak #relaxationritual #farmmade #smallbatchskincare #cleaningredients #naturalwellness #selfcareroutine #magnesiumsoak #organicfarm #fiddlersgreenfarm #slowliving #nontoxicliving #farmtobody #plantbased #handmadewithcare #bathritual #marylandfarm #taneytownmd</span></span>
+            </span>
+          </div>
+          <div class="timestamp">2 days ago</div>
+        </div>
+
+        <!-- POST 2: Tallow Balm -->
+        <div class="post-badge-wrap">
+          <div class="post-badge">Post 2 &mdash; Tallow Balm</div>
+        </div>
+        <div class="post-card" data-post-num="2" data-post-title="Tallow Balm" data-post-type="static">
+          <div class="post-header">
+            <div class="post-avatar">FG</div>
+            <span class="post-username">fiddlersgreenfarmlife</span>
+            <div class="post-menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="#262626"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg></div>
+          </div>
+          <div class="post-image ratio-4-5">
+            <img src="TallowBalmBoth.jpg" alt="Tallow balm products" loading="lazy">
+          </div>
+          <div class="action-bar">
+            <div class="left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9"/></svg>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="likes-line">Liked by <strong>brynnseats</strong> and <strong>41 others</strong></div>
+          <div class="caption-area">
+            <span class="cap-user">fiddlersgreenfarmlife</span>
+            <span class="caption-text collapsed" data-post="2">
+              <span class="truncated">Most facial skincare reads like a chemistry exam. This one has ten ingredients and you can pronounce all of them...</span>
+              <button class="more-btn" onclick="toggleCaption(2)">more</button>
+              <span class="full-caption">Most facial skincare reads like a chemistry exam. This one has ten ingredients and you can pronounce all of them.
+
+Our Facial Tallow Balm starts with locally sourced 100% grass-fed beef tallow &mdash; rich in vitamins A, D, E, and K in a form your skin actually recognizes. Then Brynn blends it with jojoba oil, calendula, chamomile, green tea, rose hips, and vitamin E.
+
+The part that makes it ours: hemp extract from our fields and raw honey from our hives. Both grown and harvested right here on the farm.
+
+No synthetic fragrance. No fillers. Nothing to decode.
+
+Your skin has been dealing with a lot of complicated products. This is the uncomplicated one.
+
+$32 for a 4.5oz jar &mdash; link in bio.
+              <button class="more-btn" onclick="toggleCaption(2)">less</button>
+              <span class="hashtags">#tallowbalm #tallowskincare #grassfedtallow #pastureraised #farmtoskin #naturalskincare #cleanbeauty #ingredientsmatter #smallbatchbeauty #regenerativefarming #handrendered #nontoxicskincare #fiddlersgreenfarm #simpleingredients #slowbeauty #farmmade #realskincare #traditionalskincare #grassfed #marylandfarm</span></span>
+            </span>
+          </div>
+          <div class="timestamp">1 day ago</div>
+        </div>
+
+        <!-- POST 3: Bees & Soil -->
+        <div class="post-badge-wrap">
+          <div class="post-badge">Post 3 &mdash; Bees &amp; Soil</div>
+        </div>
+        <div class="post-card" data-post-num="3" data-post-title="Bees &amp; Soil" data-post-type="static">
+          <div class="post-header">
+            <div class="post-avatar">FG</div>
+            <span class="post-username">fiddlersgreenfarmlife</span>
+            <div class="post-menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="#262626"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg></div>
+          </div>
+          <div class="post-image ratio-4-5">
+            <img src="post3-bees-echinacea.jpeg" alt="Bee on echinacea flower" loading="lazy">
+          </div>
+          <div class="action-bar">
+            <div class="left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9"/></svg>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="likes-line">Liked by <strong>brynnseats</strong> and <strong>28 others</strong></div>
+          <div class="caption-area">
+            <span class="cap-user">fiddlersgreenfarmlife</span>
+            <span class="caption-text collapsed" data-post="3">
+              <span class="truncated">Without these workers, half of what we grow doesn't happen...</span>
+              <button class="more-btn" onclick="toggleCaption(3)">more</button>
+              <span class="full-caption">Without these workers, half of what we grow doesn't happen.
+
+People think of bees and think of honey. We think of bees and think of soil.
+
+Here's the connection most people miss. Pollinators make cover crops viable. Cover crops protect the soil. Healthy soil holds water, sequesters carbon, and grows food that's actually nutrient-dense. Take the bees out and that whole chain breaks.
+
+We keep hives on the farm not just for honey &mdash; though the honey is exceptional &mdash; but because they're essential infrastructure. As important as irrigation. As important as compost.
+
+Every jar of honey is proof this system works. The bees are healthy. The soil is healthy. The food is healthy.
+
+It starts in the soil. But the bees make sure it keeps going.
+              <button class="more-btn" onclick="toggleCaption(3)">less</button>
+              <span class="hashtags">#beekeeping #pollinatorhealth #savethebees #regenerativeagriculture #soilhealth #organicfarming #covercrops #farmecosystem #honeybees #biodiversity #fiddlersgreenfarm #rawhoney #itstartsinthesoil #pollinators #sustainablefarming #naturefarming #farmlife #beelife #healthysoil #workingwithnature</span></span>
+            </span>
+          </div>
+          <div class="timestamp">22 hours ago</div>
+        </div>
+
+        <!-- POST 4: Carousel — USDA Organic -->
+        <div class="post-badge-wrap">
+          <div class="post-badge carousel">Post 4 &mdash; USDA Organic Carousel</div>
+        </div>
+        <div class="post-card" data-post-num="4" data-post-title="USDA Organic" data-post-type="carousel">
+          <div class="post-header">
+            <div class="post-avatar">FG</div>
+            <span class="post-username">fiddlersgreenfarmlife</span>
+            <div class="post-menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="#262626"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg></div>
+          </div>
+          <div class="post-image ratio-1-1" id="carousel-container">
+            <div class="carousel-track" id="carousel-track">
+              <div class="carousel-slide dark">
+                <div class="slide-title" style="font-size:22px;">"Organic" gets thrown around a lot.</div>
+                <div class="slide-body" style="margin-top:12px;font-size:16px;color:#c9a84c;">Here's what it actually requires.</div>
+                <div class="slide-swipe">SWIPE &rarr;</div>
+              </div>
+              <div class="carousel-slide light">
+                <div class="slide-title">Three Years. Minimum.</div>
+                <div class="slide-body">Before you can even apply for certification, your land must be free of prohibited substances for 36 months. Three full growing seasons of doing everything right with nothing to show for it on a label.</div>
+              </div>
+              <div class="carousel-slide dark">
+                <div class="slide-title">Every Input Is Documented</div>
+                <div class="slide-body">Every seed. Every amendment. Every spray &mdash; even the approved ones. An organic farm keeps more paperwork than most offices. Inspectors review it all. Annually.</div>
+              </div>
+              <div class="carousel-slide light">
+                <div class="slide-title">No Synthetic Shortcuts</div>
+                <div class="slide-body">No synthetic fertilizers. No conventional pesticides. No GMO seed. When a pest problem hits, you solve it with biology, not chemistry. It's slower. It's harder. It works.</div>
+              </div>
+              <div class="carousel-slide dark">
+                <div class="slide-title">The Inspector Shows Up</div>
+                <div class="slide-body">Once a year, a third-party inspector walks the farm. Checks the fields. Checks the records. Checks the buffer zones between us and conventional neighbors. Nothing is taken on faith.</div>
+              </div>
+              <div class="carousel-slide light">
+                <div class="slide-title">So When You See Our Label &mdash;</div>
+                <div class="slide-body">Know that it's not marketing. It's a paper trail three years deep, audited every year, backed by work you can see in the soil. When you choose certified organic, you're choosing accountability. You're part of making this standard worth something.</div>
+              </div>
+            </div>
+            <div class="carousel-indicator" id="carousel-counter">1 / 6</div>
+            <div class="carousel-arrows">
+              <div class="carousel-arrow" id="carousel-prev" style="opacity:0.3;pointer-events:none;"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></div>
+              <div class="carousel-arrow" id="carousel-next"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+            </div>
+            <div class="carousel-dots" id="carousel-dots">
+              <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="action-bar">
+            <div class="left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9"/></svg>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="likes-line">Liked by <strong>brynnseats</strong> and <strong>63 others</strong></div>
+          <div class="caption-area">
+            <span class="cap-user">fiddlersgreenfarmlife</span>
+            <span class="caption-text collapsed" data-post="4">
+              <span class="truncated">"Organic" gets thrown around a lot. Here's what it actually requires...</span>
+              <button class="more-btn" onclick="toggleCaption(4)">more</button>
+              <span class="full-caption">"Organic" gets thrown around a lot. Here's what it actually requires.
+
+We went through the certification process ourselves. Three years of transition. Annual inspections. Documentation on every input that touches our soil.
+
+It's not easy. It's not cheap. And honestly, it shouldn't be.
+
+Because the whole point is that someone is checking. Someone is verifying. The standard means something because it costs something to maintain.
+
+We're not saying organic is the only way to farm well. But we are saying that when you see that label on our flour, our honey, our hemp &mdash; there's real accountability behind it.
+
+Swipe through to see what the process actually looks like.
+
+You're part of making this standard worth defending.
+              <button class="more-btn" onclick="toggleCaption(4)">less</button>
+              <span class="hashtags">#usdaorganic #organiccertified #organicfarming #whatorganicmeans #realorganic #organicstandards #farmtransparency #knowyourfarmer #fiddlersgreenfarm #certifiedorganic #organiclife #sustainableag #cleanfood #farmfacts #organicmatters #foodtransparency #regenerativeorganic #smallfarmbigstandards #accountableagriculture #itstartsinthesoil</span></span>
+            </span>
+          </div>
+          <div class="timestamp">18 hours ago</div>
+        </div>
+
+        <!-- POST 5: Reel — A Day on the Farm -->
+        <div class="post-badge-wrap">
+          <div class="post-badge reel">Post 5 &mdash; A Day on the Farm</div>
+        </div>
+        <div class="post-card" data-post-num="5" data-post-title="A Day on the Farm" data-post-type="reel" style="background:#111;">
+          <div class="post-header" style="background:#111;">
+            <div class="post-avatar">FG</div>
+            <span class="post-username" style="color:#fff;">fiddlersgreenfarmlife</span>
+            <div class="post-menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="#fff"><circle cx="3" cy="8" r="1.5"/><circle cx="8" cy="8" r="1.5"/><circle cx="13" cy="8" r="1.5"/></svg></div>
+          </div>
+          <div class="post-image ratio-9-16">
+            <img src="Brynn_Wheat_04.jpeg" alt="Brynn in wheat field - golden hour" loading="lazy">
+            <div class="reel-overlay">
+              <div class="play-button">
+                <svg viewBox="0 0 24 24" fill="#262626"><polygon points="8,5 19,12 8,19"/></svg>
+              </div>
+              <div class="reel-badge">6 scenes &middot; ~42s</div>
+            </div>
+          </div>
+          <div class="action-bar" style="background:#111;">
+            <div class="left">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9"/></svg>
+            </div>
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="likes-line" style="color:#fff;">Liked by <strong>brynnseats</strong> and <strong>97 others</strong></div>
+          <div class="caption-area" style="color:#fff;">
+            <span class="cap-user">fiddlersgreenfarmlife</span>
+            <span class="caption-text collapsed" data-post="5">
+              <span class="truncated">This is what a day looks like. Not every day. But most of them...</span>
+              <button class="more-btn" onclick="toggleCaption(5)" style="color:#a0a0a0;">more</button>
+              <span class="full-caption">This is what a day looks like. Not every day. But most of them.
+
+Morning starts with the hives. Then the fields. Then the workshop where Brynn turns what we grow and raise into something you can use.
+
+No assembly line. No warehouse. Just a farm doing the work and a family that chose the longer road because it's the right one.
+
+Every product in our shop touched these hands and this soil.
+
+You're part of this.
+              <button class="more-btn" onclick="toggleCaption(5)" style="color:#a0a0a0;">less</button>
+              <span class="hashtags" style="color:#5b9bd5;">#adayonthefarm #farmlife #behindthescenes #organicfarming #smallfarmlife #fiddlersgreenfarm #farmtotable #reellife #sunrisetosunset #regenerativefarming #farmwork #realfarming #dailygrind #homesteadlife #farmfamily #slowliving #thisiswhatittakes #workingwithnature #soiltoshelf #yourepartofthis</span></span>
+            </span>
+          </div>
+          <div class="timestamp" style="color:#666;">6 hours ago</div>
+        </div>
+
+      </div><!-- /feed-scroll -->
+
+      <!-- Bottom Navigation -->
+      <div class="phone-bottom-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.5"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+        <div style="width:24px;height:24px;border-radius:50%;background:#2d5a27;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:700;">FG</div>
+      </div>
+      <div class="phone-home-indicator"></div>
+    </div><!-- /phone-frame -->
+
+    <!-- Reel Storyboard (below phone) -->
+    <div style="max-width:420px;margin-top:16px;">
+      <button class="storyboard-toggle" onclick="toggleStoryboard()">
+        <span id="sb-arrow">&#9654;</span>&nbsp; Reel Storyboard &mdash; 6 Scenes
+      </button>
+      <table class="storyboard-table" id="storyboard">
+        <thead>
+          <tr><th>Scene</th><th>Time</th><th>Visual</th><th>Text Overlay</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 &mdash; First Light</td>
+            <td class="scene-time">0:00&ndash;0:05</td>
+            <td>Wide shot of farm at dawn. Mist on fields. Sun breaking tree line. Slow pan.</td>
+            <td>"This is what it takes."</td>
+          </tr>
+          <tr>
+            <td>2 &mdash; The Hives</td>
+            <td class="scene-time">0:05&ndash;0:12</td>
+            <td>Ben opening hive box. Close-up bees on comb. Gentle smoke. Hands in frame.</td>
+            <td>"Check the hives before the heat sets in."</td>
+          </tr>
+          <tr>
+            <td>3 &mdash; The Fields</td>
+            <td class="scene-time">0:12&ndash;0:20</td>
+            <td>Walking through wheat/hemp rows. Hands brushing plant tops. Brynn kneeling, checking a plant.</td>
+            <td>"Every row is walked. Every week."</td>
+          </tr>
+          <tr>
+            <td>4 &mdash; The Workshop</td>
+            <td class="scene-time">0:20&ndash;0:28</td>
+            <td>Brynn blending balm and pouring bath soaks into jars. Labeling by hand. Close-ups of textures.</td>
+            <td>"Small batches. No shortcuts."</td>
+          </tr>
+          <tr>
+            <td>5 &mdash; Golden Hour</td>
+            <td class="scene-time">0:28&ndash;0:36</td>
+            <td>Brynn standing in wheat field. Warm light. Wind in the grain. Hold the shot &mdash; let it breathe.</td>
+            <td>"Working with nature, not against it."</td>
+          </tr>
+          <tr>
+            <td>6 &mdash; Close</td>
+            <td class="scene-time">0:36&ndash;0:42</td>
+            <td>Products on wooden surface &mdash; honey, flour, tallow balm, bath soaks. Natural light.</td>
+            <td>"You're part of this. Link in bio."</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><!-- /phone-column -->
+
+  <!-- Details Panel -->
+  <div class="details-column">
+    <div class="details-panel">
+      <h2>Content Batch Details</h2>
+
+      <div class="detail-row">
+        <span class="detail-label">Batch Date</span>
+        <span class="detail-value">April 12, 2026</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Client</span>
+        <span class="detail-value">Fiddlers Green Farm</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Total Pieces</span>
+        <span class="detail-value">5 (3 static, 1 carousel, 1 reel)</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Voice Profile</span>
+        <span class="detail-value"><span class="voice-badge">Updated Apr 12</span></span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">Status</span>
+        <span class="detail-value"><span class="status-badge">Ready for Review</span></span>
+      </div>
+
+      <div class="details-section">
+        <h3>Voice Updates Applied</h3>
+        <ul>
+          <li>Customer-as-hero framing (brand voice guide)</li>
+          <li>Problem &rarr; Work &rarr; Meaning arc in every post</li>
+          <li>Signature phrases: "It starts in the soil", "This is what it takes", "You're part of this"</li>
+          <li>High directness, low poetry tone calibration</li>
+          <li>Official color palette and typography from style guide</li>
+        </ul>
+      </div>
+
+      <div class="details-section">
+        <h3>Photo Sources</h3>
+        <ul>
+          <li><strong>Post 1:</strong> Product photo &mdash; Bath soaks (Drive/Photos/PRODUCTS/Bath Soaks)</li>
+          <li><strong>Post 2:</strong> Product photo &mdash; Tallow balm (Drive/Photos/PRODUCTS/Tallow)</li>
+          <li><strong>Post 3:</strong> Client-provided &mdash; Bee on echinacea (Drive/Photos/Bees)</li>
+          <li><strong>Post 4:</strong> Designed slides &mdash; USDA Organic carousel (6 slides, generated)</li>
+          <li><strong>Post 5:</strong> Client-provided &mdash; Brynn in wheat field (Drive/Photos/_SELECTS)</li>
+        </ul>
+      </div>
+
+      <div class="details-section">
+        <h3>Shot List &mdash; Still Needed for Reel</h3>
+        <ul>
+          <li>Dawn/mist wide shot of farm (scene 1)</li>
+          <li>Ben opening hive box with smoker (scene 2)</li>
+          <li>Brynn in workshop blending balm, pouring soaks (scene 4)</li>
+          <li>Product flat-lay on wood: honey, flour, tallow, soaks (scene 6)</li>
+        </ul>
+      </div>
+
+      <div class="details-section next-steps">
+        <h3>Next Steps</h3>
+        <ul>
+          <li>Client reviews captions and approves imagery</li>
+          <li>Schedule static posts (Posts 1&ndash;3) across week</li>
+          <li>Finalize carousel slide design and export</li>
+          <li>Film reel scenes per storyboard</li>
+          <li>Compare voice quality vs. Batch 1 (Apr 4)</li>
+        </ul>
+      </div>
+    </div>
+  </div><!-- /details-column -->
+</div><!-- /page-wrapper -->
+
+<script>
+function toggleCaption(postNum) {
+  var el = document.querySelector('.caption-text[data-post="' + postNum + '"]');
+  if (el) el.classList.toggle('collapsed');
+}
+
+function toggleStoryboard() {
+  var table = document.getElementById('storyboard');
+  var arrow = document.getElementById('sb-arrow');
+  table.classList.toggle('open');
+  arrow.innerHTML = table.classList.contains('open') ? '\u25BC' : '\u25B6';
+}
+
+// Post label scroll observer
+(function() {
+  var labelNum = document.getElementById('label-number');
+  var labelTitle = document.getElementById('label-title');
+  var labelType = document.getElementById('label-type');
+  var typeMap = { static: 'Static Post', carousel: 'Carousel', reel: 'Reel' };
+
+  var cards = document.querySelectorAll('.post-card[data-post-num]');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var card = entry.target;
+        var num = card.dataset.postNum;
+        var title = card.dataset.postTitle;
+        var type = card.dataset.postType;
+        labelNum.textContent = 'POST ' + num + ' OF 5';
+        labelTitle.textContent = title;
+        labelType.textContent = typeMap[type] || type;
+        labelType.className = 'label-type ' + type;
+      }
+    });
+  }, { threshold: 0.4 });
+
+  cards.forEach(function(card) { observer.observe(card); });
+})();
+
+// Carousel navigation
+(function() {
+  var current = 0;
+  var total = 6;
+  var track = document.getElementById('carousel-track');
+  var counter = document.getElementById('carousel-counter');
+  var dots = document.getElementById('carousel-dots').children;
+  var prev = document.getElementById('carousel-prev');
+  var next = document.getElementById('carousel-next');
+
+  function goTo(index) {
+    if (index < 0 || index >= total) return;
+    current = index;
+    track.style.transform = 'translateX(-' + (current * (100 / total)) + '%)';
+    counter.textContent = (current + 1) + ' / ' + total;
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].className = i === current ? 'active' : '';
+    }
+    prev.style.opacity = current === 0 ? '0.3' : '1';
+    prev.style.pointerEvents = current === 0 ? 'none' : 'auto';
+    next.style.opacity = current === total - 1 ? '0.3' : '1';
+    next.style.pointerEvents = current === total - 1 ? 'none' : 'auto';
+  }
+
+  prev.addEventListener('click', function() { goTo(current - 1); });
+  next.addEventListener('click', function() { goTo(current + 1); });
+
+  // Swipe support
+  var startX = 0;
+  var container = document.getElementById('carousel-container');
+  container.addEventListener('touchstart', function(e) { startX = e.touches[0].clientX; });
+  container.addEventListener('touchend', function(e) {
+    var diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) { diff > 0 ? goTo(current + 1) : goTo(current - 1); }
+  });
+
+  // Click on dots
+  for (var i = 0; i < dots.length; i++) {
+    (function(idx) { dots[idx].addEventListener('click', function() { goTo(idx); }); })(i);
+  }
+})();
+</script>
+
+</body>
+</html>
