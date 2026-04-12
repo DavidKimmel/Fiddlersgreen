@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fiddlers Green Farm — Instagram Performance Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@400;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0c1220;
+    --navy-light: #131b2e;
+    --navy-card: #172035;
+    --cyan: #00c6ff;
+    --green: #00e87b;
+    --amber: #ff6b35;
+    --red: #ff4060;
+    --gray: #8892a4;
+    --text: #e2e8f0;
+    --text-muted: #94a3b8;
+    --card-radius: 16px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.35);
+  }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #0a0f1a;
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Topbar */
+  .topbar {
+    background: var(--navy);
+    border-bottom: 3px solid var(--cyan);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  .topbar-brand span { color: var(--cyan); }
+  .topbar-back {
+    font-family: 'Barlow', sans-serif;
+    color: var(--cyan);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .topbar-back:hover { opacity: 0.7; }
+
+  /* Page header */
+  .page-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px 8px;
+  }
+  .page-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  .page-header .subtitle {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-top: 4px;
+  }
+  .page-header .bio {
+    color: var(--gray);
+    font-size: 14px;
+    margin-top: 8px;
+    font-style: italic;
+    max-width: 600px;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 1.5px;
+    color: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid rgba(0,198,255,0.2);
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  section { margin: 40px auto; max-width: 1200px; padding: 0 24px; }
+
+  /* KPI Cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 16px;
+  }
+  .kpi-card {
+    background: var(--navy-card);
+    border-radius: var(--card-radius);
+    padding: 24px 20px;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+  .kpi-card .kpi-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .kpi-card .kpi-label {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .kpi-card.warn .kpi-value { color: var(--amber); }
+  .kpi-card.good .kpi-value { color: var(--green); }
+  .kpi-card.accent .kpi-value { color: var(--cyan); }
+
+  /* Bar chart */
+  .chart-container {
+    background: var(--navy-card);
+    border-radius: var(--card-radius);
+    padding: 28px 24px 20px;
+    box-shadow: var(--shadow);
+    overflow-x: auto;
+  }
+  .bar-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 260px;
+    padding-top: 20px;
+    min-width: 600px;
+  }
+  .bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    min-width: 42px;
+  }
+  .bar-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+  }
+  .bar {
+    width: 100%;
+    max-width: 40px;
+    border-radius: 6px 6px 0 0;
+    min-height: 4px;
+    transition: opacity 0.2s;
+  }
+  .bar:hover { opacity: 0.8; }
+  .bar-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    text-align: center;
+    line-height: 1.3;
+  }
+  .bar-type {
+    font-size: 9px;
+    color: var(--gray);
+    margin-top: 2px;
+    text-align: center;
+    max-width: 60px;
+    line-height: 1.2;
+  }
+
+  /* Legend */
+  .chart-legend {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+
+  /* Top posts table */
+  .top-posts {
+    background: var(--navy-card);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .top-posts table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .top-posts th {
+    font-family: 'Barlow Condensed', sans-serif;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--cyan);
+    text-align: left;
+    padding: 14px 20px;
+    background: rgba(0,198,255,0.05);
+    border-bottom: 1px solid rgba(0,198,255,0.12);
+  }
+  .top-posts td {
+    padding: 14px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .top-posts tr:last-child td { border-bottom: none; }
+  .top-posts .rank {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--cyan);
+    width: 40px;
+  }
+  .top-posts .eng-total {
+    font-weight: 700;
+    color: var(--green);
+  }
+  .type-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .type-badge.community { background: rgba(0,232,123,0.15); color: var(--green); }
+  .type-badge.giveaway { background: rgba(0,198,255,0.15); color: var(--cyan); }
+  .type-badge.event { background: rgba(255,107,53,0.15); color: var(--amber); }
+  .type-badge.collab { background: rgba(255,107,53,0.15); color: var(--amber); }
+  .type-badge.product { background: rgba(0,198,255,0.15); color: var(--cyan); }
+  .type-badge.promo { background: rgba(136,146,164,0.2); color: var(--gray); }
+
+  /* Content breakdown */
+  .breakdown-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  .breakdown-card {
+    background: var(--navy-card);
+    border-radius: var(--card-radius);
+    padding: 20px 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .breakdown-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .breakdown-info h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .breakdown-stats {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .breakdown-stats strong { color: var(--text); }
+
+  /* Insight cards */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .insight-card {
+    background: var(--navy-card);
+    border-radius: var(--card-radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--cyan);
+  }
+  .insight-card.warning { border-left-color: var(--amber); }
+  .insight-card.positive { border-left-color: var(--green); }
+  .insight-card h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .insight-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* Recommendations */
+  .rec-list {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+  }
+  .rec-list li {
+    background: var(--navy-card);
+    border-radius: var(--card-radius);
+    padding: 20px 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+  }
+  .rec-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--cyan);
+    flex-shrink: 0;
+    width: 28px;
+  }
+  .rec-text strong { color: #fff; }
+  .rec-text { color: var(--text-muted); }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 40px 24px;
+    color: var(--gray);
+    font-size: 13px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin-top: 60px;
+  }
+  .footer a { color: var(--cyan); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+  .footer .disclaimer {
+    margin-top: 8px;
+    font-size: 11px;
+    color: rgba(136,146,164,0.6);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .page-header h1 { font-size: 28px; }
+    .section-title { font-size: 22px; }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi-card .kpi-value { font-size: 28px; }
+    .top-posts { overflow-x: auto; }
+    .top-posts table { min-width: 500px; }
+    .insight-grid { grid-template-columns: 1fr; }
+    .breakdown-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .kpi-card { padding: 16px 12px; }
+    .topbar-brand { font-size: 18px; }
+    section { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<nav class="topbar">
+  <div class="topbar-brand">CLEAR<span>GRADE</span> PORTAL</div>
+  <a href="/" class="topbar-back">&larr; Back to Portal</a>
+</nav>
+
+<!-- Page Header -->
+<div class="page-header">
+  <h1>@fiddlersgreenfarmlife</h1>
+  <div class="subtitle">Instagram Performance Dashboard &mdash; Fiddlers Green Farm</div>
+  <div class="bio">"You Deserve to Feel Better | Organic Hemp &amp; Heritage Grain Farm | Stone Milled Flour &amp; Small Batch Wellness Goods"</div>
+</div>
+
+<!-- Profile Overview KPIs -->
+<section>
+  <h2 class="section-title">Profile Overview</h2>
+  <div class="kpi-grid">
+    <div class="kpi-card accent">
+      <div class="kpi-value">1,190</div>
+      <div class="kpi-label">Followers</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">510</div>
+      <div class="kpi-label">Total Posts</div>
+    </div>
+    <div class="kpi-card good">
+      <div class="kpi-value">27.4</div>
+      <div class="kpi-label">Avg Likes / Post</div>
+    </div>
+    <div class="kpi-card">
+      <div class="kpi-value">6.4</div>
+      <div class="kpi-label">Avg Comments / Post</div>
+    </div>
+    <div class="kpi-card warn">
+      <div class="kpi-value">3</div>
+      <div class="kpi-label">Posts in Last 90 Days</div>
+    </div>
+    <div class="kpi-card warn">
+      <div class="kpi-value">~5.3 wk</div>
+      <div class="kpi-label">Posting Frequency</div>
+    </div>
+  </div>
+</section>
+
+<!-- Engagement Over Time -->
+<section>
+  <h2 class="section-title">Engagement Over Time</h2>
+  <div class="chart-container">
+    <div class="bar-chart">
+      <!-- Nov 2024: Tallow Balm -->
+      <div class="bar-col">
+        <div class="bar-value">30</div>
+        <div class="bar" style="height:calc(30/117*220px);background:var(--cyan);"></div>
+        <div class="bar-label">Nov 08<br>2024</div>
+        <div class="bar-type">Product</div>
+      </div>
+      <!-- Nov 2024: Holiday Bazaar -->
+      <div class="bar-col">
+        <div class="bar-value">14</div>
+        <div class="bar" style="height:calc(14/117*220px);background:var(--amber);"></div>
+        <div class="bar-label">Nov 19<br>2024</div>
+        <div class="bar-type">Event</div>
+      </div>
+      <!-- Nov 2024: GRATEFUL24 -->
+      <div class="bar-col">
+        <div class="bar-value">5</div>
+        <div class="bar" style="height:calc(5/117*220px);background:#6b7280;"></div>
+        <div class="bar-label">Nov 26<br>2024</div>
+        <div class="bar-type">Promo</div>
+      </div>
+      <!-- Nov 2024: Thanksgiving -->
+      <div class="bar-col">
+        <div class="bar-value">96</div>
+        <div class="bar" style="height:calc(96/117*220px);background:var(--green);"></div>
+        <div class="bar-label">Nov 28<br>2024</div>
+        <div class="bar-type">Community</div>
+      </div>
+      <!-- Feb 2025: Common Market -->
+      <div class="bar-col">
+        <div class="bar-value">30</div>
+        <div class="bar" style="height:calc(30/117*220px);background:var(--cyan);"></div>
+        <div class="bar-label">Feb 09<br>2025</div>
+        <div class="bar-type">Retail</div>
+      </div>
+      <!-- Feb 2025: Giveaway -->
+      <div class="bar-col">
+        <div class="bar-value">117</div>
+        <div class="bar" style="height:calc(117/117*220px);background:var(--cyan);"></div>
+        <div class="bar-label">Feb 17<br>2025</div>
+        <div class="bar-type">Giveaway</div>
+      </div>
+      <!-- Apr 2025: Soap Collab -->
+      <div class="bar-col">
+        <div class="bar-value">47</div>
+        <div class="bar" style="height:calc(47/117*220px);background:var(--amber);"></div>
+        <div class="bar-label">Apr 09<br>2025</div>
+        <div class="bar-type">Collab</div>
+      </div>
+      <!-- May 2025: First Market -->
+      <div class="bar-col">
+        <div class="bar-value">48</div>
+        <div class="bar" style="height:calc(48/117*220px);background:var(--amber);"></div>
+        <div class="bar-label">May 17<br>2025</div>
+        <div class="bar-type">Event</div>
+      </div>
+      <!-- Jul 2025: Market Schedule -->
+      <div class="bar-col">
+        <div class="bar-value">6</div>
+        <div class="bar" style="height:calc(6/117*220px);background:#6b7280;"></div>
+        <div class="bar-label">Jul 30<br>2025</div>
+        <div class="bar-type">Logistics</div>
+      </div>
+      <!-- Sep 2025: Brewery Collab -->
+      <div class="bar-col">
+        <div class="bar-value">29</div>
+        <div class="bar" style="height:calc(29/117*220px);background:var(--amber);"></div>
+        <div class="bar-label">Sep 23<br>2025</div>
+        <div class="bar-type">Collab</div>
+      </div>
+      <!-- Nov 2025: Black Friday -->
+      <div class="bar-col">
+        <div class="bar-value">8</div>
+        <div class="bar" style="height:calc(8/117*220px);background:#6b7280;"></div>
+        <div class="bar-label">Nov 28<br>2025</div>
+        <div class="bar-type">Promo</div>
+      </div>
+      <!-- Feb 2026: Bolles Flour -->
+      <div class="bar-col">
+        <div class="bar-value">20</div>
+        <div class="bar" style="height:calc(20/117*220px);background:var(--cyan);"></div>
+        <div class="bar-label">Feb 16<br>2026</div>
+        <div class="bar-type">Product</div>
+      </div>
+      <!-- Mar 2026: Turkey Red -->
+      <div class="bar-col">
+        <div class="bar-value">9</div>
+        <div class="bar" style="height:calc(9/117*220px);background:var(--cyan);"></div>
+        <div class="bar-label">Mar 16<br>2026</div>
+        <div class="bar-type">Product</div>
+      </div>
+      <!-- Apr 2026: Bluebirds -->
+      <div class="bar-col">
+        <div class="bar-value">27</div>
+        <div class="bar" style="height:calc(27/117*220px);background:var(--green);"></div>
+        <div class="bar-label">Apr 08<br>2026</div>
+        <div class="bar-type">Farm Life</div>
+      </div>
+    </div>
+    <div class="chart-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div>Farm Life / Community</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--amber);"></div>Events / Collabs</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--cyan);"></div>Product / Retail</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#6b7280;"></div>Promos / Logistics</div>
+    </div>
+  </div>
+</section>
+
+<!-- Top Performing Posts -->
+<section>
+  <h2 class="section-title">Top Performing Posts</h2>
+  <div class="top-posts">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Post</th>
+          <th>Date</th>
+          <th>Engagement</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="rank">1</td>
+          <td>Honey giveaway with Pasture &amp; Petal</td>
+          <td>Feb 17, 2025</td>
+          <td class="eng-total">117 <span style="color:var(--text-muted);font-weight:400;font-size:12px;">(41L + 76C)</span></td>
+          <td><span class="type-badge giveaway">Giveaway</span></td>
+        </tr>
+        <tr>
+          <td class="rank">2</td>
+          <td>Thanksgiving gratitude post</td>
+          <td>Nov 28, 2024</td>
+          <td class="eng-total">96 <span style="color:var(--text-muted);font-weight:400;font-size:12px;">(92L + 4C)</span></td>
+          <td><span class="type-badge community">Community</span></td>
+        </tr>
+        <tr>
+          <td class="rank">3</td>
+          <td>First market of season @westminsterfarmersmkt</td>
+          <td>May 17, 2025</td>
+          <td class="eng-total">48 <span style="color:var(--text-muted);font-weight:400;font-size:12px;">(48L + 0C)</span></td>
+          <td><span class="type-badge event">Event</span></td>
+        </tr>
+        <tr>
+          <td class="rank">4</td>
+          <td>Goose Ridge Soaps collab &mdash; wheat &amp; honey soap</td>
+          <td>Apr 09, 2025</td>
+          <td class="eng-total">47 <span style="color:var(--text-muted);font-weight:400;font-size:12px;">(45L + 2C)</span></td>
+          <td><span class="type-badge collab">Collab</span></td>
+        </tr>
+        <tr>
+          <td class="rank">5</td>
+          <td>Common Market Coop sale on topicals</td>
+          <td>Feb 09, 2025</td>
+          <td class="eng-total">30 <span style="color:var(--text-muted);font-weight:400;font-size:12px;">(27L + 3C)</span></td>
+          <td><span class="type-badge product">Retail Partner</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Content Type Breakdown -->
+<section>
+  <h2 class="section-title">Content Type Breakdown</h2>
+  <div class="breakdown-grid">
+    <div class="breakdown-card">
+      <div class="breakdown-icon" style="background:rgba(0,232,123,0.15);color:var(--green);">&#127793;</div>
+      <div class="breakdown-info">
+        <h4>Farm Life / Community</h4>
+        <div class="breakdown-stats"><strong>2 posts</strong> &middot; Avg <strong>59.5</strong> likes &middot; Avg <strong>2.0</strong> comments</div>
+      </div>
+    </div>
+    <div class="breakdown-card">
+      <div class="breakdown-icon" style="background:rgba(255,107,53,0.15);color:var(--amber);">&#127866;</div>
+      <div class="breakdown-info">
+        <h4>Events / Markets</h4>
+        <div class="breakdown-stats"><strong>2 posts</strong> &middot; Avg <strong>30.0</strong> likes &middot; Avg <strong>1.0</strong> comments</div>
+      </div>
+    </div>
+    <div class="breakdown-card">
+      <div class="breakdown-icon" style="background:rgba(255,107,53,0.15);color:var(--amber);">&#129309;</div>
+      <div class="breakdown-info">
+        <h4>Collabs</h4>
+        <div class="breakdown-stats"><strong>2 posts</strong> &middot; Avg <strong>37.0</strong> likes &middot; Avg <strong>1.0</strong> comments</div>
+      </div>
+    </div>
+    <div class="breakdown-card">
+      <div class="breakdown-icon" style="background:rgba(0,198,255,0.15);color:var(--cyan);">&#128230;</div>
+      <div class="breakdown-info">
+        <h4>Product Restocks / Launch</h4>
+        <div class="breakdown-stats"><strong>3 posts</strong> &middot; Avg <strong>16.3</strong> likes &middot; Avg <strong>0.7</strong> comments</div>
+      </div>
+    </div>
+    <div class="breakdown-card">
+      <div class="breakdown-icon" style="background:rgba(136,146,164,0.15);color:var(--gray);">&#128176;</div>
+      <div class="breakdown-info">
+        <h4>Sales / Promos</h4>
+        <div class="breakdown-stats"><strong>2 posts</strong> &middot; Avg <strong>6.0</strong> likes &middot; Avg <strong>0.5</strong> comments</div>
+      </div>
+    </div>
+    <div class="breakdown-card">
+      <div class="breakdown-icon" style="background:rgba(136,146,164,0.15);color:var(--gray);">&#128197;</div>
+      <div class="breakdown-info">
+        <h4>Logistics</h4>
+        <div class="breakdown-stats"><strong>1 post</strong> &middot; Avg <strong>6.0</strong> likes &middot; Avg <strong>0.0</strong> comments</div>
+      </div>
+    </div>
+    <div class="breakdown-card">
+      <div class="breakdown-icon" style="background:rgba(0,198,255,0.15);color:var(--cyan);">&#127873;</div>
+      <div class="breakdown-info">
+        <h4>Giveaway</h4>
+        <div class="breakdown-stats"><strong>1 post</strong> &middot; Avg <strong>41.0</strong> likes &middot; Avg <strong>76.0</strong> comments</div>
+      </div>
+    </div>
+    <div class="breakdown-card">
+      <div class="breakdown-icon" style="background:rgba(0,198,255,0.15);color:var(--cyan);">&#128722;</div>
+      <div class="breakdown-info">
+        <h4>Retail Partner</h4>
+        <div class="breakdown-stats"><strong>1 post</strong> &middot; Avg <strong>27.0</strong> likes &middot; Avg <strong>3.0</strong> comments</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Key Insights -->
+<section>
+  <h2 class="section-title">Key Insights</h2>
+  <div class="insight-grid">
+    <div class="insight-card warning">
+      <h4>Critically Low Posting Frequency</h4>
+      <p>Only 3 posts in the last 90 days, with an average gap of ~5.3 weeks between posts. This kills algorithmic reach and follower retention. The account is effectively dormant in Instagram's eyes.</p>
+    </div>
+    <div class="insight-card positive">
+      <h4>Community Content Dominates</h4>
+      <p>The Thanksgiving gratitude post pulled 92 likes &mdash; the highest organic engagement by far. Farm life content (bluebirds post: 27 likes) also outperforms product and promo posts. Authenticity wins.</p>
+    </div>
+    <div class="insight-card warning">
+      <h4>Sale Graphics Flatline</h4>
+      <p>Both Black Friday / promo posts averaged just 6 likes with near-zero comments. Generic sale graphics are the lowest-performing content type and actively waste posting slots.</p>
+    </div>
+    <div class="insight-card positive">
+      <h4>Local Collabs Are Proven Winners</h4>
+      <p>The brewery collab (29 likes), soap collab (47 total engagement), and co-op feature (30 total) consistently outperform product-only posts. Cross-audience exposure drives real engagement.</p>
+    </div>
+    <div class="insight-card">
+      <h4>Giveaway Engagement Is Artificial</h4>
+      <p>The honey giveaway hit 117 total engagement, but 76 of that was comments (contest entries). While useful for reach spikes, this doesn't reflect sustained organic interest and shouldn't be the primary strategy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Recommendations -->
+<section>
+  <h2 class="section-title">Recommendations</h2>
+  <ul class="rec-list">
+    <li>
+      <div class="rec-num">01</div>
+      <div class="rec-text"><strong>Increase posting frequency to 3x/week minimum.</strong> The single biggest issue. Even 2x/week would be a massive improvement. Consistency signals relevance to the algorithm and keeps the audience engaged.</div>
+    </li>
+    <li>
+      <div class="rec-num">02</div>
+      <div class="rec-text"><strong>Lead with farm life and community content.</strong> Behind-the-scenes farm moments, animal photos, harvest updates, and gratitude posts generate the highest organic engagement. Make this 60% of content.</div>
+    </li>
+    <li>
+      <div class="rec-num">03</div>
+      <div class="rec-text"><strong>Double down on local collabs.</strong> Brewery, soap maker, co-op, and market partnerships consistently outperform. Aim for 1-2 collab posts per month &mdash; they tap into partner audiences.</div>
+    </li>
+    <li>
+      <div class="rec-num">04</div>
+      <div class="rec-text"><strong>Stop posting generic sale graphics.</strong> They average 6 likes and hurt overall engagement rate. Instead, weave promotions into storytelling posts (e.g., "why we grow Turkey Red wheat" + mention the restock).</div>
+    </li>
+    <li>
+      <div class="rec-num">05</div>
+      <div class="rec-text"><strong>Use product restocks as secondary content, not primary.</strong> Restocks get moderate engagement (9-20 likes). Pair them with farm stories or customer testimonials rather than standalone announcements.</div>
+    </li>
+    <li>
+      <div class="rec-num">06</div>
+      <div class="rec-text"><strong>Launch a recurring content series.</strong> A weekly "What's Growing Wednesday" or "Farm Friday" gives the audience a reason to check back and builds posting discipline. Series content is easier to plan and batch.</div>
+    </li>
+  </ul>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div>Powered by <a href="https://cleargrade.co" target="_blank">ClearGrade</a></div>
+  <div class="disclaimer">Data collected April 12, 2026 &mdash; Public metrics only</div>
+</footer>
+
+</body>
+</html>
