@@ -3,130 +3,260 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fiddlers Green Farm — Content Deliverables</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<title>Fiddlers Green Farm — Instagram Batches</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Bebas+Neue&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: 'Inter', sans-serif; background: #f5f2ed; color: #2c2c2c; min-height: 100vh; }
-  .header { background: #1e3d1a; color: #fff; padding: 48px 24px; text-align: center; }
-  .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; margin-bottom: 8px; }
-  .header p { opacity: 0.7; font-size: 14px; }
-  .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-  .batch-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 28px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border: 1px solid #e0dbd4;
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Barlow', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #fafaf8;
+    color: #1a1a1a;
+    line-height: 1.6;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+  }
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: linear-gradient(90deg, #00c6ff, #00e87b);
+    z-index: 10000;
+  }
+
+  /* Top Bar */
+  .topbar {
+    background: #0c1220;
+    padding: 16px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    margin-top: 2px;
   }
-  .batch-info h3 { font-size: 18px; margin-bottom: 4px; color: #1e3d1a; }
-  .batch-info p { font-size: 13px; color: #888; }
-  .batch-meta { display: flex; gap: 8px; margin-top: 8px; }
-  .batch-meta span {
-    font-size: 11px;
-    font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  .topbar-brand {
+    font-size: 16px; font-weight: 700; color: #fff; letter-spacing: 0.5px;
   }
-  .batch-meta .static { background: #e8f0e6; color: #2d5a27; }
-  .batch-meta .carousel { background: #e3f0ff; color: #0066cc; }
-  .batch-meta .reel { background: #f0f0f0; color: #333; }
-  .batch-links { display: flex; gap: 10px; flex-shrink: 0; }
-  .batch-links a {
-    display: inline-block;
-    padding: 8px 18px;
-    border-radius: 8px;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
+  .topbar-back a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.5);
+    text-decoration: none; letter-spacing: 1px; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .topbar-back a:hover { color: #00c6ff; }
+
+  /* Header */
+  .page-header {
+    text-align: center;
+    padding: 56px 32px 40px;
+    background: linear-gradient(180deg, #f8f8f6 0%, #f3f1eb 100%);
+    border-bottom: 1px solid #e5e5e5;
+  }
+  .page-header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 36px; font-weight: 700; margin-bottom: 6px;
+  }
+  .page-header .subtitle {
+    font-size: 16px; color: #888; font-weight: 300;
+  }
+  .stats-row {
+    display: flex; justify-content: center; gap: 40px; margin-top: 24px;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; color: #1a1a1a; letter-spacing: 1px;
+  }
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 1.5px; color: #999;
+  }
+
+  /* Content */
+  .container { max-width: 800px; margin: 0 auto; padding: 40px 20px 64px; }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; text-transform: uppercase; letter-spacing: 3px;
+    color: #999; margin-bottom: 20px; margin-top: 8px;
+  }
+
+  /* Batch Card */
+  .batch-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e5e5e5;
+    border-left: 4px solid #e5e5e5;
+    transition: border-left-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .batch-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  }
+  .batch-card.status-review { border-left-color: #ffc107; }
+  .batch-card.status-approved { border-left-color: #00e87b; }
+  .batch-card.status-posted { border-left-color: #0095f6; }
+
+  .batch-top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .batch-title {
+    font-size: 18px; font-weight: 700; color: #1a1a1a;
+  }
+  .batch-date {
+    font-size: 13px; color: #888; font-weight: 400; margin-top: 2px;
+  }
+
+  .badge {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 600; padding: 4px 14px;
+    border-radius: 20px; white-space: nowrap; letter-spacing: 0.3px;
+    text-transform: uppercase; flex-shrink: 0;
+  }
+  .badge-review { background: #fff3cd; color: #856404; }
+  .badge-approved { background: #d4edda; color: #155724; }
+  .badge-posted { background: #cce5ff; color: #004085; }
+  .badge-voice { background: #d4edda; color: #155724; margin-left: 8px; }
+  .badge-checked { background: #fff3cd; color: #856404; margin-left: 8px; }
+
+  .batch-meta {
+    display: flex; gap: 8px; margin: 10px 0 14px; flex-wrap: wrap; align-items: center;
+  }
+  .meta-tag {
+    font-size: 11px; font-weight: 600; padding: 3px 10px;
+    border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .meta-tag.static { background: #e8f0e6; color: #2d5a27; }
+  .meta-tag.carousel { background: #e3f0ff; color: #0066cc; }
+  .meta-tag.reel { background: #f0f0f0; color: #333; }
+
+  .batch-desc {
+    font-size: 14px; color: #777; font-weight: 300; line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .batch-actions {
+    display: flex; gap: 10px; padding-top: 14px;
+    border-top: 1px solid #f0ede6;
+  }
+  .batch-actions a {
+    display: inline-block; padding: 8px 20px; border-radius: 8px;
+    font-size: 13px; font-weight: 600; text-decoration: none;
     transition: background 0.2s;
   }
   .btn-primary { background: #2d5a27; color: #fff; }
   .btn-primary:hover { background: #1e3d1a; }
   .btn-secondary { background: #f0e8db; color: #6b4f3a; }
   .btn-secondary:hover { background: #e0d5c5; }
-  .section-label {
-    font-size: 11px; font-weight: 700; text-transform: uppercase;
-    letter-spacing: 2px; color: #999; margin-bottom: 16px; margin-top: 32px;
+
+  /* Footer */
+  .footer {
+    text-align: center; padding: 0 32px 40px;
+  }
+  .footer-rule {
+    max-width: 800px; margin: 0 auto 28px; border: none; height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #ddd 30%, #ddd 70%, transparent 100%);
+  }
+  .footer-text {
+    font-size: 13px; color: #aaa; font-weight: 400;
+  }
+  .footer-text a { color: #888; text-decoration: none; border-bottom: 1px solid #ddd; }
+  .footer-text a:hover { color: #00c6ff; border-color: #00c6ff; }
+
+  @media (max-width: 600px) {
+    .page-header { padding: 40px 20px 32px; }
+    .page-header h1 { font-size: 28px; }
+    .stats-row { gap: 24px; }
+    .stat-num { font-size: 26px; }
+    .batch-top { flex-direction: column; gap: 8px; }
+    .topbar { padding: 12px 20px; }
   }
 </style>
 </head>
 <body>
-  <div class="header">
-    <h1>Fiddlers Green Farm</h1>
-    <p>Content Deliverables</p>
-  </div>
-  <div class="container">
-    <div class="section-label">Latest Batch</div>
-    <div class="batch-card">
-      <div class="batch-info">
-        <h3>Instagram Batch — April 12, 2026</h3>
-        <p>5 pieces: 3 static posts, 1 carousel (6 slides), 1 reel script</p>
-        <div class="batch-meta">
-          <span class="static">3 Static</span>
-          <span class="carousel">1 Carousel</span>
-          <span class="reel">1 Reel</span>
-        </div>
-        <div style="margin-top:6px;"><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;background:#d4edda;color:#155724;">Updated Voice Profile</span></div>
+
+  <header class="topbar">
+    <div class="topbar-brand">ClearGrade</div>
+    <div class="topbar-back"><a href="../">&larr; Back to Portal</a></div>
+  </header>
+
+  <div class="page-header">
+    <h1>Instagram Content</h1>
+    <div class="subtitle">@fiddlersgreenfarmlife</div>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Batches</div>
       </div>
-      <div class="batch-links">
+      <div class="stat">
+        <div class="stat-num">10</div>
+        <div class="stat-label">Total Posts</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Published</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="section-label">Ready for Review</div>
+
+    <div class="batch-card status-review">
+      <div class="batch-top">
+        <div>
+          <div class="batch-title">Batch 2 &mdash; April 12, 2026</div>
+          <div class="batch-date">Generated with updated brand voice profile</div>
+        </div>
+        <div style="display:flex;align-items:center;">
+          <span class="badge badge-review">Ready for Review</span>
+          <span class="badge badge-voice">New Voice</span>
+        </div>
+      </div>
+      <div class="batch-meta">
+        <span class="meta-tag static">3 Static</span>
+        <span class="meta-tag carousel">1 Carousel (6 slides)</span>
+        <span class="meta-tag reel">1 Reel (6 scenes)</span>
+      </div>
+      <div class="batch-desc">Bath Soaks, Facial Tallow Balm, Bees &amp; Soil Health, USDA Organic education carousel, Day on the Farm reel. All product claims verified against live listings.</div>
+      <div class="batch-actions">
         <a href="instagram-2026-04-12/instagram-batch-preview.html" class="btn-primary">Review Posts</a>
       </div>
     </div>
 
-    <div class="section-label">Previous Batches</div>
-    <div class="batch-card">
-      <div class="batch-info">
-        <h3>Instagram Batch — April 4, 2026</h3>
-        <p>5 pieces: 3 static posts, 1 carousel (7 slides), 1 reel script</p>
-        <div class="batch-meta">
-          <span class="static">3 Static</span>
-          <span class="carousel">1 Carousel</span>
-          <span class="reel">1 Reel</span>
+    <div class="batch-card status-review">
+      <div class="batch-top">
+        <div>
+          <div class="batch-title">Batch 1 &mdash; April 4, 2026</div>
+          <div class="batch-date">First content batch &mdash; fact-checked April 12</div>
         </div>
-        <div style="margin-top:6px;"><span style="font-size:11px;font-weight:600;padding:3px 10px;border-radius:10px;background:#fff3cd;color:#856404;">Fact-Checked Apr 12</span></div>
+        <div style="display:flex;align-items:center;">
+          <span class="badge badge-review">Ready for Review</span>
+          <span class="badge badge-checked">Fact-Checked</span>
+        </div>
       </div>
-      <div class="batch-links">
-        <a href="instagram-2026-04-04/instagram-batch-preview.html" class="btn-secondary">Review Posts</a>
+      <div class="batch-meta">
+        <span class="meta-tag static">3 Static</span>
+        <span class="meta-tag carousel">1 Carousel (7 slides)</span>
+        <span class="meta-tag reel">1 Reel (6 scenes)</span>
+      </div>
+      <div class="batch-desc">Spring Planting, CBD Salve pricing, Raw Honey restock, Heritage Grain education carousel, Seed to Shelf reel. Corrections applied: milling location, salve pricing, honey sizes.</div>
+      <div class="batch-actions">
+        <a href="instagram-2026-04-04/instagram-batch-preview.html" class="btn-primary">Review Posts</a>
         <a href="instagram-2026-04-04/carousel-heritage-grain.html" class="btn-secondary">Carousel Slides</a>
       </div>
     </div>
 
-    <div class="section-label">Audits</div>
-    <div class="batch-card">
-      <div class="batch-info">
-        <h3>Marketing Audit</h3>
-        <p>Full marketing assessment — Score: 51/100</p>
-      </div>
-      <div class="batch-links">
-        <a href="../marketing-audit.html" class="btn-secondary">View</a>
-      </div>
-    </div>
-    <div class="batch-card">
-      <div class="batch-info">
-        <h3>SEO Audit</h3>
-        <p>Technical SEO assessment — Score: 38/100</p>
-      </div>
-      <div class="batch-links">
-        <a href="../seo-audit.html" class="btn-secondary">View</a>
-      </div>
-    </div>
-    <div class="batch-card">
-      <div class="batch-info">
-        <h3>Competitor Intelligence</h3>
-        <p>6 competitors analyzed with threat rankings</p>
-      </div>
-      <div class="batch-links">
-        <a href="../competitor-report.html" class="btn-secondary">View</a>
-      </div>
-    </div>
   </div>
+
+  <footer class="footer">
+    <hr class="footer-rule">
+    <div class="footer-text">Powered by <a href="https://cleargrade.co" target="_blank" rel="noopener">ClearGrade</a></div>
+  </footer>
+
 </body>
 </html>
