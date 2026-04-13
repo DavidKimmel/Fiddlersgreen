@@ -1,0 +1,69 @@
+{
+  "client": "Fiddlers Green Farm",
+  "client_slug": "fiddlers-green",
+  "created": "2026-04-04T00:00:00Z",
+  "total_pieces": 6,
+  "performance_notes": [],
+  "content_log": [
+    {
+      "date": "2026-04-04",
+      "platform": "instagram",
+      "format": "static-post",
+      "hook": "We just put seed in the ground this week.",
+      "topic": "Spring planting / regenerative farming / USDA program",
+      "image_source": "needs-client-photo: Ben in wheat field, spring planting",
+      "status": "draft",
+      "performance_notes": ""
+    },
+    {
+      "date": "2026-04-04",
+      "platform": "instagram",
+      "format": "static-post",
+      "hook": "We get asked a lot why our salves are so much cheaper.",
+      "topic": "CBD salve pricing / seed-to-shelf transparency",
+      "image_source": "brand-library: salve-sore-front-full.png, salve-sore-open.png",
+      "status": "draft",
+      "performance_notes": ""
+    },
+    {
+      "date": "2026-04-04",
+      "platform": "instagram",
+      "format": "static-post",
+      "hook": "Raw honey is back in stock. Woohoo!",
+      "topic": "Raw honey restock / organic beekeeping",
+      "image_source": "brand-library: honey-sunnys-front.png, honey-trio.png",
+      "status": "draft",
+      "performance_notes": ""
+    },
+    {
+      "date": "2026-04-04",
+      "platform": "instagram",
+      "format": "carousel",
+      "hook": "Your flour used to be alive.",
+      "topic": "Heritage grain education — 7 slides",
+      "image_source": "designed-graphics: carousel-heritage-grain.html",
+      "status": "draft",
+      "performance_notes": ""
+    },
+    {
+      "date": "2026-04-04",
+      "platform": "instagram",
+      "format": "reel",
+      "hook": "Everything in this bottle grew 200 yards from where it was made.",
+      "topic": "Seed to shelf — full farm-to-product story",
+      "image_source": "needs-client-footage: field shots, harvest, barn, Brynn bottling",
+      "status": "draft",
+      "performance_notes": ""
+    },
+    {
+      "date": "2026-04-04",
+      "platform": "blog",
+      "format": "seo-post",
+      "hook": "Full Spectrum vs Broad Spectrum vs CBD Isolate Explained",
+      "topic": "full spectrum vs broad spectrum vs CBD isolate",
+      "word_count": 2080,
+      "status": "draft",
+      "performance_notes": ""
+    }
+  ]
+}
