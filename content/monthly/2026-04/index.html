@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>April 2026 Content Calendar — Fiddlers Green Farm</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  background: #fafaf8;
+  color: #1a1a1a;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* Cyan accent line at very top */
+.accent-line {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00c6ff, #00e87b);
+  z-index: 1001;
+}
+
+/* Topbar */
+.topbar {
+  position: sticky;
+  top: 2px;
+  z-index: 1000;
+  background: #0c1220;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.topbar-left .sep {
+  color: #3a4a5e;
+}
+
+.topbar-right a {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  color: #8899aa;
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+
+.topbar-right a:hover {
+  color: #00c6ff;
+}
+
+/* Page header */
+.page-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 32px 32px;
+}
+
+.page-header h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  letter-spacing: 2px;
+  color: #0c1220;
+  line-height: 1;
+}
+
+.page-header .subtitle {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #666;
+  margin-top: 8px;
+}
+
+/* Progress bar */
+.progress-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 40px;
+}
+
+.progress-bar-outer {
+  background: #e5e5e5;
+  border-radius: 4px;
+  height: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00c6ff, #00e87b);
+  border-radius: 4px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.progress-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: #888;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+/* Week divider */
+.week-divider {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 24px;
+}
+
+.week-divider h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #0c1220;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 8px;
+}
+
+/* Post grid */
+.post-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Post card */
+.post-card {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  border-left: 4px solid #ffc107;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-left-color 0.3s;
+}
+
+.post-card[data-status="approved"] { border-left-color: #16a34a; }
+.post-card[data-status="approved"] .btn-approve { background: #16a34a; color: #fff; border-color: #16a34a; }
+.post-card[data-status="approved"] .status-dot { background: #16a34a; }
+.post-card[data-status="approved"] .status-text::after { content: " — Approved"; }
+.post-card[data-status="changes"] { border-left-color: #dc2626; }
+.post-card[data-status="changes"] .status-dot { background: #dc2626; }
+.post-card[data-status="changes"] .status-text::after { content: " — Changes Requested"; }
+
+/* Post header */
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 10px;
+}
+
+.post-date {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: #555;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.post-type-badge {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.post-type-badge.static {
+  background: #eef6ff;
+  color: #2563eb;
+}
+
+.post-type-badge.reel {
+  background: #fef3f2;
+  color: #dc2626;
+}
+
+/* Post media */
+.post-media {
+  width: 100%;
+  position: relative;
+  background: #f0f0f0;
+}
+
+.post-media img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.post-media video {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  max-height: 480px;
+  object-fit: cover;
+  display: block;
+  background: #000;
+}
+
+/* Post caption area */
+.post-caption {
+  padding: 14px 16px;
+  flex: 1;
+}
+
+.post-handle {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #0c1220;
+  margin-bottom: 6px;
+}
+
+.caption-text {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.55;
+  color: #333;
+}
+
+.caption-full { display: none; }
+
+.toggle-caption {
+  background: none;
+  border: none;
+  color: #888;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 4px;
+}
+
+.toggle-caption:hover { color: #00c6ff; }
+
+.post-hashtags {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #2563eb;
+  margin-top: 8px;
+  line-height: 1.5;
+  display: none;
+}
+
+.post-hashtags.visible { display: block; }
+
+/* Post actions */
+.post-actions {
+  padding: 0 16px 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-approve, .btn-changes {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid;
+}
+
+.btn-approve {
+  background: #fff;
+  color: #16a34a;
+  border-color: #16a34a;
+}
+
+.btn-approve:hover {
+  background: #16a34a;
+  color: #fff;
+}
+
+.btn-changes {
+  background: #fff;
+  color: #888;
+  border-color: #ddd;
+}
+
+.btn-changes:hover {
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Post notes */
+.post-notes {
+  padding: 0 16px 12px;
+  display: none;
+}
+
+.post-notes textarea {
+  width: 100%;
+  min-height: 72px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  resize: vertical;
+  color: #333;
+}
+
+.post-notes textarea:focus {
+  outline: none;
+  border-color: #00c6ff;
+}
+
+.btn-submit-note {
+  margin-top: 8px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 6px 14px;
+  border: 1px solid #0c1220;
+  background: #0c1220;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn-submit-note:hover { opacity: 0.85; }
+
+/* Post status */
+.post-status {
+  padding: 10px 16px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffc107;
+  flex-shrink: 0;
+}
+
+.status-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+/* Footer */
+footer {
+  background: #f0ede6;
+  border-top: 2px solid;
+  border-image: linear-gradient(90deg, #00c6ff, #00e87b) 1;
+  padding: 32px;
+  text-align: center;
+}
+
+footer p {
+  font-family: 'Barlow', sans-serif;
+  font-weight: 300;
+  font-size: 13px;
+  color: #888;
+}
+
+footer a {
+  color: #00c6ff;
+  text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .post-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+}
+
+@media (max-width: 600px) {
+  .post-grid { grid-template-columns: 1fr; gap: 16px; padding: 0 16px 32px; }
+  .page-header { padding: 32px 16px 24px; }
+  .page-header h1 { font-size: 32px; }
+  .progress-wrapper { padding: 0 16px 32px; }
+  .week-divider { padding: 0 16px 16px; }
+  .topbar { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="accent-line"></div>
+
+<nav class="topbar">
+  <div class="topbar-left">
+    <span>ClearGrade</span>
+    <span class="sep">|</span>
+    <span>Content Calendar</span>
+  </div>
+  <div class="topbar-right">
+    <a href="../../../">&larr; Back to Portal</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <h1>April 2026 &mdash; Fiddlers Green Farm</h1>
+  <p class="subtitle">12 posts &middot; 8 static &middot; 4 reels</p>
+</header>
+
+<div class="progress-wrapper">
+  <div class="progress-bar-outer">
+    <div class="progress-bar-fill" id="progress-fill"></div>
+  </div>
+  <div class="progress-label" id="progress-count">0/12 approved</div>
+</div>
+
+<!-- WEEK 1 -->
+<div class="week-divider"><h2>Week 1 &mdash; Apr 14&ndash;20</h2></div>
+<div class="post-grid">
+
+  <!-- Post 1 -->
+  <div class="post-card" data-post-id="1" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Mon Apr 14</span>
+      <span class="post-type-badge static">Static</span>
+    </div>
+    <div class="post-media">
+      <img src="../../instagram-2026-04-04/post1-brynn-wheat.jpeg" alt="Brynn in wheat field" loading="lazy">
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="1">
+        <span class="caption-preview">We just put seed in the ground this week. Same fields this farm has worked since 1946, same commitment to doing it...</span>
+        <span class="caption-full">We just put seed in the ground this week. Same fields this farm has worked since 1946, same commitment to doing it right. This year we're planting Turkey Red wheat. Turkey Red is a heritage variety that most commercial farms stopped growing decades ago. Bolles is a high-protein bread wheat we grow alongside it.
+
+We don't use pesticides or fungicides on our fields. Never have under our management, never will.
+
+Spring is our favorite season on the farm. Everything starts over.
+
+Shop heritage flour and full spectrum CBD at the link in our bio.</span>
+        <button class="toggle-caption" onclick="toggleCaption(1)">Show more</button>
+      </div>
+      <div class="post-hashtags">#regenerativefarming #heritagegrain #turkeyredwheat #springplanting #soilhealth #familyfarm #realfood #knowyourfarmer #farmlife</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(1)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(1)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(1)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+  <!-- Post 2 -->
+  <div class="post-card" data-post-id="2" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Wed Apr 16</span>
+      <span class="post-type-badge static">Static</span>
+    </div>
+    <div class="post-media">
+      <img src="../../instagram-2026-04-12/TallowBalmBoth.jpg" alt="Tallow Balm products" loading="lazy">
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="2">
+        <span class="caption-preview">Most facial skincare reads like a chemistry exam. This one has ten ingredients and you can pronounce all of them....</span>
+        <span class="caption-full">Most facial skincare reads like a chemistry exam. This one has ten ingredients and you can pronounce all of them.
+
+Our Facial Tallow Balm starts with locally sourced 100% grass-fed beef tallow. Then Brynn blends it with jojoba oil, calendula, chamomile, green tea, rose hips, and vitamin E.
+
+The part that makes it ours: hemp extract from our fields and raw honey from our hives.
+
+One ingredient list. No fillers. Nothing to decode.
+
+$32 for a 4.5oz jar — link in bio.</span>
+        <button class="toggle-caption" onclick="toggleCaption(2)">Show more</button>
+      </div>
+      <div class="post-hashtags">#tallowbalm #tallowskincare #naturalskincare #cleanbeauty #farmtoskin #simpleingredients #fiddlersgreenfarm</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(2)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(2)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(2)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+  <!-- Post 3 — Reel -->
+  <div class="post-card" data-post-id="3" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Fri Apr 18</span>
+      <span class="post-type-badge reel">Reel</span>
+    </div>
+    <div class="post-media">
+      <video controls preload="metadata" poster="">
+        <source src="../../reels-2026-04-13/week1-cbd-myth.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="3">
+        <span class="caption-preview">Most CBD comes from a warehouse. Ours comes from 200 yards away. We grow the hemp. We harvest it. Every product...</span>
+        <span class="caption-full">Most CBD comes from a warehouse. Ours comes from 200 yards away.
+
+We grow the hemp. We harvest it. Every product is made right here on the farm. No middlemen. No mystery ingredients.
+
+Visit our shop online — fiddlersgreen.io</span>
+        <button class="toggle-caption" onclick="toggleCaption(3)">Show more</button>
+      </div>
+      <div class="post-hashtags">#cbdwellness #hempfarm #seedtoshelf #fiddlersgreenfarm #farmtotable #fullspectrumcbd</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(3)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(3)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(3)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- WEEK 2 -->
+<div class="week-divider"><h2>Week 2 &mdash; Apr 21&ndash;27</h2></div>
+<div class="post-grid">
+
+  <!-- Post 4 -->
+  <div class="post-card" data-post-id="4" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Mon Apr 21</span>
+      <span class="post-type-badge static">Static</span>
+    </div>
+    <div class="post-media">
+      <img src="../../instagram-2026-04-04/flour-turkey-red.jpeg" alt="Turkey Red flour" loading="lazy">
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="4">
+        <span class="caption-preview">We get a lot of questions about what makes our flour different from what you'd grab at the grocery store. Short a...</span>
+        <span class="caption-full">We get a lot of questions about what makes our flour different from what you'd grab at the grocery store. Short answer: basically everything.
+
+Heritage grain, stone-milled at a local mill in Maryland, no pesticides, no preservatives, nothing stripped out. It's flour the way flour was before industrial agriculture changed the recipe.
+
+Turkey Red and Bolles are both in stock. fiddlersgreen.io</span>
+        <button class="toggle-caption" onclick="toggleCaption(4)">Show more</button>
+      </div>
+      <div class="post-hashtags">#heritagegrain #stonemilledflour #turkeyredwheat #artisanbaking #realbread #knowyourfood #farmtotable</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(4)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(4)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(4)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+  <!-- Post 5 -->
+  <div class="post-card" data-post-id="5" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Wed Apr 23</span>
+      <span class="post-type-badge static">Static</span>
+    </div>
+    <div class="post-media">
+      <img src="../../instagram-2026-04-12/post3-bees-echinacea.jpeg" alt="Bees and echinacea" loading="lazy">
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="5">
+        <span class="caption-preview">Without these workers, half of what we grow doesn't happen. Our bees forage on the same fields where we grow our...</span>
+        <span class="caption-full">Without these workers, half of what we grow doesn't happen.
+
+Our bees forage on the same fields where we grow our hemp and wheat. No pesticides anywhere near them. What they make goes straight into the jar — raw, unfiltered, never heated.
+
+It starts in the soil. But the bees make sure it keeps going.</span>
+        <button class="toggle-caption" onclick="toggleCaption(5)">Show more</button>
+      </div>
+      <div class="post-hashtags">#beekeeping #pollinatorhealth #savethebees #rawhoney #farmecosystem #biodiversity #fiddlersgreenfarm</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(5)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(5)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(5)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+  <!-- Post 6 — Reel -->
+  <div class="post-card" data-post-id="6" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Fri Apr 25</span>
+      <span class="post-type-badge reel">Reel</span>
+    </div>
+    <div class="post-media">
+      <video controls preload="metadata" poster="">
+        <source src="../../reels-2026-04-13/week2-flour-myth.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="6">
+        <span class="caption-preview">Your flour is missing half the grain. Store-bought flour strips out the nutrient-rich bran and germ. Ours doesn't...</span>
+        <span class="caption-full">Your flour is missing half the grain.
+
+Store-bought flour strips out the nutrient-rich bran and germ. Ours doesn't. Try the difference.
+
+Heritage grain, stone-milled. Starting at $12.
+
+Visit our shop online — fiddlersgreen.io</span>
+        <button class="toggle-caption" onclick="toggleCaption(6)">Show more</button>
+      </div>
+      <div class="post-hashtags">#heritagegrain #stonemilledflour #realbread #artisanbaking #fiddlersgreenfarm</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(6)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(6)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(6)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- WEEK 3 -->
+<div class="week-divider"><h2>Week 3 &mdash; Apr 28&ndash;May 4</h2></div>
+<div class="post-grid">
+
+  <!-- Post 7 -->
+  <div class="post-card" data-post-id="7" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Mon Apr 28</span>
+      <span class="post-type-badge static">Static</span>
+    </div>
+    <div class="post-media">
+      <img src="../../instagram-2026-04-04/salve-sore-open.png" alt="CBD salve" loading="lazy">
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="7">
+        <span class="caption-preview">Most CBD brands can't tell you where their hemp came from. We can walk you to the exact field. Our salves are ha...</span>
+        <span class="caption-full">Most CBD brands can't tell you where their hemp came from. We can walk you to the exact field.
+
+Our salves are handcrafted by Brynn right here on the farm using hemp we grow. Full spectrum, third-party tested.
+
+Starting at $10 for a half-ounce. fiddlersgreen.io</span>
+        <button class="toggle-caption" onclick="toggleCaption(7)">Show more</button>
+      </div>
+      <div class="post-hashtags">#cbdsalve #fullspectrumcbd #seedtoshelf #handmadecbd #hempfarm #naturalremedy #fiddlersgreenfarm</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(7)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(7)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(7)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+  <!-- Post 8 -->
+  <div class="post-card" data-post-id="8" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Wed Apr 30</span>
+      <span class="post-type-badge static">Static</span>
+    </div>
+    <div class="post-media">
+      <img src="../../instagram-2026-04-12/DSC_3209.jpg" alt="Day on the farm" loading="lazy">
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="8">
+        <span class="caption-preview">This is what a day looks like. Not every day. But most of them. Morning starts with the hives. Then the fields....</span>
+        <span class="caption-full">This is what a day looks like. Not every day. But most of them.
+
+Morning starts with the hives. Then the fields. Then the workshop where Brynn turns what we grow into something you can use.
+
+No assembly line. No warehouse. Just a farm doing the work.
+
+Every product in our shop touched these hands and this soil.</span>
+        <button class="toggle-caption" onclick="toggleCaption(8)">Show more</button>
+      </div>
+      <div class="post-hashtags">#farmlife #behindthescenes #smallfarmlife #farmtotable #fiddlersgreenfarm #realfarming #dayonthefarm</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(8)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(8)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(8)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+  <!-- Post 9 — Reel -->
+  <div class="post-card" data-post-id="9" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Fri May 2</span>
+      <span class="post-type-badge reel">Reel</span>
+    </div>
+    <div class="post-media">
+      <video controls preload="metadata" poster="">
+        <source src="../../reels-2026-04-13/week3-salve-spotlight.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="9">
+        <span class="caption-preview">Everything we make. All in one place. CBD salves, extracts, flour, and honey. All from one farm in Taneytown, MD...</span>
+        <span class="caption-full">Everything we make. All in one place.
+
+CBD salves, extracts, flour, and honey. All from one farm in Taneytown, MD.
+
+Visit our shop online — fiddlersgreen.io</span>
+        <button class="toggle-caption" onclick="toggleCaption(9)">Show more</button>
+      </div>
+      <div class="post-hashtags">#fiddlersgreenfarm #farmproducts #seedtoshelf #cbdwellness #heritagegrain #rawhoney #smallfarmlife</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(9)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(9)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(9)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- WEEK 4 -->
+<div class="week-divider"><h2>Week 4 &mdash; May 5&ndash;11</h2></div>
+<div class="post-grid">
+
+  <!-- Post 10 -->
+  <div class="post-card" data-post-id="10" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Mon May 5</span>
+      <span class="post-type-badge static">Static</span>
+    </div>
+    <div class="post-media">
+      <img src="../../instagram-2026-04-04/honey-sunnys-front.png" alt="Sunny's Honey" loading="lazy">
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="10">
+        <span class="caption-preview">Raw honey. Straight from our hives to your jar. Our bees forage on the same pesticide-free fields where we grow...</span>
+        <span class="caption-full">Raw honey. Straight from our hives to your jar.
+
+Our bees forage on the same pesticide-free fields where we grow our hemp and heritage wheat. Every harvest is different because we don't blend or process it to make it consistent.
+
+Sunny's Honey. 12oz for $15. Hemp Honey starting at $16.
+
+fiddlersgreen.io</span>
+        <button class="toggle-caption" onclick="toggleCaption(10)">Show more</button>
+      </div>
+      <div class="post-hashtags">#rawhoney #localhoney #beekeeping #farmhoney #rawunfiltered #honeybees #fiddlersgreenfarm</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(10)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(10)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(10)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+  <!-- Post 11 -->
+  <div class="post-card" data-post-id="11" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Wed May 7</span>
+      <span class="post-type-badge static">Static</span>
+    </div>
+    <div class="post-media">
+      <img src="../../instagram-2026-04-12/Brynn_Wheat_04.jpeg" alt="Brynn in wheat field" loading="lazy">
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="11">
+        <span class="caption-preview">Your body has been carrying a lot. Put it down for twenty minutes. Recover is for the physical kind. Epsom salt,...</span>
+        <span class="caption-full">Your body has been carrying a lot. Put it down for twenty minutes.
+
+Recover is for the physical kind. Epsom salt, Dead Sea salt, himalayan pink salt, eucalyptus, peppermint, and 25mg of our full-spectrum CBD per serving.
+
+Relax is for everything else. Same mineral-rich salts with calming essential oils.
+
+$20 each. Link in bio.</span>
+        <button class="toggle-caption" onclick="toggleCaption(11)">Show more</button>
+      </div>
+      <div class="post-hashtags">#bathsoak #naturalsoak #cbdwellness #selfcare #farmtobody #fiddlersgreenfarm #smallbatchskincare</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(11)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(11)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(11)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+  <!-- Post 12 — Reel -->
+  <div class="post-card" data-post-id="12" data-status="pending">
+    <div class="post-header">
+      <span class="post-date">Fri May 9</span>
+      <span class="post-type-badge reel">Reel</span>
+    </div>
+    <div class="post-media">
+      <video controls preload="metadata" poster="">
+        <source src="../../reels-2026-04-13/week4-honey-process.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="post-caption">
+      <div class="post-handle">fiddlersgreenfarmlife</div>
+      <div class="caption-text" data-post="12">
+        <span class="caption-preview">This is how honey should be harvested. We only take what the bees don't need. Never heated. Never filtered. Just...</span>
+        <span class="caption-full">This is how honey should be harvested.
+
+We only take what the bees don't need. Never heated. Never filtered. Just what the bees made.
+
+Raw honey — fiddlersgreen.io</span>
+        <button class="toggle-caption" onclick="toggleCaption(12)">Show more</button>
+      </div>
+      <div class="post-hashtags">#rawhoney #beekeeping #honeybees #farmhoney #fiddlersgreenfarm #pollinatorhealth</div>
+    </div>
+    <div class="post-actions">
+      <button class="btn-approve" onclick="approvePost(12)">&#10003; Approve</button>
+      <button class="btn-changes" onclick="requestChanges(12)">&#9998; Request Changes</button>
+    </div>
+    <div class="post-notes">
+      <textarea placeholder="Leave a note for the content team..."></textarea>
+      <button class="btn-submit-note" onclick="submitNote(12)">Submit Feedback</button>
+    </div>
+    <div class="post-status">
+      <span class="status-dot"></span>
+      <span class="status-text">Pending Review</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>Prepared by <a href="https://cleargrade.co" target="_blank">ClearGrade</a> &middot; April 2026 &middot; Fiddlers Green Farm</p>
+</footer>
+
+<script>
+// Load state from localStorage
+const state = JSON.parse(localStorage.getItem('fg-apr-2026') || '{}');
+
+function approvePost(id) {
+  const card = document.querySelector('[data-post-id="' + id + '"]');
+  card.dataset.status = 'approved';
+  card.querySelector('.post-notes').style.display = 'none';
+  state[id] = { status: 'approved' };
+  localStorage.setItem('fg-apr-2026', JSON.stringify(state));
+  updateUI();
+}
+
+function requestChanges(id) {
+  const card = document.querySelector('[data-post-id="' + id + '"]');
+  card.dataset.status = 'changes';
+  card.querySelector('.post-notes').style.display = 'block';
+  state[id] = state[id] || {};
+  state[id].status = 'changes';
+  localStorage.setItem('fg-apr-2026', JSON.stringify(state));
+  updateUI();
+}
+
+function submitNote(id) {
+  const card = document.querySelector('[data-post-id="' + id + '"]');
+  const note = card.querySelector('textarea').value;
+  if (!note.trim()) return;
+  state[id] = { status: 'changes', note: note };
+  localStorage.setItem('fg-apr-2026', JSON.stringify(state));
+
+  // Show confirmation
+  const btn = card.querySelector('.btn-submit-note');
+  const original = btn.textContent;
+  btn.textContent = 'Saved';
+  btn.style.background = '#16a34a';
+  btn.style.borderColor = '#16a34a';
+  setTimeout(function() {
+    btn.textContent = original;
+    btn.style.background = '#0c1220';
+    btn.style.borderColor = '#0c1220';
+  }, 1500);
+}
+
+function toggleCaption(postId) {
+  const container = document.querySelector('[data-post="' + postId + '"]');
+  const preview = container.querySelector('.caption-preview');
+  const full = container.querySelector('.caption-full');
+  const btn = container.querySelector('.toggle-caption');
+  const hashtags = container.parentElement.querySelector('.post-hashtags');
+
+  if (full.style.display === 'none' || full.style.display === '') {
+    preview.style.display = 'none';
+    full.style.display = 'inline';
+    btn.textContent = 'Show less';
+    if (hashtags) hashtags.classList.add('visible');
+  } else {
+    preview.style.display = 'inline';
+    full.style.display = 'none';
+    btn.textContent = 'Show more';
+    if (hashtags) hashtags.classList.remove('visible');
+  }
+}
+
+function updateUI() {
+  var total = 12;
+  var approved = 0;
+  var keys = Object.keys(state);
+  for (var i = 0; i < keys.length; i++) {
+    if (state[keys[i]].status === 'approved') approved++;
+  }
+
+  document.getElementById('progress-count').textContent = approved + '/' + total + ' approved';
+  document.getElementById('progress-fill').style.width = ((approved / total) * 100) + '%';
+
+  // Update card visual states
+  var cards = document.querySelectorAll('.post-card');
+  cards.forEach(function(card) {
+    var id = card.dataset.postId;
+    var s = state[id];
+    if (s && s.status === 'approved') {
+      card.dataset.status = 'approved';
+      card.querySelector('.post-notes').style.display = 'none';
+    } else if (s && s.status === 'changes') {
+      card.dataset.status = 'changes';
+      card.querySelector('.post-notes').style.display = 'block';
+      if (s.note) {
+        card.querySelector('textarea').value = s.note;
+      }
+    }
+  });
+}
+
+// Init on page load
+updateUI();
+</script>
+
+</body>
+</html>

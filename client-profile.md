@@ -178,6 +178,7 @@ These are absolute rules. Violating any of these will erode client trust.
 8. **DO NOT claim on-site milling.** Flour is milled at Patapsco Grist and Mill, Randallstown MD.
 9. **DO NOT use clip `220624_5D_f4_wheat_brynn_005_8.mp4`** (Brynn in wheat field). Persistent rendering issues — removed from rotation.
 10. **DO NOT say "food"** generically. Be specific: flour, honey, salve, extract. They grow hemp and wheat, not "food."
+11. **DO NOT use product page cutouts** (transparent PNGs scraped from website) in reels or content. Use real product photography from the Google Drive or Unsplash lifestyle shots.
 
 ## Video Assets
 - **Video clips folder:** https://drive.google.com/drive/folders/1uanp6djvnMlJ4huONaUoEzPJg7gGvF0i (shared by Ben 2026-04-13)
