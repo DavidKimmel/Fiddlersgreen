@@ -1,0 +1,11 @@
+# No large binary files in the deploy repo
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.zip
+*.psd
+*.heic
+assets/brand-library/
+assets/reels/
+assets/video-clips/
